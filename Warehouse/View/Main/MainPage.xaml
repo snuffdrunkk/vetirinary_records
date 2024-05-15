@@ -1,0 +1,275 @@
+﻿<Window x:Class="Warehouse.View.Main.MainPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Warehouse.View.Main"
+        mc:Ignorable="d"
+        Background="White"
+        MinHeight="720"
+        MinWidth="1050"
+        Icon="/Resources/ColorIcon.png"
+        Closing="Window_Closing"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Image x:Name="imageControl" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Uniform" Margin="0 10 0 0"/>
+        <Grid
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
+            <DataGrid   
+                Margin="175,100,30,30" 
+                Visibility="Collapsed"
+                x:Name="OrderGrid" 
+                AutoGenerateColumns="false"
+                CanUserResizeColumns="False" 
+                CanUserAddRows="False" 
+                CanUserDeleteRows="False" 
+                CanUserReorderColumns="False" 
+                SelectionMode="Single" 
+                SelectionUnit="FullRow" 
+                CanUserResizeRows="False" 
+                IsReadOnly="True"
+                Foreground="Black">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Номер заказа" Width="*" Binding="{Binding order_id}"/>
+                    <DataGridTextColumn Header="Поставщик" Width="*"  Binding="{Binding title}"/>
+                    <DataGridTextColumn Header="Сотрудник" Width="*"  Binding="{Binding surname}"/>
+                    <DataGridTextColumn Header="Сумма" Width="*"  Binding="{Binding amount}"/>
+                    <DataGridTextColumn Header="Дата" Width="*"  Binding="{Binding order_date, StringFormat=dd.MM.yyyy}"/>
+                    <DataGridTextColumn Header="Тип" Width="*"  Binding="{Binding order_type}"/>
+                    <DataGridTemplateColumn Header="Продукты" Width="*" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ItemsControl ItemsSource="{Binding product}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding title}"/>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="Add" Header="Добавить" Click="OrderButtontetet_Click"/>
+                        <MenuItem x:Name="DeleteOrder" Header="Удалить" Click="DeleteOrder_Click"/>
+                        <MenuItem x:Name="FiltrationOrder" Header="Фильтрация" Click="FiltrationOrder_Click"/>
+                        <MenuItem x:Name="SearchOrder" Header="Поиск" Click="SearchOrder_Click"/>
+                        <MenuItem x:Name="OrderCancel" Header="Отменить" Click="OrderCancel_Click"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
+            <DataGrid   
+                Margin="175,100,30,30" 
+                Visibility="Collapsed"
+                x:Name="ProductTypeGrid" 
+                AutoGenerateColumns="false"
+                CanUserResizeColumns="False" 
+                CanUserAddRows="False" 
+                CanUserDeleteRows="False" 
+                CanUserReorderColumns="False" 
+                SelectionMode="Single" 
+                SelectionUnit="FullRow" 
+                CanUserResizeRows="False" 
+                IsReadOnly="True"
+                Foreground="Black">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ProductTypeId" Binding="{Binding product_type_id}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="Наименование" Width="*" Binding="{Binding type_name}"/>
+                </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="AddProductType" Header="Добавить" Click="AddProductType_Click"/>
+                        <MenuItem x:Name="EditProductType" Header="Редактировать" Click="EditProductType_Click"/>
+                        <MenuItem x:Name="DeleteProductType"  Header="Удалить" Click="DeleteProductType_Click"/>
+                        <MenuItem x:Name="FiltrationProductType" Header="Фильтрация" Click="FiltrationProductType_Click"/>
+                        <MenuItem x:Name="SearchProductType" Header="Поиск" Click="SearchProductType_Click"/>
+                        <MenuItem x:Name="ProductTypeCancel" Header="Отменить" Click="ProductTypeCancel_Click"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
+            <DataGrid   
+                Margin="175,100,30,30" 
+                Visibility="Collapsed"
+                x:Name="ProductGrid" 
+                AutoGenerateColumns="false"
+                CanUserResizeColumns="False" 
+                CanUserAddRows="False" 
+                CanUserDeleteRows="False" 
+                CanUserReorderColumns="False" 
+                SelectionMode="Single" 
+                SelectionUnit="FullRow" 
+                CanUserResizeRows="False" 
+                IsReadOnly="True"
+                Foreground="Black">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ProductId" Binding="{Binding product_id}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="Название" Width="*" Binding="{Binding title}"/>
+                    <DataGridTextColumn Header="Тип продукта" Width="*" Binding="{Binding type_name}"/>
+                    <DataGridTextColumn Header="Наличие" Width="*" Binding="{Binding presence}"/>
+                    <DataGridTextColumn Header="Стоимость" Width="*" Binding="{Binding cost}"/>
+                    <DataGridTextColumn Header="Описание" Width="*" Binding="{Binding description}"/>
+                    <DataGridTextColumn Header="Пригодность" Width="*" Binding="{Binding suitability}"/>
+                </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="AddProduct" Header="Добавить" Click="AddProduct_Click"/>
+                        <MenuItem x:Name="EditProduct" Header="Редактировать" Click="EditProduct_Click"/>
+                        <MenuItem x:Name="DeleteProduct"  Header="Удалить" Click="DeleteProduct_Click"/>
+                        <MenuItem x:Name="FiltrationProduct" Header="Фильтраци" Click="FiltrationProduct_Click"/>
+                        <MenuItem x:Name="SearchProduct" Header="Поиск" Click="SearchProduct_Click"/>
+                        <MenuItem x:Name="ProductCancel" Header="Отменить" Click="ProductCancel_Click"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
+            <DataGrid   
+                Margin="175,100,30,30" 
+                Visibility="Collapsed"
+                x:Name="SupplierGrid" 
+                AutoGenerateColumns="false"
+                CanUserResizeColumns="False" 
+                CanUserAddRows="False" 
+                CanUserDeleteRows="False" 
+                CanUserReorderColumns="False" 
+                SelectionMode="Single" 
+                SelectionUnit="FullRow" 
+                CanUserResizeRows="False" 
+                IsReadOnly="True"
+                Foreground="Black">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="DriverId" Binding="{Binding driver_id}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="Машина" Width="*" Binding="{Binding car_number}"/>
+                    <DataGridTextColumn Header="Адрес" Width="*" Binding="{Binding address}"/>
+                    <DataGridTextColumn Header="Номер телефона" Width="*" Binding="{Binding phone_number}"/>
+                    <DataGridTextColumn Header="Фамилия" Width="*" Binding="{Binding surname_driver}"/>
+                    <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding first_name}"/>
+                    <DataGridTextColumn Header="Отчество" Width="*" Binding="{Binding middle_name}"/>
+                    <DataGridTextColumn Header="Мед справка" Width="*" Binding="{Binding medical_certificate}"/>
+                </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="AddSupplier" Header="Добавить" Click="AddSupplier_Click"/>
+                        <MenuItem x:Name="EditSupplier" Header="Редактировать" Click="EditSupplier_Click"/>
+                        <MenuItem x:Name="DeleteSupplier" Header="Удалить" Click="DeleteSupplier_Click"/>
+                        <MenuItem x:Name="FiltrationSupplier" Header="Фильтрация" Click="FiltrationSupplier_Click"/>
+                        <MenuItem x:Name="SearchSupplier" Header="Поиск" Click="SearchSupplier_Click"/>
+                        <MenuItem x:Name="SupplierCancel" Header="Отменить" Click="SupplierCancel_Click"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
+            <DataGrid   
+                Margin="175,100,30,30" 
+                Visibility="Collapsed"
+                x:Name="CarGrid" 
+                AutoGenerateColumns="false"
+                CanUserResizeColumns="False" 
+                CanUserAddRows="False" 
+                CanUserDeleteRows="False" 
+                CanUserReorderColumns="False" 
+                SelectionMode="Single" 
+                SelectionUnit="FullRow" 
+                CanUserResizeRows="False" 
+                IsReadOnly="True"
+                Foreground="Black">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="CarId" Binding="{Binding car_id}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="Номер машины" Width="*" Binding="{Binding car_number}"/>
+                    <DataGridTextColumn Header="Марка" Width="*" Binding="{Binding mark}"/>
+                    <DataGridTextColumn Header="Проверенность" Width="*" Binding="{Binding scrutiny}"/>
+                </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="AddCar" Header="Добавить" Click="AddCar_Click"/>
+                        <MenuItem x:Name="EditCar" Header="Редактировать"/>
+                        <MenuItem x:Name="DeleteCar"  Header="Удалить"/>
+                        <MenuItem x:Name="FiltrationCar" Header="Фильтрация"/>
+                        <MenuItem x:Name="SearchCar" Header="Поиск"/>
+                        <MenuItem x:Name="CarCancel" Header="Отменить"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
+        </Grid>
+        <Grid x:Name="TopMenu" Height="75" VerticalAlignment="Top" Background="#FF8800">
+            <StackPanel HorizontalAlignment="Stretch" >
+                <ListView HorizontalAlignment="Right" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" Foreground="White" >
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListViewItem x:Name="AdminRegistration" Height="75" PreviewMouseLeftButtonDown="AdminRegistration_MouseLeftButtonDown">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon Kind="AccountPlusOutline" Height="25" Width="25" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock Text="Регистрация" VerticalAlignment="Center" Margin="0 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="Output" Height="75" PreviewMouseLeftButtonDown="Output_PreviewMouseLeftButtonDown">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="MicrosoftWord" Height="25" Width="25" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock Text="Документы" VerticalAlignment="Center" Margin="0 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="Settings" Height="75" PreviewMouseLeftButtonDown="Settings_PreviewMouseLeftButtonDown">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="CogOutline" Height="25" Width="25" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock Text="Настройки" VerticalAlignment="Center" Margin="0 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="SideMenu" Width="145" HorizontalAlignment="Left" Background="#FF8800">
+            <StackPanel>
+                <Grid Height="75">
+                </Grid>
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground="White">
+                    <ListViewItem x:Name="Order" Height="60" PreviewMouseLeftButtonDown="Order_PreviewMouseLeftButtonDown" >
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="NewspaperPlus" Height="25" Width="25" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock Text="Накладные" VerticalAlignment="Center" Margin="0 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" x:Name="Supplier" PreviewMouseLeftButtonDown="Supplier_PreviewMouseLeftButtonDown">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="BookAccount" Height="25" Width="25" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock Text="Водители" VerticalAlignment="Center" Margin="0 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" x:Name="Car" PreviewMouseLeftButtonDown="Car_PreviewMouseLeftButtonDown">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Car" Height="25" Width="25" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock Text="Машины" VerticalAlignment="Center" Margin="0 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" x:Name="Product" PreviewMouseLeftButtonDown="Product_PreviewMouseLeftButtonDown">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="PackageVariantPlus" Height="25" Width="25" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock Text="Продукты" VerticalAlignment="Center" Margin="0 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ProductType" Height="60" PreviewMouseLeftButtonDown="ProductType_PreviewMouseLeftButtonDown">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="PackageVariant" Height="25" Width="25" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock Text="Тип продукта" VerticalAlignment="Center" Margin="0 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="VetDataGrid" Height="60" PreviewMouseLeftButtonDown="VetDataGrid_PreviewMouseLeftButtonDown">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="HeartPlusOutline" Height="25" Width="25" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock Text="Вет учет" VerticalAlignment="Center" Margin="0 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

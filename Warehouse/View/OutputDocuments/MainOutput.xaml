@@ -1,0 +1,325 @@
+﻿<Window x:Class="Warehouse.View.OutputDocuments.MainOutput"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Warehouse.View.OutputDocuments"
+        mc:Ignorable="d"
+        Icon="/Resources/ColorIcon.png"
+        Height="600" Width="650"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="#FF22A4E8"
+        ResizeMode="CanMinimize"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <materialDesign:PackIcon
+            Height="55px"
+            Width="55px"
+            HorizontalAlignment="Center"
+            Margin="0 35 0 0"
+            Kind="MicrosoftWord"
+            Foreground="White"/>
+        <Border 
+            Background="White"
+            CornerRadius="10" 
+            x:Name="MainBorder"
+            BorderBrush="Black"
+            Height="380px" 
+            Width="300px" 
+            Padding="10">
+            <Border.Effect>
+                <DropShadowEffect 
+                    ShadowDepth="0" 
+                    Color="Black" 
+                    Opacity="0.3" 
+                    BlurRadius="15" 
+                    Direction="360" 
+                    RenderingBias="Quality"/>
+            </Border.Effect>
+        </Border>
+        <Border 
+            Background="White"
+            CornerRadius="10" 
+            x:Name="SecondBorder"
+            BorderBrush="Black"
+            Height="280px" 
+            Width="300px" 
+            Visibility="Collapsed"
+            Padding="10">
+            <Border.Effect>
+                <DropShadowEffect 
+                    ShadowDepth="0" 
+                    Color="Black" 
+                    Opacity="0.3" 
+                    BlurRadius="15" 
+                    Direction="360" 
+                    RenderingBias="Quality"/>
+            </Border.Effect>
+        </Border>
+        <Label 
+            FontSize="18px"
+            Height="30px"
+            x:Name="OutputDoc"
+            Content="Выходные документы"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Margin="0 0 0 280">
+        </Label>
+        <Label 
+            FontSize="18px"
+            Height="30px"
+            Visibility="Collapsed"
+            x:Name="OutCardAndOrder"
+            Content="Выберите из списка"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Margin="0 0 0 200">
+        </Label>
+        <Button
+            x:Name="ProductFlowReport"
+            Width="200px"
+            Height="45px"
+            materialDesign:ButtonAssist.CornerRadius="20"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Background="#FF249AD7"
+            BorderBrush="Transparent"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            Content="Движение продуктов"
+            RenderOptions.EdgeMode="Aliased"
+            Margin="0 0 0 150"
+            Click="ProductFlowReport_Click">
+        </Button>
+        <Button
+            x:Name="Receipt"
+            Width="200px"
+            Height="45px"
+            materialDesign:ButtonAssist.CornerRadius="20"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Background="#FF249AD7"
+            BorderBrush="Transparent"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            Content="Реестр поступления"
+            RenderOptions.EdgeMode="Aliased"
+            Margin="0 0 0 40"
+            Click="Receipt_Click">
+        </Button>
+        <Button
+            x:Name="Disposal"
+            Width="200px"
+            Height="45px"
+            materialDesign:ButtonAssist.CornerRadius="20"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Background="#FF249AD7"
+            BorderBrush="Transparent"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            Content="Реестр выбытия"
+            RenderOptions.EdgeMode="Aliased"
+            Margin="0 70 0 0"
+            Click="Disposal_Click">
+        </Button>
+        <Button
+            x:Name="Card"
+            Width="200px"
+            Height="45px"
+            materialDesign:ButtonAssist.CornerRadius="20"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Background="#FF249AD7"
+            BorderBrush="Transparent"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            Content="Карточка С/У"
+            RenderOptions.EdgeMode="Aliased"
+            Margin="0 180 0 0"
+            Click="Card_Click">
+        </Button>
+        <Button
+            x:Name="Order"
+            Width="200px"
+            Height="45px"
+            materialDesign:ButtonAssist.CornerRadius="20"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Background="#FF249AD7"
+            BorderBrush="Transparent"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            Content="Заказ"
+            RenderOptions.EdgeMode="Aliased"
+            Margin="0 290 0 0"
+            Click="Order_Click">
+        </Button>
+        <Label 
+            FontSize="18px"
+            x:Name="PeriodLAbel"
+            Visibility="Collapsed"
+            Height="30px"
+            Content="Введите период"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Margin="0 0 0 220">
+        </Label>
+        <DatePicker 
+            x:Name="FirstDate"
+            FontSize="15px"
+            Padding="12 0 12 0"
+            Height="40px"
+            Width="225px"
+            Margin="0 0 0 80" 
+            Grid.Row="4"
+            Grid.Column="4"
+            Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
+            Visibility="Collapsed"
+            BorderBrush="#BC989393"/>
+        <DatePicker 
+            x:Name="SecondDate"
+            FontSize="15px"
+            Padding="12 0 12 0"
+            Height="40px"
+            Width="225px"
+            Margin="0 20 0 0" 
+            Grid.Row="4"
+            Grid.Column="4"
+            Visibility="Collapsed"
+            Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
+            BorderBrush="#BC989393"/>
+        <Button
+            x:Name="ConfirmProduct"
+            Visibility="Collapsed"
+            Width="105px"
+            Height="45px"
+            materialDesign:ButtonAssist.CornerRadius="20"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Background="#FF249AD7"
+            BorderBrush="Transparent"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            Content="Вывести"
+            RenderOptions.EdgeMode="Aliased"
+            Margin="120 170 0 0"
+            Click="ConfirmProduct_Click">
+        </Button>
+        <Button
+            x:Name="ReturnProduct"
+            Visibility="Collapsed"
+            Width="105px"
+            Height="45px"
+            materialDesign:ButtonAssist.CornerRadius="20"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Background="#FF249AD7"
+            BorderBrush="Transparent"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            Content="Вернуться"
+            RenderOptions.EdgeMode="Aliased"
+            Margin="0 170 120 0"
+            Click="ReturnProduct_Click">
+        </Button>
+        <Button
+            x:Name="ConfirmReceipt"
+            Visibility="Collapsed"
+            Width="105px"
+            Height="45px"
+            materialDesign:ButtonAssist.CornerRadius="20"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Background="#FF249AD7"
+            BorderBrush="Transparent"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            Content="Вывести"
+            RenderOptions.EdgeMode="Aliased"
+            Margin="120 170 0 0"
+            Click="ConfirmReceipt_Click">
+        </Button>
+        <Button
+            x:Name="ConfirmDisposal"
+            Visibility="Collapsed"
+            Width="105px"
+            Height="45px"
+            materialDesign:ButtonAssist.CornerRadius="20"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Background="#FF249AD7"
+            BorderBrush="Transparent"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            Content="Вывести"
+            RenderOptions.EdgeMode="Aliased"
+            Margin="120 170 0 0"
+            Click="ConfirmDisposal_Click">
+        </Button>
+        <ComboBox
+            x:Name="ProductComboBox"
+            Width="225px"
+            Visibility="Collapsed"
+            Height="40px"
+            FontSize="15px"
+            Padding="12 0 12 0"
+            Margin="0 0 0 20"
+            materialDesign:HintAssist.Hint="Продукт"
+            Style="{StaticResource MaterialDesignOutlinedComboBox}"
+            BorderBrush="#BC989393">
+        </ComboBox>
+        <ComboBox
+            x:Name="OrderComboBox"
+            Width="225px"
+            Visibility="Collapsed"
+            Height="40px"
+            FontSize="15px"
+            Padding="12 0 12 0"
+            Margin="0 0 0 20"
+            materialDesign:HintAssist.Hint="Номера заказов"
+            Style="{StaticResource MaterialDesignOutlinedComboBox}"
+            BorderBrush="#BC989393">
+        </ComboBox>
+        <Button
+            x:Name="ConfirmCard"
+            Visibility="Collapsed"
+            Width="105px"
+            Height="45px"
+            materialDesign:ButtonAssist.CornerRadius="20"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Background="#FF249AD7"
+            BorderBrush="Transparent"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            Content="Вывести"
+            RenderOptions.EdgeMode="Aliased"
+            Margin="120 170 0 0"
+            Click="ConfirmCard_Click">
+        </Button>
+        <Button
+            x:Name="ConfirmOrder"
+            Visibility="Collapsed"
+            Width="105px"
+            Height="45px"
+            materialDesign:ButtonAssist.CornerRadius="20"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Background="#FF249AD7"
+            BorderBrush="Transparent"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            Content="Вывести"
+            RenderOptions.EdgeMode="Aliased"
+            Margin="120 170 0 0"
+            Click="ConfirmOrder_Click">
+        </Button>
+    </Grid>
+</Window>

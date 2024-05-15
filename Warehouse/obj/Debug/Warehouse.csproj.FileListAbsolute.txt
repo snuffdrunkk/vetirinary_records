@@ -1,0 +1,167 @@
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\Warehouse.exe.config
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\Warehouse.exe
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\Warehouse.pdb
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\ControlzEx.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\MahApps.Metro.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\MaterialDesignColors.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\MaterialDesignThemes.MahApps.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\ControlzEx.pdb
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\ControlzEx.xml
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\MahApps.Metro.pdb
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\MahApps.Metro.xml
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\MaterialDesignColors.pdb
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\MaterialDesignThemes.MahApps.pdb
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\Warehouse.csproj.AssemblyReference.cache
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\Warehouse.csproj.SuggestedBindingRedirects.cache
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\App.g.cs
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\Warehouse_MarkupCompile.cache
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\Warehouse_MarkupCompile.lref
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\App.baml
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\Warehouse.g.resources
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\Warehouse.Properties.Resources.resources
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\Warehouse.csproj.GenerateResource.cache
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\Warehouse.csproj.CoreCompileInputs.cache
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\Warehouse.csproj.CopyComplete
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\Warehouse.exe
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\Warehouse.pdb
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\Auth\MainWindow.g.cs
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\Auth\MainWindow.baml
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\Auth\AuthPage.g.cs
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\Auth\AuthPage.baml
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\Main\MainPage.g.cs
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\MaterialDesignExtensions.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\MaterialDesignExtensions.xml
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\ar-DZ\MaterialDesignExtensions.resources.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\cs\MaterialDesignExtensions.resources.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\cs-CZ\MaterialDesignExtensions.resources.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\de\MaterialDesignExtensions.resources.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\fr\MaterialDesignExtensions.resources.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\fr-FR\MaterialDesignExtensions.resources.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\pt\MaterialDesignExtensions.resources.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\pt-BR\MaterialDesignExtensions.resources.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\Ru\MaterialDesignExtensions.resources.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\ru-ru\MaterialDesignExtensions.resources.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\uz-Latn-UZ\MaterialDesignExtensions.resources.dll
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\Main\MainPage.baml
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\Profile\PrfSettings.g.cs
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\Profile\PrfSettings.baml
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\AddPage\ProductType.g.cs
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\AddPage\ProductType.baml
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\AddPage\ProductAdd.g.cs
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\AddPage\ProductAdd.baml
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\AddPage\SupplierAdd.g.cs
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\AddPage\SupplierAdd.baml
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\AddPage\OrderAdd.g.cs
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\AddPage\OrderAdd.baml
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\AddPage\AddFromComboBoxOrder.g.cs
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\AddPage\AddFromComboBoxOrder.baml
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\EditPage\ProductEdit.g.cs
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\EditPage\ProductTypeEdit.g.cs
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\EditPage\SupplierEdit.g.cs
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\EditPage\ProductEdit.baml
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\EditPage\ProductTypeEdit.baml
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\EditPage\SupplierEdit.baml
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\FIltrationAndSearch\Filtration.g.cs
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\FIltrationAndSearch\Search.g.cs
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\FIltrationAndSearch\Filtration.baml
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\FIltrationAndSearch\Search.baml
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\EPPlus.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\EPPlus.Interfaces.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\EPPlus.System.Drawing.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\EPPlus.xml
+C:\Производственная практика\Warehouse\Warehouse\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\OutputDocuments\MainOutput.g.cs
+C:\Производственная практика\Warehouse\Warehouse\obj\Debug\View\OutputDocuments\MainOutput.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\Warehouse.exe.config
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\Warehouse.exe
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\Warehouse.pdb
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\ControlzEx.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\EPPlus.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\EPPlus.Interfaces.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\EPPlus.System.Drawing.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\MahApps.Metro.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\MaterialDesignColors.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\MaterialDesignExtensions.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\MaterialDesignThemes.MahApps.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\Microsoft.Xaml.Behaviors.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\System.ComponentModel.Annotations.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\ControlzEx.pdb
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\ControlzEx.xml
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\EPPlus.xml
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\MahApps.Metro.pdb
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\MahApps.Metro.xml
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\MaterialDesignColors.pdb
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\MaterialDesignExtensions.xml
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\MaterialDesignThemes.MahApps.pdb
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\Microsoft.Xaml.Behaviors.xml
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\ar-DZ\MaterialDesignExtensions.resources.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\cs\MaterialDesignExtensions.resources.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\cs-CZ\MaterialDesignExtensions.resources.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\de\MaterialDesignExtensions.resources.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\fr\MaterialDesignExtensions.resources.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\fr-FR\MaterialDesignExtensions.resources.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\pt\MaterialDesignExtensions.resources.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\pt-BR\MaterialDesignExtensions.resources.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\Ru\MaterialDesignExtensions.resources.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\ru-ru\MaterialDesignExtensions.resources.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\uz-Latn-UZ\MaterialDesignExtensions.resources.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\Warehouse.csproj.AssemblyReference.cache
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\Auth\AuthPage.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\Auth\MainWindow.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\Profile\PrfSettings.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\AddFromComboBoxOrder.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\OrderAdd.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\ProductAdd.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\ProductType.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\SupplierAdd.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\ProductEdit.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\ProductTypeEdit.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\SupplierEdit.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\FIltrationAndSearch\Filtration.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\FIltrationAndSearch\Search.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\Main\MainPage.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\MainOutput.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\App.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\Warehouse_MarkupCompile.cache
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\Warehouse_MarkupCompile.lref
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\App.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\Auth\AuthPage.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\Auth\MainWindow.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\Profile\PrfSettings.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\AddFromComboBoxOrder.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\OrderAdd.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\ProductAdd.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\ProductType.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\SupplierAdd.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\ProductEdit.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\ProductTypeEdit.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\SupplierEdit.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\FIltrationAndSearch\Filtration.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\FIltrationAndSearch\Search.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\Main\MainPage.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\MainOutput.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\Warehouse.g.resources
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\Warehouse.Properties.Resources.resources
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\Warehouse.csproj.GenerateResource.cache
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\Warehouse.csproj.CoreCompileInputs.cache
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\Warehouse.csproj.Up2Date
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\Warehouse.exe
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\Warehouse.pdb
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\CarAdd.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\CarAdd.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\System.Data.SqlClient.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\System.Data.SqlClient.xml
