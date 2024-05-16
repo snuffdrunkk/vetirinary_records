@@ -113,7 +113,11 @@
     <Compile Include="Service\OutputService.cs" />
     <Compile Include="Service\ValidationFileds.cs" />
     <Compile Include="Storage\Authentif.cs" />
+    <Compile Include="Storage\CarStorage.cs" />
     <Compile Include="Storage\ComboBoxOrder.cs" />
+    <Compile Include="Storage\DriverStorage.cs" />
+    <Compile Include="Storage\ProductStorage.cs" />
+    <Compile Include="Storage\ProductTypeStorage.cs" />
     <Compile Include="View\AddPage\AddFromComboBoxOrder.xaml.cs">
       <DependentUpon>AddFromComboBoxOrder.xaml</DependentUpon>
     </Compile>
@@ -131,6 +135,9 @@
     </Compile>
     <Compile Include="View\AddPage\SupplierAdd.xaml.cs">
       <DependentUpon>SupplierAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditPage\CarEdit.xaml.cs">
+      <DependentUpon>CarEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EditPage\ProductEdit.xaml.cs">
       <DependentUpon>ProductEdit.xaml</DependentUpon>
@@ -200,6 +207,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddPage\SupplierAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditPage\CarEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

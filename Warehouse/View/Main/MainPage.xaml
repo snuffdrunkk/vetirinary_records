@@ -36,7 +36,9 @@
                 SelectionUnit="FullRow" 
                 CanUserResizeRows="False" 
                 IsReadOnly="True"
-                Foreground="Black">
+                Foreground="Black"                
+                BorderBrush="Orange"
+                BorderThickness="2">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Номер заказа" Width="*" Binding="{Binding order_id}"/>
                     <DataGridTextColumn Header="Поставщик" Width="*"  Binding="{Binding title}"/>
@@ -81,7 +83,9 @@
                 SelectionUnit="FullRow" 
                 CanUserResizeRows="False" 
                 IsReadOnly="True"
-                Foreground="Black">
+                Foreground="Black"                
+                BorderBrush="Orange"
+                BorderThickness="2">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ProductTypeId" Binding="{Binding product_type_id}" Visibility="Hidden"/>
                     <DataGridTextColumn Header="Наименование" Width="*" Binding="{Binding type_name}"/>
@@ -110,7 +114,9 @@
                 SelectionUnit="FullRow" 
                 CanUserResizeRows="False" 
                 IsReadOnly="True"
-                Foreground="Black">
+                Foreground="Black"
+                BorderBrush="Orange"
+                BorderThickness="2">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ProductId" Binding="{Binding product_id}" Visibility="Hidden"/>
                     <DataGridTextColumn Header="Название" Width="*" Binding="{Binding title}"/>
@@ -125,7 +131,7 @@
                         <MenuItem x:Name="AddProduct" Header="Добавить" Click="AddProduct_Click"/>
                         <MenuItem x:Name="EditProduct" Header="Редактировать" Click="EditProduct_Click"/>
                         <MenuItem x:Name="DeleteProduct"  Header="Удалить" Click="DeleteProduct_Click"/>
-                        <MenuItem x:Name="FiltrationProduct" Header="Фильтраци" Click="FiltrationProduct_Click"/>
+                        <MenuItem x:Name="FiltrationProduct" Header="Фильтрация" Click="FiltrationProduct_Click"/>
                         <MenuItem x:Name="SearchProduct" Header="Поиск" Click="SearchProduct_Click"/>
                         <MenuItem x:Name="ProductCancel" Header="Отменить" Click="ProductCancel_Click"/>
                     </ContextMenu>
@@ -144,7 +150,9 @@
                 SelectionUnit="FullRow" 
                 CanUserResizeRows="False" 
                 IsReadOnly="True"
-                Foreground="Black">
+                Foreground="Black"                
+                BorderBrush="Orange"
+                BorderThickness="2">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="DriverId" Binding="{Binding driver_id}" Visibility="Hidden"/>
                     <DataGridTextColumn Header="Машина" Width="*" Binding="{Binding car_number}"/>
@@ -179,7 +187,9 @@
                 SelectionUnit="FullRow" 
                 CanUserResizeRows="False" 
                 IsReadOnly="True"
-                Foreground="Black">
+                Foreground="Black"
+                BorderBrush="Orange"
+                BorderThickness="2">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="CarId" Binding="{Binding car_id}" Visibility="Hidden"/>
                     <DataGridTextColumn Header="Номер машины" Width="*" Binding="{Binding car_number}"/>
@@ -189,11 +199,11 @@
                 <DataGrid.ContextMenu>
                     <ContextMenu>
                         <MenuItem x:Name="AddCar" Header="Добавить" Click="AddCar_Click"/>
-                        <MenuItem x:Name="EditCar" Header="Редактировать"/>
-                        <MenuItem x:Name="DeleteCar"  Header="Удалить"/>
-                        <MenuItem x:Name="FiltrationCar" Header="Фильтрация"/>
-                        <MenuItem x:Name="SearchCar" Header="Поиск"/>
-                        <MenuItem x:Name="CarCancel" Header="Отменить"/>
+                        <MenuItem x:Name="EditCar" Header="Редактировать" Click="EditCar_Click"/>
+                        <MenuItem x:Name="DeleteCar"  Header="Удалить" Click="DeleteCar_Click"/>
+                        <MenuItem x:Name="FiltrationCar" Header="Фильтрация" Click="FiltrationCar_Click"/>
+                        <MenuItem x:Name="SearchCar" Header="Поиск" Click="SearchCar_Click"/>
+                        <MenuItem x:Name="CarCancel" Header="Отменить" Click="CarCancel_Click"/>
                     </ContextMenu>
                 </DataGrid.ContextMenu>
             </DataGrid>

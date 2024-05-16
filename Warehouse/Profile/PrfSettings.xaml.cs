@@ -1,5 +1,7 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Windows;
+using System.Windows.Media.Imaging;
 using Warehouse.Service;
 using Warehouse.Storage;
 
@@ -12,6 +14,16 @@ namespace Warehouse.Profile
         public PrfSettings()
         {
             InitializeComponent();
+
+            string imagePath = "D:\\ДИПЛОМ\\warehouse-main\\Warehouse\\Resources\\logo.jpg";
+
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(imagePath);
+            bitmap.EndInit();
+
+            imageControl.Source = bitmap;
+
             RegistrationLabel.Content = AuthManager.CurrentUsername;
         }
 

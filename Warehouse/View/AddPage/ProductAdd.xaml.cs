@@ -4,19 +4,21 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Warehouse.DTO;
 using Warehouse.Service;
+using Warehouse.Storage;
 
 namespace Warehouse.View.AddPage
 {
     public partial class ProductAdd : Window
     {
         DataGrid grid;
-        Database database = new Database();
+        ProductStorage productStorage = new ProductStorage();
+        ProductTypeStorage productTypeStorage = new ProductTypeStorage();
 
         public ProductAdd(DataGrid grid)
         {
             InitializeComponent();
             this.grid = grid;
-            database.ReadProductTypeToComboBox(ProductTypeComboBox);
+            productTypeStorage.ReadProductTypeToComboBox(ProductTypeComboBox);
 
             string imagePath = "D:\\ДИПЛОМ\\warehouse-main\\Warehouse\\Resources\\logo.jpg";
 
@@ -45,8 +47,8 @@ namespace Warehouse.View.AddPage
 
             if (validation.ValidationProductAdd(title, cost, description, dto))
             {
-                database.CreateProduct(title, validation.CastCostToDouble(cost), description, suitability, dto);
-                database.ReadProduct(grid);
+                productStorage.CreateProduct(title, validation.CastCostToDouble(cost), description, suitability, dto);
+                productStorage.ReadProduct(grid);
             }
         }
     }

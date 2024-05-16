@@ -165,3 +165,5 @@ D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\CarAdd.g.cs
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\CarAdd.baml
 D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\System.Data.SqlClient.dll
 D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\System.Data.SqlClient.xml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\CarEdit.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\CarEdit.baml

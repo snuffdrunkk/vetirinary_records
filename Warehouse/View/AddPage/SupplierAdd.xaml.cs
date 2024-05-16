@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Warehouse.DTO;
 using Warehouse.Service;
+using Warehouse.Storage;
 
 namespace Warehouse.View.AddPage
 {
@@ -11,12 +12,14 @@ namespace Warehouse.View.AddPage
     {
         DataGrid grid;
         Database database = new Database();
+        CarStorage carStorage = new CarStorage();
+        DriverStorage driverStorage = new DriverStorage();
 
         public SupplierAdd(DataGrid grid)
         {
             InitializeComponent();
             this.grid = grid;
-            database.ReadCarNumberToComboBox(CarNumberComboBox);
+            carStorage.ReadCarNumberToComboBox(CarNumberComboBox);
 
             string imagePath = "D:\\ДИПЛОМ\\warehouse-main\\Warehouse\\Resources\\logo.jpg";
 
@@ -41,9 +44,8 @@ namespace Warehouse.View.AddPage
             ValidationFileds validation = new ValidationFileds();
 
 /*            if (validation.ValidationSupplierAdd(){*/
-                Database database = new Database();
-                database.CreateSupplier(address, phone, surname, firstName, middleName, medCertificate, dto);
-                database.ReadSupplier(grid);
+                driverStorage.CreateSupplier(address, phone, surname, firstName, middleName, medCertificate, dto);
+                driverStorage.ReadSupplier(grid);
 /*            }*/
 
         }

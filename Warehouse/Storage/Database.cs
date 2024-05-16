@@ -30,14 +30,9 @@ namespace Warehouse
             return this.sqlConnection;
         }
 
-        private string selectProductType = $"select product_type_id, type_name from product_type";
         private string selectOrderAll = $"select order_id, order_id from ord";
-        private string selectProduct = $"select product.product_id, product_type.type_name, product.presence, product.cost, product.description, product.title, product.suitability from product, product_type WHERE product.product_type_id = product_type.product_type_id";
         private string selectProductAll = $"select product_id, title from product";
-        private string selectDriver = $"select driver.driver_id, car.car_number, driver.address, driver.phone_number, driver.surname_driver, driver.first_name, driver.middle_name, driver.medical_certificate from driver, car WHERE driver.car_id = car.car_id";
         private string selectDriverAll = $"select driver_id, surname_driver from driver";
-        private string selectCar = $"select car_id, car_number, mark, scrutiny from car";
-        private string selectCarNum = $"select car_id, car_number from car";
 
         public void Connection()
         {
@@ -103,16 +98,6 @@ namespace Warehouse
             return count;
         }
 
-/*        public bool Check(string username, string password)
-        {
-            Connection();
-            SqlCommand command = new SqlCommand($"SELECT COUNT(*) FROM Account WHERE username='{username}' AND Password='{PasswordEncoder.GetSHA256Hash(password)}'", sqlConnection);
-            int result = (int)command.ExecuteScalar();
-            Connection();
-
-            return result > 0;
-        }*/
-
         public bool CheckAdmin(string username)
         {
             Connection();
@@ -146,8 +131,6 @@ namespace Warehouse
             string query = $"UPDATE Account SET username = '{username.ToLower()}', password = '{password}' WHERE username = '{AuthManager.CurrentUsername.ToLower()}' AND password = '{PasswordEncoder.GetSHA256Hash(password)}'";
             Update(query);
         }
-
-
 
         public OrderedDictionary ProductIdDate(DateTime firstDate, DateTime secondDate)
         {
@@ -388,41 +371,6 @@ namespace Warehouse
             MessageBox.Show(message.ToString());
         }
 
-        public void CreateCar(string number, string mark, string scrutiny)
-        {
-            Update($"insert into car (car_number, mark, scrutiny) values (N'{number}', N'{mark}', N'{scrutiny}')");
-        }
-
-        public void CreateProductType(string title)
-        {
-            Update($"insert into product_type (type_name) values (N'{title.ToLower()}')");
-        }
-
-        public void UpdateProductType(long id, string title)
-        {
-            Update($"update product_type set type_name = N'{title}' where product_type_id = '{id}'");
-        }
-
-        public void CreateProduct(string title, double cost, string description, string suitability, ComboBoxDTO dto)
-        {
-            Update($"insert into product (product_type_id, presence, cost, description, title, suitability) values ('{dto.id}', '{0}', '{cost}', N'{description}', N'{title}', N'{suitability}')");
-        }
-
-        public void UpdateProduct(long id, string title, double cost, string description)
-        {
-            Update($"update product set title = N'{title}', cost = '{cost}', description = N'{description}' where product_id = '{id}'");
-        }
-
-        public void CreateSupplier(string address, string phoneNumber, string surname, string firstName, string middleName, string medCertificate, ComboBoxDTO dto)
-        {
-            Update($"insert into driver (car_id, address, phone_number, surname_driver, first_name, middle_name, medical_certificate) values ('{dto.id}', N'{address}', '{phoneNumber}', N'{surname}', N'{firstName}', N'{middleName}', N'{medCertificate}')");
-        }
-
-        public void UpdateSupplier(long id, string title, string address, string phoneNumber, string surname, string firstName, string middleName)
-        {
-            Update($"update supplier set title = N'{title}', address = N'{address}', phone_number = '{phoneNumber}', surname = N'{surname}', first_name = N'{firstName}', middle_name = N'{middleName}' where supplier_id = '{id}'");
-        }
-
         public long GetAccountId()
         {
             SqlCommand command = new SqlCommand($"Select account_id from account where username = '{AuthManager.CurrentUsername}'", sqlConnection);
@@ -542,44 +490,9 @@ namespace Warehouse
             return products;
         }
 
-        public void DeleteSupplier(DataRowView selectedRow)
-        {
-            Update($"DELETE FROM Supplier Where supplier_id = {selectedRow.Row.ItemArray[0]}");
-        }
-
-        public void DeleteProduct(DataRowView selectedRow)
-        {
-            Update($"DELETE FROM Product Where product_id = {selectedRow.Row.ItemArray[0]}");
-        }
-
-        public void DeleteProductType(DataRowView selectedRow)
-        {
-            Update($"DELETE FROM Product_type Where product_type_id = {selectedRow.Row.ItemArray[0]}");
-        }
-
-        public void ReadCar(DataGrid grid)
-        {
-            Select(selectCar, grid);
-        }
-
-        public void ReadProductType(DataGrid grid)
-        {
-            Select(selectProductType, grid);
-        }
-
-        public void ReadProductTypeToComboBox(ComboBox box)
-        {
-            ComboBoxToTable(selectProductType, box);
-        }
-
         public void ReadProductToComboBox(ComboBox box)
         {
             ComboBoxToTable(selectProductAll, box);
-        }
-
-        public void ReadCarNumberToComboBox(ComboBox box)
-        {
-            ComboBoxToTable(selectCarNum, box);
         }
 
         public void ReadOrderToComboBox(ComboBox box)
@@ -590,11 +503,6 @@ namespace Warehouse
         public void ReadSupplierToComboBox(ComboBox boxi)
         {
             ComboBoxToTable(selectDriverAll, boxi);
-        }
-
-        public void ReadProduct(DataGrid grid)
-        {
-            Select(selectProduct, grid);
         }
 
         public DataTable GetOrdersWithProducts()
@@ -623,11 +531,6 @@ namespace Warehouse
         public void ReadAddFromComboBoxOrder(DataGrid grid)
         {
             Select(selectProductAll, grid);
-        }
-
-        public void ReadSupplier(DataGrid grid)
-        {
-            Select(selectDriver, grid);
         }
 
         public void ComboBoxToTable(string query, ComboBox box)

@@ -1,6 +1,11 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+using Warehouse.DTO;
 using Warehouse.Service;
+using Warehouse.Storage;
+using Warehouse.View.AddPage;
 
 namespace Warehouse.View.EditPage
 {
@@ -8,13 +13,25 @@ namespace Warehouse.View.EditPage
     {
         long id;
         DataGrid grid;
+        DriverStorage driverStorage = new DriverStorage();
 
-        public SupplierEdit(long id, string title, string address, string phoneNumber, string surname, string firstName, string middleName, DataGrid grid)
+        public SupplierEdit(long id, string carNumber, string address, string phoneNumber, string surname, string firstName, string middleName, DataGrid grid)
         {
             InitializeComponent();
+
+            string imagePath = "D:\\ДИПЛОМ\\warehouse-main\\Warehouse\\Resources\\logo.jpg";
+
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(imagePath);
+            bitmap.EndInit();
+
+            imageControl.Source = bitmap;
+
             this.id = id;
             this.grid = grid;
-            SupplierTitleBox.Text = title;
+            CarNumberComboBox.Items.Add(carNumber);
+            CarNumberComboBox.SelectedIndex = 0;
             SupplierAdressBox.Text = address;
             SupplierPhoneBox.Text = phoneNumber;
             SurnameBox.Text = surname;
@@ -24,7 +41,7 @@ namespace Warehouse.View.EditPage
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            string title = SupplierTitleBox.Text;
+            ComboBoxDTO dto = (ComboBoxDTO)CarNumberComboBox.SelectedItem;
             string address = SupplierAdressBox.Text;
             string phone = SupplierPhoneBox.Text;
             string surname = SurnameBox.Text;
@@ -33,21 +50,22 @@ namespace Warehouse.View.EditPage
 
             ValidationFileds validation = new ValidationFileds();
 
-            if (validation.ValidationSupplierAdd(title, address, phone, surname, firstName, middleName))
-            {
-                Database database = new Database();
-                database.UpdateSupplier(id, title, address, phone, surname, firstName, middleName);
-                database.ReadSupplier(grid);
+/*            if (validation.ValidationSupplierAdd(title, address, phone, surname, firstName, middleName))
+            {*/
+/*                Database database = new Database();
+                driverStorage.UpdateSupplier(id, title, address, phone, surname, firstName, middleName);
+                driverStorage.ReadSupplier(grid);
 
-                this.Close();
-            }
+                this.Close();*/
+/*            }*/
         }
 
         private void Next_Click(object sender, RoutedEventArgs e)
         {
-            SupplierTitleBox.Visibility = Visibility.Collapsed;
+            CarNumberComboBox.Visibility = Visibility.Collapsed;
             SupplierAdressBox.Visibility = Visibility.Collapsed;
             SupplierPhoneBox.Visibility = Visibility.Collapsed;
+            MedicalCertificateComboBox.Visibility = Visibility.Collapsed;
             Next.Visibility = Visibility.Collapsed;
             Return.Visibility = Visibility.Collapsed;
 
@@ -71,9 +89,10 @@ namespace Warehouse.View.EditPage
             Preview.Visibility = Visibility.Collapsed;
             Confirm.Visibility = Visibility.Collapsed;
 
-            SupplierTitleBox.Visibility = Visibility.Visible;
+            CarNumberComboBox.Visibility = Visibility.Visible;
             SupplierAdressBox.Visibility = Visibility.Visible;
             SupplierPhoneBox.Visibility = Visibility.Visible;
+            MedicalCertificateComboBox.Visibility = Visibility.Visible;
             Next.Visibility = Visibility.Visible;
             Return.Visibility = Visibility.Visible;
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 using Warehouse.DTO;
 using Warehouse.Service;
 
@@ -23,6 +24,15 @@ namespace Warehouse.View.OutputDocuments
         public MainOutput(DataGrid dataGrid)
         {
             InitializeComponent();
+
+            string imagePath = "D:\\ДИПЛОМ\\warehouse-main\\Warehouse\\Resources\\logo.jpg";
+
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(imagePath);
+            bitmap.EndInit();
+
+            imageControl.Source = bitmap;
 
             outputService = new OutputService();
 

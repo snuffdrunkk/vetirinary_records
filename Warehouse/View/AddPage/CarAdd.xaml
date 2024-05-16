@@ -24,7 +24,7 @@
             CornerRadius="10" 
             BorderBrush="Black" 
             Width="300px" 
-            Padding="10" Margin="175,112,175,178">
+            Padding="10" Margin="175,112,175,169">
             <Border.Effect>
                 <DropShadowEffect 
                     ShadowDepth="0" 
@@ -63,7 +63,7 @@
             Height="40px"
             Width="225px"
             Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-            Margin="0 0 0 60" 
+            Margin="0 0 0 50" 
             BorderBrush="#BC989393">
         </TextBox>
         <ComboBox
@@ -72,7 +72,7 @@
             Height="40px"
             FontSize="15px"
             Padding="12 0 12 0"
-            Margin="0 80 0 40"
+            Margin="0 85 0 20"
             materialDesign:HintAssist.Hint="Проверенность"
             Style="{StaticResource MaterialDesignOutlinedComboBox}"
             BorderBrush="#BC989393">
@@ -93,7 +93,7 @@
             VerticalAlignment="Center" 
             Content="Добавить"
             RenderOptions.EdgeMode="Aliased"
-            Margin="120 155 0 0"
+            Margin="120 170 0 0"
             Click="Confirm_Click">
         </Button>
         <Button
@@ -110,7 +110,7 @@
             VerticalAlignment="Center" 
             Content="Вернуться"
             RenderOptions.EdgeMode="Aliased"
-            Margin="0 155 120 0"
+            Margin="0 170 120 0"
             Click="Return_Click">
         </Button>
     </Grid>

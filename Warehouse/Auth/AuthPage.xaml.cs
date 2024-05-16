@@ -3,7 +3,6 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using Warehouse.Service;
 using Warehouse.Storage;
-using Warehouse.View.AddPage;
 using Warehouse.View.Main;
 
 namespace Warehouse.Auth
@@ -11,7 +10,7 @@ namespace Warehouse.Auth
     public partial class AuthPage : Window
     {
         ValidationFileds validationFileds = new ValidationFileds();
-        private Authentif auth = new Authentif();
+        Authentif auth = new Authentif();
 
         public AuthPage()
         {

@@ -1,18 +1,32 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 using Warehouse.Service;
+using Warehouse.Storage;
 
 namespace Warehouse.View.EditPage
 {
     public partial class ProductEdit : Window
     {
         DataGrid grid;
-        Database database = new Database();
+        ProductStorage productStorage = new ProductStorage();
+
         int id;
 
         public ProductEdit(int id, string title, string productType, string presence, string cost, string description, string suitability, DataGrid grid)
         {
             InitializeComponent();
+
+            string imagePath = "D:\\ДИПЛОМ\\warehouse-main\\Warehouse\\Resources\\logo.jpg";
+
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(imagePath);
+            bitmap.EndInit();
+
+            imageControl.Source = bitmap;
+
             this.grid = grid;
             this.id = id;
             ProductTitleBox.Text = title;
@@ -42,13 +56,14 @@ namespace Warehouse.View.EditPage
             string title = ProductTitleBox.Text;
             string cost = ProductCost.Text;
             string description = ProductDescription.Text;
+            string suitability = OrderSuitabilityComboBox.Text;
 
             ValidationFileds validation = new ValidationFileds();
 
             if (validation.ValidationProductEdit(title, cost, description))
             {
-                database.UpdateProduct(id, title, validation.CastCostToDouble(cost), description);
-                database.ReadProduct(grid);
+                productStorage.UpdateProduct(id, title, validation.CastCostToDouble(cost), description, suitability);
+                productStorage.ReadProduct(grid);
 
                 this.Close();
             }

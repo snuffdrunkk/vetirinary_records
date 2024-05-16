@@ -13,25 +13,18 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-        Background="#FF22A4E8"
+        Background="white"
         ResizeMode="CanMinimize"
         FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <materialDesign:PackIcon 
-            Height="55px"
-            Width="55px"
-            HorizontalAlignment="Center"
-            Margin="0 35 0 0"
-            Kind="Pencil"
-            Foreground="White"/>
+        <Image x:Name="imageControl" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Uniform" Margin="0 10 0 0"/>
         <Border 
             Background="White"
             CornerRadius="10" 
-            BorderBrush="Black"
-            Height="360px" 
+            BorderBrush="Black" 
             Width="300px" 
-            Padding="10">
+            Padding="10" Margin="175,112,175,83">
             <Border.Effect>
                 <DropShadowEffect 
                     ShadowDepth="0" 
@@ -45,7 +38,8 @@
         <Label 
             FontSize="18px"
             Height="30px"
-            Content="Редактировать"
+            Content="Редактировать продукт"
+            Foreground="#FF7E00"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Margin="0 0 0 280">
@@ -116,13 +110,14 @@
             materialDesign:ButtonAssist.CornerRadius="20"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            Background="#FF249AD7"
+            Background="#FF8800"
+            Foreground="White"
             BorderBrush="Transparent"
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
             Content="Добавить"
             RenderOptions.EdgeMode="Aliased"
-            Margin="120 290 0 0"
+            Margin="120 345 0 0"
             Click="Confirm_Click">
         </Button>
         <Button
@@ -132,13 +127,14 @@
             materialDesign:ButtonAssist.CornerRadius="20"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            Background="#FF249AD7"
+            Background="#FF8800"
+            Foreground="White"
             BorderBrush="Transparent"
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
             Content="Вернуться"
             RenderOptions.EdgeMode="Aliased"
-            Margin="0 290 120 0"
+            Margin="0 345 120 0"
             Click="Return_Click">
         </Button>
     </Grid>

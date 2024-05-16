@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Warehouse.Service;
+using Warehouse.Storage;
 
 namespace Warehouse.View.AddPage
 {
@@ -10,6 +11,7 @@ namespace Warehouse.View.AddPage
     public partial class ProductType : Window
     {
         DataGrid data;
+        ProductTypeStorage productTypeStore = new ProductTypeStorage();
 
         public ProductType(DataGrid data)
         {
@@ -38,10 +40,8 @@ namespace Warehouse.View.AddPage
             ValidationFileds validation = new ValidationFileds();
             if (validation.ValidationProductTypeTitle(title))
             {
-                Database database = new Database();
-
-                database.CreateProductType(title);
-                database.ReadProductType(data);
+                productTypeStore.CreateProductType(title);
+                productTypeStore.ReadProductType(data);
             }
         }
     }

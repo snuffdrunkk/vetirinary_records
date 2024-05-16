@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using Warehouse.Storage;
 
 namespace Warehouse.View.AddPage
 {
@@ -10,6 +11,7 @@ namespace Warehouse.View.AddPage
     {
         DataGrid data;
         Database database = new Database();
+        CarStorage carStorage = new CarStorage();
 
         public CarAdd(DataGrid data)
         {
@@ -32,8 +34,8 @@ namespace Warehouse.View.AddPage
             string mark = CarMarkBox.Text;
             string scrutiny = CarScrutinyComboBox.Text;
 
-            database.CreateCar(number, mark, scrutiny);
-            database.ReadCar(data);
+            carStorage.CreateCar(number, mark, scrutiny);
+            carStorage.ReadCar(data);
         }
 
         private void Return_Click(object sender, RoutedEventArgs e)
