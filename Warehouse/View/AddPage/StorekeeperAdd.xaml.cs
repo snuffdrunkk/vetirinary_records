@@ -2,24 +2,21 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
-using Warehouse.DTO;
 using Warehouse.Service;
 using Warehouse.Storage;
 
 namespace Warehouse.View.AddPage
 {
-    public partial class SupplierAdd : Window
+    public partial class StorekeeperAdd : Window
     {
         DataGrid grid;
         Database database = new Database();
-        CarStorage carStorage = new CarStorage();
-        DriverStorage driverStorage = new DriverStorage();
-
-        public SupplierAdd(DataGrid grid)
+        StorekeeperStorage storekeeperStorage = new StorekeeperStorage();
+        public StorekeeperAdd(DataGrid grid)
         {
             InitializeComponent();
+
             this.grid = grid;
-            carStorage.ReadCarNumberToComboBox(CarNumberComboBox);
 
             string imagePath = "D:\\ДИПЛОМ\\warehouse-main\\Warehouse\\Resources\\logo.jpg";
 
@@ -31,30 +28,15 @@ namespace Warehouse.View.AddPage
             imageControl.Source = bitmap;
         }
 
-        private void Confirm_Click(object sender, RoutedEventArgs e)
+        private void Return_Click(object sender, RoutedEventArgs e)
         {
-            ComboBoxDTO dto = (ComboBoxDTO)CarNumberComboBox.SelectedItem;
-            string address = SupplierAdressBox.Text;
-            string phone = SupplierPhoneBox.Text;
-            string surname = SurnameBox.Text;
-            string firstName = FirstNameBox.Text;
-            string middleName = MiddleNameBox.Text;
-            string medCertificate = MedicalCertificateComboBox.Text;
-
-            ValidationFileds validation = new ValidationFileds();
-
-/*            if (validation.ValidationSupplierAdd(){*/
-                driverStorage.CreateDriver(address, phone, surname, firstName, middleName, medCertificate, dto);
-                driverStorage.ReadDriver(grid);
-/*            }*/
-
+            this.Close();
         }
 
         private void Next_Click(object sender, RoutedEventArgs e)
         {
-            CarNumberComboBox.Visibility = Visibility.Collapsed;
-            SupplierAdressBox.Visibility = Visibility.Collapsed;
-            SupplierPhoneBox.Visibility = Visibility.Collapsed;
+            StorekeeperAdressBox.Visibility = Visibility.Collapsed;
+            StorekeeperPhoneBox.Visibility = Visibility.Collapsed;
             MedicalCertificateComboBox.Visibility = Visibility.Collapsed;
             Next.Visibility = Visibility.Collapsed;
             Return.Visibility = Visibility.Collapsed;
@@ -66,11 +48,6 @@ namespace Warehouse.View.AddPage
             Confirm.Visibility = Visibility.Visible;
         }
 
-        private void Return_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
         private void Preview_Click(object sender, RoutedEventArgs e)
         {
             SurnameBox.Visibility = Visibility.Collapsed;
@@ -79,12 +56,28 @@ namespace Warehouse.View.AddPage
             Preview.Visibility = Visibility.Collapsed;
             Confirm.Visibility = Visibility.Collapsed;
 
-            CarNumberComboBox.Visibility = Visibility.Visible;
-            SupplierAdressBox.Visibility = Visibility.Visible;
-            SupplierPhoneBox.Visibility = Visibility.Visible;
+            StorekeeperAdressBox.Visibility = Visibility.Visible;
+            StorekeeperPhoneBox.Visibility = Visibility.Visible;
             MedicalCertificateComboBox.Visibility = Visibility.Visible;
             Next.Visibility = Visibility.Visible;
             Return.Visibility = Visibility.Visible;
+        }
+
+        private void Confirm_Click(object sender, RoutedEventArgs e)
+        {
+            string address = StorekeeperAdressBox.Text;
+            string phone = StorekeeperPhoneBox.Text;
+            string surname = SurnameBox.Text;
+            string firstName = FirstNameBox.Text;
+            string middleName = MiddleNameBox.Text;
+            string medCertificate = MedicalCertificateComboBox.Text;
+
+            ValidationFileds validation = new ValidationFileds();
+
+            /*            if (validation.ValidationSupplierAdd(){*/
+            storekeeperStorage.CreateStorekeeper(surname, firstName, middleName, phone, address, medCertificate);
+            storekeeperStorage.ReadStorekeeper(grid);
+            /*            }*/
         }
     }
 }

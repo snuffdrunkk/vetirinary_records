@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\ДИПЛОМ\warehouse-main\Warehouse\App.xaml
-17456131848
+20-1729906407
 
-36-2084157834
+41992949237
 34360820811
-Auth\AuthPage.xaml;Auth\MainWindow.xaml;Profile\PrfSettings.xaml;View\AddPage\AddFromComboBoxOrder.xaml;View\AddPage\CarAdd.xaml;View\AddPage\OrderAdd.xaml;View\AddPage\ProductAdd.xaml;View\AddPage\ProductType.xaml;View\AddPage\SupplierAdd.xaml;View\EditPage\CarEdit.xaml;View\EditPage\ProductEdit.xaml;View\EditPage\ProductTypeEdit.xaml;View\EditPage\SupplierEdit.xaml;View\FIltrationAndSearch\Filtration.xaml;View\FIltrationAndSearch\Search.xaml;View\Main\MainPage.xaml;View\OutputDocuments\MainOutput.xaml;
+Auth\AuthPage.xaml;Auth\MainWindow.xaml;Profile\PrfSettings.xaml;View\AddPage\AddFromComboBoxOrder.xaml;View\AddPage\CarAdd.xaml;View\AddPage\OrderAdd.xaml;View\AddPage\ProductAdd.xaml;View\AddPage\ProductType.xaml;View\AddPage\StorekeeperAdd.xaml;View\AddPage\SupplierAdd.xaml;View\AddPage\VetService.xaml;View\EditPage\CarEdit.xaml;View\EditPage\ProductEdit.xaml;View\EditPage\ProductTypeEdit.xaml;View\EditPage\StorekeeperEdit.xaml;View\EditPage\SupplierEdit.xaml;View\FIltrationAndSearch\Filtration.xaml;View\FIltrationAndSearch\Search.xaml;View\Main\MainPage.xaml;View\OutputDocuments\MainOutput.xaml;
 
-False
+True
 

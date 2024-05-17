@@ -17,12 +17,12 @@ namespace Warehouse.Storage
 
         public void UpdateCar(long id, string number, string mark, string scrutiny)
         {
-            database.Update($"update Car set car_number = N'{number}', mark = '{mark}', scrutiny = N'{scrutiny}' where car_id = '{id}'");
+            database.Update($"update сar set car_number = N'{number}', mark = '{mark}', scrutiny = N'{scrutiny}' where car_id = '{id}'");
         }
 
         public void DeleteCar(DataRowView selectedRow)
         {
-            database.Update($"DELETE FROM Car Where car_id = {selectedRow.Row.ItemArray[0]}");
+            database.Update($"DELETE FROM сar Where car_id = {selectedRow.Row.ItemArray[0]}");
         }
 
         public void ReadCar(DataGrid grid)

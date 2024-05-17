@@ -19,6 +19,7 @@ namespace Warehouse.View.Main
         CarStorage carStorage = new CarStorage();
         ProductStorage productStorage = new ProductStorage();
         DriverStorage driverStorage = new DriverStorage();
+        StorekeeperStorage storekeeperStorage = new StorekeeperStorage();
 
         private MainLogic mainLogic;
 
@@ -51,6 +52,7 @@ namespace Warehouse.View.Main
             ProductGrid.Visibility = Visibility.Collapsed;
             OrderGrid.Visibility = Visibility.Collapsed;
             CarGrid.Visibility = Visibility.Collapsed;
+            StorekeeperGrid.Visibility = Visibility.Collapsed;
 
             ProductTypeGrid.Visibility = Visibility.Visible;
 
@@ -139,6 +141,7 @@ namespace Warehouse.View.Main
             SupplierGrid.Visibility = Visibility.Collapsed;
             OrderGrid.Visibility = Visibility.Collapsed;
             CarGrid.Visibility = Visibility.Collapsed;
+            StorekeeperGrid.Visibility = Visibility.Collapsed;
 
             ProductGrid.Visibility = Visibility.Visible;
 
@@ -226,10 +229,11 @@ namespace Warehouse.View.Main
             ProductTypeGrid.Visibility = Visibility.Collapsed;
             OrderGrid.Visibility = Visibility.Collapsed;
             CarGrid.Visibility = Visibility.Collapsed;
+            StorekeeperGrid.Visibility = Visibility.Collapsed;
 
             SupplierGrid.Visibility = Visibility.Visible;
 
-            driverStorage.ReadSupplier(SupplierGrid);
+            driverStorage.ReadDriver(SupplierGrid);
         }
 
         private void AddSupplier_Click(object sender, RoutedEventArgs e)//Добавление водителя
@@ -243,7 +247,7 @@ namespace Warehouse.View.Main
             var selectedRow = SupplierGrid.SelectedItem as DataRowView;
             if (selectedRow != null)
             {
-                SupplierEdit supplierEdit = new SupplierEdit(Convert.ToInt32(selectedRow.Row.ItemArray[0]), Convert.ToString(selectedRow.Row.ItemArray[1]), Convert.ToString(selectedRow.Row.ItemArray[2]), Convert.ToString(selectedRow.Row.ItemArray[3]), Convert.ToString(selectedRow.Row.ItemArray[4]), Convert.ToString(selectedRow.Row.ItemArray[5]), Convert.ToString(selectedRow.Row.ItemArray[6]), SupplierGrid);
+                SupplierEdit supplierEdit = new SupplierEdit(Convert.ToInt32(selectedRow.Row.ItemArray[0]), Convert.ToString(selectedRow.Row.ItemArray[1]), Convert.ToString(selectedRow.Row.ItemArray[2]), Convert.ToString(selectedRow.Row.ItemArray[3]), Convert.ToString(selectedRow.Row.ItemArray[4]), Convert.ToString(selectedRow.Row.ItemArray[5]), Convert.ToString(selectedRow.Row.ItemArray[6]), Convert.ToString(selectedRow.Row.ItemArray[7]), SupplierGrid);
                 supplierEdit.ShowDialog();
 
             }
@@ -260,15 +264,15 @@ namespace Warehouse.View.Main
             {
                 try
                 {
-                    driverStorage.DeleteSupplier(selectedRow);
-                }
+                    driverStorage.DeleteDriver(selectedRow);
+            }
                 catch (SqlException)
                 {
-                    MessageBox.Show("Удаление невозможно. Удалите связанные данные с этим водителем!");
-                    return;
-                }
+                MessageBox.Show("Удаление невозможно. Удалите связанные данные с этим водителем!");
+                return;
+            }
 
-                driverStorage.ReadSupplier(SupplierGrid);
+            driverStorage.ReadDriver(SupplierGrid);
             }
             else
             {
@@ -304,7 +308,82 @@ namespace Warehouse.View.Main
 
         private void SupplierCancel_Click(object sender, RoutedEventArgs e)//отмена водителя
         {
-            driverStorage.ReadSupplier(SupplierGrid);
+            driverStorage.ReadDriver(SupplierGrid);
+        }
+
+        private void AddStorekeeper_Click(object sender, RoutedEventArgs e)//добавление кладовщика
+        {
+            StorekeeperAdd storekeeperAdd = new StorekeeperAdd(StorekeeperGrid);
+            storekeeperAdd.ShowDialog();
+        }
+
+        private void EditStorekeeper_Click(object sender, RoutedEventArgs e)//редактирование кладовщика
+        {
+            var selectedRow = StorekeeperGrid.SelectedItem as DataRowView;
+            if (selectedRow != null)
+            {
+                StorekeeperEdit storekeeperEdit = new StorekeeperEdit(Convert.ToInt32(selectedRow.Row.ItemArray[0]), Convert.ToString(selectedRow.Row.ItemArray[5]), Convert.ToString(selectedRow.Row.ItemArray[4]), Convert.ToString(selectedRow.Row.ItemArray[1]), Convert.ToString(selectedRow.Row.ItemArray[2]), Convert.ToString(selectedRow.Row.ItemArray[3]), Convert.ToString(selectedRow.Row.ItemArray[4]), StorekeeperGrid);
+                storekeeperEdit.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("Не выбрана строка для редактирования", "Ошибка", MessageBoxButton.OK);
+            }
+        }
+
+        private void DeleteStorekeeper_Click(object sender, RoutedEventArgs e)//удаление кладовщика
+        {
+            DataRowView selectedRow = StorekeeperGrid.SelectedItem as DataRowView;
+            if (selectedRow != null)
+            {
+                try
+                {
+                    storekeeperStorage.DeleteStorekeeper(selectedRow);
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Удаление невозможно. Удалите связанные данные с этим кладовщиком!");
+                    return;
+                }
+
+                storekeeperStorage.ReadStorekeeper(StorekeeperGrid);
+            }
+            else
+            {
+                MessageBox.Show("Выберите поле для удаления!");
+            }
+        }
+
+        private void FiltrationStorekeeper_Click(object sender, RoutedEventArgs e)//фильтрация кладовщика
+        {
+            Filtration filtration = new Filtration();
+            filtration.ShowDialog();
+
+            string field = filtration.Field;
+
+            if (field == null)
+                return;
+
+            mainLogic.ApplyFilter(field, StorekeeperGrid);
+        }
+
+        private void SearchStorekeeper_Click(object sender, RoutedEventArgs e)// поиск кладовщика
+        {
+            Search search = new Search();
+            search.ShowDialog();
+
+            string field = search.Field;
+
+            if (field == null)
+                return;
+
+            mainLogic.SearchAndSort(field, StorekeeperGrid);
+        }
+
+        private void StorekeeperCancel_Click(object sender, RoutedEventArgs e)//отмена кладовщика
+        {
+            storekeeperStorage.ReadStorekeeper(StorekeeperGrid);
         }
 
         private void Car_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)//Вывод машины
@@ -313,6 +392,7 @@ namespace Warehouse.View.Main
             ProductGrid.Visibility = Visibility.Collapsed;
             OrderGrid.Visibility = Visibility.Collapsed;
             ProductTypeGrid.Visibility = Visibility.Collapsed;
+            StorekeeperGrid.Visibility = Visibility.Collapsed;
 
             CarGrid.Visibility = Visibility.Visible;
 
@@ -400,6 +480,7 @@ namespace Warehouse.View.Main
             SupplierGrid.Visibility = Visibility.Collapsed;
             ProductGrid.Visibility = Visibility.Collapsed;
             CarGrid.Visibility = Visibility.Collapsed;
+            StorekeeperGrid.Visibility = Visibility.Collapsed;
 
             OrderGrid.Visibility = Visibility.Visible;
 
@@ -492,6 +573,20 @@ namespace Warehouse.View.Main
         {
             MainOutput main = new MainOutput(OrderGrid);
             main.ShowDialog();
+        }
+
+        private void Storekeeper_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)//Вывод кладовщика
+        {
+            ProductGrid.Visibility = Visibility.Collapsed;
+            ProductTypeGrid.Visibility = Visibility.Collapsed;
+            OrderGrid.Visibility = Visibility.Collapsed;
+            CarGrid.Visibility = Visibility.Collapsed;
+            SupplierGrid.Visibility = Visibility.Collapsed;
+
+            StorekeeperGrid.Visibility = Visibility.Visible;
+
+
+            storekeeperStorage.ReadStorekeeper(StorekeeperGrid);
         }
     }
 }

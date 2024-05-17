@@ -167,3 +167,9 @@ D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\System.Data.SqlClient.dll
 D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\System.Data.SqlClient.xml
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\CarEdit.g.cs
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\CarEdit.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\VetService.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\VetService.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\StorekeeperAdd.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\StorekeeperAdd.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\StorekeeperEdit.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\StorekeeperEdit.baml

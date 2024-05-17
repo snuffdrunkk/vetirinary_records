@@ -175,6 +175,42 @@
                 </DataGrid.ContextMenu>
             </DataGrid>
             <DataGrid   
+    Margin="175,100,30,30" 
+    Visibility="Collapsed"
+    x:Name="StorekeeperGrid" 
+    AutoGenerateColumns="false"
+    CanUserResizeColumns="False" 
+    CanUserAddRows="False" 
+    CanUserDeleteRows="False" 
+    CanUserReorderColumns="False" 
+    SelectionMode="Single" 
+    SelectionUnit="FullRow" 
+    CanUserResizeRows="False" 
+    IsReadOnly="True"
+    Foreground="Black"                
+    BorderBrush="Orange"
+    BorderThickness="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="DriverId" Binding="{Binding driver_id}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="Фамилия" Width="*" Binding="{Binding surname_storekeeper}"/>
+                    <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding first_name}"/>
+                    <DataGridTextColumn Header="Отчество" Width="*" Binding="{Binding middle_name}"/>
+                    <DataGridTextColumn Header="Номер телефона" Width="*" Binding="{Binding phone_number}"/>
+                    <DataGridTextColumn Header="Адрес" Width="*" Binding="{Binding address}"/>
+                    <DataGridTextColumn Header="Мед справка" Width="*" Binding="{Binding medical_certificate}"/>
+                </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="AddStorekeeper" Header="Добавить" Click="AddStorekeeper_Click"/>
+                        <MenuItem x:Name="EditStorekeeper" Header="Редактировать" Click="EditStorekeeper_Click"/>
+                        <MenuItem x:Name="DeleteStorekeeper" Header="Удалить" Click="DeleteStorekeeper_Click"/>
+                        <MenuItem x:Name="FiltrationStorekeeper" Header="Фильтрация" Click="FiltrationStorekeeper_Click"/>
+                        <MenuItem x:Name="SearchStorekeeper" Header="Поиск" Click="SearchStorekeeper_Click"/>
+                        <MenuItem x:Name="StorekeeperCancel" Header="Отменить" Click="StorekeeperCancel_Click"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
+            <DataGrid   
                 Margin="175,100,30,30" 
                 Visibility="Collapsed"
                 x:Name="CarGrid" 
@@ -219,19 +255,19 @@
                     <ListViewItem x:Name="AdminRegistration" Height="75" PreviewMouseLeftButtonDown="AdminRegistration_MouseLeftButtonDown">
                         <StackPanel Orientation="Horizontal" >
                             <materialDesign:PackIcon Kind="AccountPlusOutline" Height="25" Width="25" Margin="10" VerticalAlignment="Center"/>
-                            <TextBlock Text="Регистрация" VerticalAlignment="Center" Margin="0 10"/>
+                            <TextBlock Text="" VerticalAlignment="Center" Margin="0 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="Output" Height="75" PreviewMouseLeftButtonDown="Output_PreviewMouseLeftButtonDown">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="MicrosoftWord" Height="25" Width="25" Margin="10" VerticalAlignment="Center"/>
-                            <TextBlock Text="Документы" VerticalAlignment="Center" Margin="0 10"/>
+                            <TextBlock Text="" VerticalAlignment="Center" Margin="0 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="Settings" Height="75" PreviewMouseLeftButtonDown="Settings_PreviewMouseLeftButtonDown">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="CogOutline" Height="25" Width="25" Margin="10" VerticalAlignment="Center"/>
-                            <TextBlock Text="Настройки" VerticalAlignment="Center" Margin="0 10"/>
+                            <TextBlock Text="" VerticalAlignment="Center" Margin="0 10"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
@@ -252,6 +288,12 @@
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="BookAccount" Height="25" Width="25" Margin="10" VerticalAlignment="Center"/>
                             <TextBlock Text="Водители" VerticalAlignment="Center" Margin="0 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" x:Name="Storekeeper" PreviewMouseLeftButtonDown="Storekeeper_PreviewMouseLeftButtonDown">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="PackageVariantPlus" Height="25" Width="25" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock Text="Кладовщик" VerticalAlignment="Center" Margin="0 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60" x:Name="Car" PreviewMouseLeftButtonDown="Car_PreviewMouseLeftButtonDown">

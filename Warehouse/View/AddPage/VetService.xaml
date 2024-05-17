@@ -1,0 +1,147 @@
+﻿<Window x:Class="Warehouse.View.AddPage.VetService"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Warehouse.View.AddPage"
+        mc:Ignorable="d"
+        Icon="/Resources/ColorIcon.png"
+        Height="600" Width="650"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="White"
+        ResizeMode="CanMinimize"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Image x:Name="imageControl" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Uniform" Margin="0 10 0 0"/>
+        <Border 
+            Background="White"
+            CornerRadius="10" 
+            x:Name="MainBorder"
+            BorderBrush="Black" 
+            Width="300px" 
+            Padding="10" Margin="175,130,175,130">
+            <Border.Effect>
+                <DropShadowEffect 
+                ShadowDepth="0" 
+                Color="Black" 
+                Opacity="0.3" 
+                BlurRadius="15" 
+                Direction="360" 
+                RenderingBias="Quality"/>
+            </Border.Effect>
+        </Border>
+        <Border 
+            Background="White"
+            CornerRadius="10" 
+            x:Name="SecondBorder"
+            BorderBrush="Black"
+            Height="280px" 
+            Width="300px" 
+            Visibility="Collapsed"
+            Padding="10">
+            <Border.Effect>
+                <DropShadowEffect 
+                ShadowDepth="0" 
+                Color="Black" 
+                Opacity="0.3" 
+                BlurRadius="15" 
+                Direction="360" 
+                RenderingBias="Quality"/>
+            </Border.Effect>
+        </Border>
+        <Label 
+            FontSize="18px"
+            Height="30px"
+            x:Name="OutputDoc"
+            Content="Ветеринарные услуги"
+            Foreground="#FF7E00"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Margin="0 0 0 280">
+        </Label>
+        <Label 
+            FontSize="18px"
+            Height="30px"
+            Visibility="Collapsed"
+            x:Name="OutCardAndOrder"
+            Content="Выберите из списка"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Margin="0 0 0 200">
+        </Label>
+        <Button
+            x:Name="FreezerGrid"
+            Width="218"
+            Height="45px"
+            materialDesign:ButtonAssist.CornerRadius="20"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Background="#FF8800"
+            Foreground="White"
+            BorderBrush="Transparent"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top" 
+            Content="Морозильные камеры"
+            RenderOptions.EdgeMode="Aliased"
+            Margin="0,195,0,0"
+            Click="FreezerGrid_Click">
+        </Button>
+        <Button
+            x:Name="FreezerReportGrid"
+            Width="218"
+            Height="45px"
+            materialDesign:ButtonAssist.CornerRadius="20"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Background="#FF8800"
+            Foreground="White"
+            BorderBrush="Transparent"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top" 
+            Content="Отчет по мороз камерам"
+            RenderOptions.EdgeMode="Aliased"
+            Margin="0,250,0,0"
+            Click="FreezerReportGrid_Click">
+        </Button>
+        <Button
+            x:Name="DriverReportGrid"
+            Width="218"
+            Height="45px"
+            materialDesign:ButtonAssist.CornerRadius="20"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Background="#FF8800"
+            Foreground="White"
+            BorderBrush="Transparent"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top" 
+            Content="Отчет проверок водителя"
+            RenderOptions.EdgeMode="Aliased"
+            Margin="0,305,0,0"
+            Click="DriverReportGrid_Click">
+        </Button>
+        <Button
+            x:Name="CarRecord"
+            Width="218"
+            Height="45px"
+            materialDesign:ButtonAssist.CornerRadius="20"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Background="#FF8800"
+            Foreground="White"
+            BorderBrush="Transparent"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top" 
+            Content="Отчет проверок машин"
+            RenderOptions.EdgeMode="Aliased"
+            Margin="0,360,0,0"
+            Click="CarRecord_Click">
+        </Button>
+    </Grid>
+</Window>

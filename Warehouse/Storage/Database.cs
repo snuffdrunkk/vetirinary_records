@@ -218,7 +218,6 @@ namespace Warehouse
             return newTable;
         }
 
-
         public DataTable GetOrderWithOrderId(long orderId)
         {
             string query = $@"select order_id, supplier.surname as 'supplier_surname', account.surname, amount, order_date, order_type 

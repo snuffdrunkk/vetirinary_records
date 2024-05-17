@@ -1,21 +1,29 @@
-﻿using System;
+﻿using OfficeOpenXml.FormulaParsing.Excel.Functions.RefAndLookup;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using Warehouse.DTO;
 using Warehouse.Service;
 using Warehouse.Storage;
-using Warehouse.View.AddPage;
 
 namespace Warehouse.View.EditPage
 {
-    public partial class SupplierEdit : Window
+    public partial class StorekeeperEdit : Window
     {
         long id;
         DataGrid grid;
-        DriverStorage driverStorage = new DriverStorage();
-
-        public SupplierEdit(long id, string carNumber, string address, string phoneNumber, string surname, string firstName, string middleName, string medicalCertificate, DataGrid grid)
+        StorekeeperStorage storekeeperStorage = new StorekeeperStorage();
+        public StorekeeperEdit(long id, string address, string phoneNumber, string surname, string firstName, string middleName, string medicalCertificate, DataGrid grid)
         {
             InitializeComponent();
 
@@ -30,10 +38,8 @@ namespace Warehouse.View.EditPage
 
             this.id = id;
             this.grid = grid;
-            CarNumberComboBox.Items.Add(carNumber);
-            CarNumberComboBox.SelectedIndex = 0;
-            SupplierAdressBox.Text = address;
-            SupplierPhoneBox.Text = phoneNumber;
+            StorekeeperAdressBox.Text = address;
+            StorekeeperPhoneBox.Text = phoneNumber;
             SurnameBox.Text = surname;
             FirstNameBox.Text = firstName;
             MiddleNameBox.Text = middleName;
@@ -43,9 +49,8 @@ namespace Warehouse.View.EditPage
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            ComboBoxDTO dto = (ComboBoxDTO)CarNumberComboBox.SelectedItem;
-            string address = SupplierAdressBox.Text;
-            string phone = SupplierPhoneBox.Text;
+            string address = StorekeeperAdressBox.Text;
+            string phone = StorekeeperPhoneBox.Text;
             string surname = SurnameBox.Text;
             string firstName = FirstNameBox.Text;
             string middleName = MiddleNameBox.Text;
@@ -55,18 +60,32 @@ namespace Warehouse.View.EditPage
 
             /*            if (validation.ValidationSupplierAdd(title, address, phone, surname, firstName, middleName))
                         {*/
-            driverStorage.UpdateDriver(id, address, phone, surname, firstName, middleName, medicalCertificate);
-            driverStorage.ReadDriver(grid);
+            storekeeperStorage.UpdateStorekeeper(id, surname, firstName, middleName, phone , address,  medicalCertificate);
+            storekeeperStorage.ReadStorekeeper(grid);
 
             this.Close();
             /*            }*/
         }
 
+        private void Preview_Click(object sender, RoutedEventArgs e)
+        {
+            SurnameBox.Visibility = Visibility.Collapsed;
+            FirstNameBox.Visibility = Visibility.Collapsed;
+            MiddleNameBox.Visibility = Visibility.Collapsed;
+            Preview.Visibility = Visibility.Collapsed;
+            Confirm.Visibility = Visibility.Collapsed;
+
+            StorekeeperAdressBox.Visibility = Visibility.Visible;
+            StorekeeperPhoneBox.Visibility = Visibility.Visible;
+            MedicalCertificateComboBox.Visibility = Visibility.Visible;
+            Next.Visibility = Visibility.Visible;
+            Return.Visibility = Visibility.Visible;
+        }
+
         private void Next_Click(object sender, RoutedEventArgs e)
         {
-            CarNumberComboBox.Visibility = Visibility.Collapsed;
-            SupplierAdressBox.Visibility = Visibility.Collapsed;
-            SupplierPhoneBox.Visibility = Visibility.Collapsed;
+            StorekeeperAdressBox.Visibility = Visibility.Collapsed;
+            StorekeeperPhoneBox.Visibility = Visibility.Collapsed;
             MedicalCertificateComboBox.Visibility = Visibility.Collapsed;
             Next.Visibility = Visibility.Collapsed;
             Return.Visibility = Visibility.Collapsed;
@@ -81,22 +100,6 @@ namespace Warehouse.View.EditPage
         private void Return_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void Preview_Click(object sender, RoutedEventArgs e)
-        {
-            SurnameBox.Visibility = Visibility.Collapsed;
-            FirstNameBox.Visibility = Visibility.Collapsed;
-            MiddleNameBox.Visibility = Visibility.Collapsed;
-            Preview.Visibility = Visibility.Collapsed;
-            Confirm.Visibility = Visibility.Collapsed;
-
-            CarNumberComboBox.Visibility = Visibility.Visible;
-            SupplierAdressBox.Visibility = Visibility.Visible;
-            SupplierPhoneBox.Visibility = Visibility.Visible;
-            MedicalCertificateComboBox.Visibility = Visibility.Visible;
-            Next.Visibility = Visibility.Visible;
-            Return.Visibility = Visibility.Visible;
         }
     }
 }

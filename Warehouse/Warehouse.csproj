@@ -116,8 +116,10 @@
     <Compile Include="Storage\CarStorage.cs" />
     <Compile Include="Storage\ComboBoxOrder.cs" />
     <Compile Include="Storage\DriverStorage.cs" />
+    <Compile Include="Storage\FreezerStorage.cs" />
     <Compile Include="Storage\ProductStorage.cs" />
     <Compile Include="Storage\ProductTypeStorage.cs" />
+    <Compile Include="Storage\StorekeeperStorage.cs" />
     <Compile Include="View\AddPage\AddFromComboBoxOrder.xaml.cs">
       <DependentUpon>AddFromComboBoxOrder.xaml</DependentUpon>
     </Compile>
@@ -133,8 +135,14 @@
     <Compile Include="View\AddPage\ProductType.xaml.cs">
       <DependentUpon>ProductType.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AddPage\StorekeeperAdd.xaml.cs">
+      <DependentUpon>StorekeeperAdd.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddPage\SupplierAdd.xaml.cs">
       <DependentUpon>SupplierAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddPage\VetService.xaml.cs">
+      <DependentUpon>VetService.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EditPage\CarEdit.xaml.cs">
       <DependentUpon>CarEdit.xaml</DependentUpon>
@@ -144,6 +152,9 @@
     </Compile>
     <Compile Include="View\EditPage\ProductTypeEdit.xaml.cs">
       <DependentUpon>ProductTypeEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditPage\StorekeeperEdit.xaml.cs">
+      <DependentUpon>StorekeeperEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EditPage\SupplierEdit.xaml.cs">
       <DependentUpon>SupplierEdit.xaml</DependentUpon>
@@ -206,7 +217,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\AddPage\StorekeeperAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AddPage\SupplierAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddPage\VetService.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -219,6 +238,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EditPage\ProductTypeEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditPage\StorekeeperEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
