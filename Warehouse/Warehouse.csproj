@@ -126,6 +126,18 @@
     <Compile Include="View\AddPage\CarAdd.xaml.cs">
       <DependentUpon>CarAdd.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AddPage\CarCheckAdd.xaml.cs">
+      <DependentUpon>CarCheckAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddPage\DriverCheckAdd.xaml.cs">
+      <DependentUpon>DriverCheckAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddPage\FreezerAdd.xaml.cs">
+      <DependentUpon>FreezerAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddPage\FreezerСheckAdd.xaml.cs">
+      <DependentUpon>FreezerСheckAdd.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddPage\OrderAdd.xaml.cs">
       <DependentUpon>OrderAdd.xaml</DependentUpon>
     </Compile>
@@ -146,6 +158,12 @@
     </Compile>
     <Compile Include="View\EditPage\CarEdit.xaml.cs">
       <DependentUpon>CarEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditPage\FreezerCheckEdit.xaml.cs">
+      <DependentUpon>FreezerCheckEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditPage\FreezerEdit.xaml.cs">
+      <DependentUpon>FreezerEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EditPage\ProductEdit.xaml.cs">
       <DependentUpon>ProductEdit.xaml</DependentUpon>
@@ -205,6 +223,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\AddPage\CarCheckAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddPage\DriverCheckAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddPage\FreezerAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddPage\FreezerСheckAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AddPage\OrderAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -230,6 +264,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EditPage\CarEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditPage\FreezerCheckEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditPage\FreezerEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -15,9 +15,9 @@ namespace Warehouse.Storage
             database.Update($"insert into freezer (freezer_name, freezer_description, freezer_volume) values (N'{freezerName}', N'{freezerDescr}', N'{freezerVol}')");
         }
 
-        public void UpdateCar(long id, string number, string mark, string scrutiny)
+        public void UpdateCar(long id, string freezerName, string freezerDescr, string freezerVol)
         {
-            database.Update($"update freezer set car_number = N'{number}', mark = '{mark}', scrutiny = N'{scrutiny}' where car_id = '{id}'");
+            database.Update($"update freezer set freezer_name = N'{freezerName}', freezer_description = '{freezerDescr}', freezer_volume = N'{freezerVol}' where freezer_id = '{id}'");
         }
 
         public void DeleteCar(DataRowView selectedRow)

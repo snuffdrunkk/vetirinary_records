@@ -3,36 +3,32 @@
   "WorkspaceRootPath": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\warehouse\\view\\main\\mainpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
-      "RelativeMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|solutionrelative:warehouse\\view\\main\\mainpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+      "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|d:\\\u0434\u0438\u043F\u043B\u043E\u043C\\warehouse-main\\warehouse\\view\\addpage\\drivercheckadd.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|solutionrelative:warehouse\\view\\addpage\\drivercheckadd.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|d:\\\u0434\u0438\u043F\u043B\u043E\u043C\\warehouse-main\\warehouse\\storage\\storekeeperstorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|d:\\\u0434\u0438\u043F\u043B\u043E\u043C\\warehouse-main\\warehouse\\view\\addpage\\carcheckadd.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|solutionrelative:warehouse\\view\\addpage\\carcheckadd.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\warehouse\\storage\\storekeeperstorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|solutionrelative:warehouse\\storage\\storekeeperstorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|d:\\\u0434\u0438\u043F\u043B\u043E\u043C\\warehouse-main\\warehouse\\view\\editpage\\storekeeperedit.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|solutionrelative:warehouse\\view\\editpage\\storekeeperedit.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|d:\\\u0434\u0438\u043F\u043B\u043E\u043C\\warehouse-main\\warehouse\\storage\\freezerstorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|solutionrelative:warehouse\\storage\\freezerstorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|d:\\\u0434\u0438\u043F\u043B\u043E\u043C\\warehouse-main\\warehouse\\view\\editpage\\supplieredit.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
-      "RelativeMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|solutionrelative:warehouse\\view\\editpage\\supplieredit.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+      "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|d:\\\u0434\u0438\u043F\u043B\u043E\u043C\\warehouse-main\\warehouse\\storage\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|solutionrelative:warehouse\\storage\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|d:\\\u0434\u0438\u043F\u043B\u043E\u043C\\warehouse-main\\warehouse\\view\\editpage\\storekeeperedit.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|solutionrelative:warehouse\\view\\editpage\\storekeeperedit.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|d:\\\u0434\u0438\u043F\u043B\u043E\u043C\\warehouse-main\\warehouse\\storage\\driverstorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|solutionrelative:warehouse\\storage\\driverstorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|d:\\\u0434\u0438\u043F\u043B\u043E\u043C\\warehouse-main\\warehouse\\view\\main\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\warehouse\\view\\main\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|solutionrelative:warehouse\\view\\main\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\warehouse\\storage\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|solutionrelative:warehouse\\storage\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\warehouse\\view\\main\\mainpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|solutionrelative:warehouse\\view\\main\\mainpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 191,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,58 +70,44 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DriverStorage.cs",
-              "DocumentMoniker": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\Storage\\DriverStorage.cs",
-              "RelativeDocumentMoniker": "Warehouse\\Storage\\DriverStorage.cs",
-              "ToolTip": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\Storage\\DriverStorage.cs",
-              "RelativeToolTip": "Warehouse\\Storage\\DriverStorage.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T13:18:54.004Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SupplierEdit.xaml.cs",
-              "DocumentMoniker": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\EditPage\\SupplierEdit.xaml.cs",
-              "RelativeDocumentMoniker": "Warehouse\\View\\EditPage\\SupplierEdit.xaml.cs",
-              "ToolTip": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\EditPage\\SupplierEdit.xaml.cs",
-              "RelativeToolTip": "Warehouse\\View\\EditPage\\SupplierEdit.xaml.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAAgwC0AAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T12:50:35.894Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "View\\EditPage\\StorekeeperEdit.xaml.cs",
-              "DocumentMoniker": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\EditPage\\StorekeeperEdit.xaml.cs",
-              "RelativeDocumentMoniker": "Warehouse\\View\\EditPage\\StorekeeperEdit.xaml.cs",
-              "ToolTip": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\EditPage\\StorekeeperEdit.xaml.cs",
-              "RelativeToolTip": "Warehouse\\View\\EditPage\\StorekeeperEdit.xaml.cs",
-              "ViewState": "AQIAACMAAAAAAAAAAAAQwD4AAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T12:55:49.103Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "StorekeeperEdit.xaml",
-              "DocumentMoniker": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\EditPage\\StorekeeperEdit.xaml",
-              "RelativeDocumentMoniker": "Warehouse\\View\\EditPage\\StorekeeperEdit.xaml",
-              "ToolTip": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\EditPage\\StorekeeperEdit.xaml",
-              "RelativeToolTip": "Warehouse\\View\\EditPage\\StorekeeperEdit.xaml",
+              "DocumentIndex": 0,
+              "Title": "DriverCheckAdd.xaml",
+              "DocumentMoniker": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\AddPage\\DriverCheckAdd.xaml",
+              "RelativeDocumentMoniker": "Warehouse\\View\\AddPage\\DriverCheckAdd.xaml",
+              "ToolTip": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\AddPage\\DriverCheckAdd.xaml",
+              "RelativeToolTip": "Warehouse\\View\\AddPage\\DriverCheckAdd.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-17T12:55:08.535Z",
+              "WhenOpened": "2024-05-19T07:31:24.463Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "CarCheckAdd.xaml",
+              "DocumentMoniker": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\AddPage\\CarCheckAdd.xaml",
+              "RelativeDocumentMoniker": "Warehouse\\View\\AddPage\\CarCheckAdd.xaml",
+              "ToolTip": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\AddPage\\CarCheckAdd.xaml",
+              "RelativeToolTip": "Warehouse\\View\\AddPage\\CarCheckAdd.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-19T07:18:02.317Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FreezerStorage.cs",
+              "DocumentMoniker": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\Storage\\FreezerStorage.cs",
+              "RelativeDocumentMoniker": "Warehouse\\Storage\\FreezerStorage.cs",
+              "ToolTip": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\Storage\\FreezerStorage.cs",
+              "RelativeToolTip": "Warehouse\\Storage\\FreezerStorage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T06:32:36.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "StorekeeperStorage.cs",
               "DocumentMoniker": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\Storage\\StorekeeperStorage.cs",
               "RelativeDocumentMoniker": "Warehouse\\Storage\\StorekeeperStorage.cs",
@@ -138,38 +120,36 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "MainPage.xaml.cs",
               "DocumentMoniker": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\Main\\MainPage.xaml.cs",
               "RelativeDocumentMoniker": "Warehouse\\View\\Main\\MainPage.xaml.cs",
               "ToolTip": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\Main\\MainPage.xaml.cs",
               "RelativeToolTip": "Warehouse\\View\\Main\\MainPage.xaml.cs",
-              "ViewState": "AQIAADMBAAAAAAAAAAAcwIIBAAAJAAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAkwOAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-10T14:39:26.955Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-10T14:39:26.955Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "MainPage.xaml",
               "DocumentMoniker": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\Main\\MainPage.xaml",
               "RelativeDocumentMoniker": "Warehouse\\View\\Main\\MainPage.xaml",
               "ToolTip": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\Main\\MainPage.xaml",
               "RelativeToolTip": "Warehouse\\View\\Main\\MainPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-10T13:48:29.62Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-10T13:48:29.62Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "Database.cs",
               "DocumentMoniker": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\Storage\\Database.cs",
               "RelativeDocumentMoniker": "Warehouse\\Storage\\Database.cs",
               "ToolTip": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\Storage\\Database.cs",
               "RelativeToolTip": "Warehouse\\Storage\\Database.cs",
-              "ViewState": "AQIAAIAAAAAAAAAAAAASwDUAAAAMAAAA",
+              "ViewState": "AQIAABsAAAAAAAAAAAA5wDMAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-10T13:37:20.318Z",
               "EditorCaption": ""
