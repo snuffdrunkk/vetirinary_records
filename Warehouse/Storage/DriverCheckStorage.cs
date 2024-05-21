@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Controls;
 using Warehouse.DTO;
 
@@ -18,10 +20,10 @@ namespace Warehouse.Storage
             $"Where driver_check.driver_id = driver.driver_id " +
             $"And driver_check.account_id = account.account_id";
 
-        public void CreateDriverCheck(string driverCheckDate, string arrivalDate, string admissionDriver, ComboBoxDTO drvName, ComboBoxDTO accName)
+        public void CreateDriverCheck(string driverCheckDate, string arrivalDate, string admissionDriver, ComboBoxDTO drvName)
         {
             database.Update($"insert into driver_check (driver_id, account_id, driver_check_date, arrival_date, admission_driver) " +
-                $"values ('{drvName.id}','{accName.id}','{driverCheckDate}', '{arrivalDate}', N'{admissionDriver}')");
+                $"values ('{drvName.id}','{GetAccountId()}', '{driverCheckDate}', '{arrivalDate}', N'{admissionDriver}')");
         }
 
         public void DeleteDriverCheck(DataRowView selectedRow)
@@ -32,6 +34,17 @@ namespace Warehouse.Storage
         public void ReadDriverCheck(DataGrid grid)
         {
             database.Select(selectDriverCheck, grid);
+        }
+        public long GetAccountId()
+        {
+            database.Connection();
+            SqlCommand command = new SqlCommand($"Select account_id from account where username = '{AuthManager.CurrentUsername}'", database.getSqlConnection());
+
+            long id = Convert.ToInt64(command.ExecuteScalar());
+
+            database.Connection();
+
+            return id;
         }
     }
 }

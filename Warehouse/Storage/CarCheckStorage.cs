@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Controls;
 using Warehouse.DTO;
 
@@ -19,10 +21,10 @@ namespace Warehouse.Storage
             $"JOIN account ON car_check.account_id = account.account_id " +
             $"JOIN car ON driver.car_id = car.car_id;";
 
-        public void CreateCarCheck(string driverCheckDate, string arrivalDate, string admissionDriver, ComboBoxDTO drvName, ComboBoxDTO accName)
+        public void CreateCarCheck(string carCheckDate, string arrivalDate, string admissionCar, string carTemperature, ComboBoxDTO drvName)
         {
-            database.Update($"insert into driver_check (driver_id, account_id, driver_check_date, arrival_date, admission_driver) " +
-                $"values ('{drvName.id}','{accName.id}','{driverCheckDate}', '{arrivalDate}', N'{admissionDriver}')");
+            database.Update($"insert into car_check (driver_id, account_id, car_check_date, arrival_date, admission_car, car_temperature) " +
+                $"values ('{drvName.id}','{GetAccountId()}','{carCheckDate}', '{arrivalDate}', N'{admissionCar}', '{carTemperature}')");
         }
 
         public void DeleteCarCheck(DataRowView selectedRow)
@@ -33,6 +35,18 @@ namespace Warehouse.Storage
         public void ReadCarCheck(DataGrid grid)
         {
             database.Select(selectCarCheck, grid);
+        }
+
+        public long GetAccountId()
+        {
+            database.Connection();
+            SqlCommand command = new SqlCommand($"Select account_id from account where username = '{AuthManager.CurrentUsername}'", database.getSqlConnection());
+
+            long id = Convert.ToInt64(command.ExecuteScalar());
+
+            database.Connection();
+
+            return id;
         }
     }
 }

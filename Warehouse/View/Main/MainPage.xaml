@@ -341,12 +341,11 @@
                 </DataGrid.Columns>
                 <DataGrid.ContextMenu>
                     <ContextMenu>
-                        <MenuItem x:Name="AddDriverCheck" Header="Добавить"/>
-                        <MenuItem x:Name="EditDriverCheck" Header="Редактировать"/>
-                        <MenuItem x:Name="DeleteDriverCheck"  Header="Удалить"/>
-                        <MenuItem x:Name="FiltrationDriverCheck" Header="Фильтрация"/>
-                        <MenuItem x:Name="SearchDriverCheck" Header="Поиск"/>
-                        <MenuItem x:Name="DriverCheckCancel" Header="Отменить"/>
+                        <MenuItem x:Name="AddDriverCheck" Header="Добавить" Click="AddDriverCheck_Click"/>
+                        <MenuItem x:Name="DeleteDriverCheck" Header="Редактировать" Click="DeleteDriverCheck_Click"/>
+                        <MenuItem x:Name="FiltrationDriverCheck" Header="Фильтрация" Click="FiltrationDriverCheck_Click"/>
+                        <MenuItem x:Name="SearchDriverCheck" Header="Поиск" Click="SearchDriverCheck_Click"/>
+                        <MenuItem x:Name="DriverCheckCancel" Header="Отменить" Click="DriverCheckCancel_Click"/>
                     </ContextMenu>
                 </DataGrid.ContextMenu>
             </DataGrid>
@@ -377,12 +376,11 @@
                 </DataGrid.Columns>
                 <DataGrid.ContextMenu>
                     <ContextMenu>
-                        <MenuItem x:Name="AddCarCheck" Header="Добавить"/>
-                        <MenuItem x:Name="EditCarCheck" Header="Редактировать"/>
-                        <MenuItem x:Name="DeleteCarCheck"  Header="Удалить"/>
-                        <MenuItem x:Name="FiltrationCarCheck" Header="Фильтрация"/>
-                        <MenuItem x:Name="SearchCarCheck" Header="Поиск"/>
-                        <MenuItem x:Name="CarCheckCancel" Header="Отменить"/>
+                        <MenuItem x:Name="AddCarCheck" Header="Добавить" Click="AddCarCheck_Click"/>
+                        <MenuItem x:Name="DeleteCarCheck"  Header="Удалить" Click="DeleteCarCheck_Click"/>
+                        <MenuItem x:Name="FiltrationCarCheck" Header="Фильтрация" Click="FiltrationCarCheck_Click"/>
+                        <MenuItem x:Name="SearchCarCheck" Header="Поиск" Click="SearchCarCheck_Click"/>
+                        <MenuItem x:Name="CarCheckCancel" Header="Отменить" Click="CarCheckCancel_Click"/>
                     </ContextMenu>
                 </DataGrid.ContextMenu>
             </DataGrid>

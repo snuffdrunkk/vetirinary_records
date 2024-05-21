@@ -64,17 +64,6 @@
             Style="{StaticResource MaterialDesignOutlinedComboBox}"
             BorderBrush="#BC989393">
         </ComboBox>
-        <ComboBox
-            x:Name="AccountComboBox"
-            Width="225px"
-            Height="40px"
-            FontSize="15px"
-            Padding="12 0 12 0"
-            Margin="0 00 0 10" 
-            materialDesign:HintAssist.Hint="Сотрудник"
-            Style="{StaticResource MaterialDesignOutlinedComboBox}"
-            BorderBrush="#BC989393">
-        </ComboBox>
         <DatePicker 
             x:Name="Date"
             materialDesign:HintAssist.Hint="Дата отчета"
@@ -82,7 +71,7 @@
             Padding="12 0 12 0"
             Height="40px"
             Width="225px"
-            Margin="0 90 0 0" 
+            Margin="0 0 0 10" 
             Grid.Row="4"
             Grid.Column="4"
             Style="{StaticResource MaterialDesignOutlinedDatePicker}" 

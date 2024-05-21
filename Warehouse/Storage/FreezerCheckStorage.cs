@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Controls;
 using Warehouse.DTO;
 
@@ -13,18 +15,17 @@ namespace Warehouse.Storage
             $"Where freezer_check.freezer_id = freezer.freezer_id " +
             $"And freezer_check.account_id = account.account_id";
 
-        public void CreateFreezerCheck(string freezerCheckDate, string washingMethod, string detergent, string detergentQuantity, string disinfectionMethod, string disinfectant, string disinfectantQuantity, ComboBoxDTO frzName, ComboBoxDTO accName)
+        public void CreateFreezerCheck(string freezerCheckDate, string washingMethod, string detergent, string detergentQuantity, string disinfectionMethod, string disinfectant, string disinfectantQuantity, ComboBoxDTO frzName)
         {
             database.Update($"insert into freezer_check (freezer_id, account_id, freezer_check_date, washing_method, detergent, detergent_quantity, disinfection_method, disinfectant, disinfectant_quantity) " +
-                $"values ('{frzName.id}','{accName.id}','{freezerCheckDate}', N'{washingMethod}', '{detergentQuantity}', N'{disinfectionMethod}', N'{disinfectant}', '{disinfectantQuantity}')");
+                $"values ('{frzName.id}','{GetAccountId()}','{freezerCheckDate}', N'{washingMethod}', N'{detergent}', '{detergentQuantity}', N'{disinfectionMethod}', N'{disinfectant}', '{disinfectantQuantity}')");
         }
 
-        public void UpdateFreezerCheck(long idFrz, long idAcc, string freezerName, string accountName, string freezerCheckDate, string washingMethod, string detergent, string detergentQuantity, string disinfectionMethod, string disinfectant, string disinfectantQuantity)
+        public void UpdateFreezerCheck(long id, string washingMethod, string detergent, string detergentQuantity, string disinfectionMethod, string disinfectant, string disinfectantQuantity)
         {
             database.Update($"update freezer_check " +
-                $"set freezer_name = N'{freezerName}', surname = N'{accountName}', freezer_check_date = '{freezerCheckDate}', washing_method = N'{washingMethod}', detergent = N'{detergent}', detergent_quantity = '{detergentQuantity}', disinfection_method = N'{disinfectionMethod}', disinfectant = N'{disinfectant}', disinfectant_quantity = '{disinfectantQuantity}' " +
-                $"where freezer_id = '{idFrz}'" +
-                $"and account_id = '{idAcc}'");
+                $"set washing_method = N'{washingMethod}', detergent = N'{detergent}', detergent_quantity = '{detergentQuantity}', disinfection_method = N'{disinfectionMethod}', disinfectant = N'{disinfectant}', disinfectant_quantity = '{disinfectantQuantity}' " +
+                $"where freezerCheck_id = '{id}'");
         }
 
         public void DeleteFreezerCheck(DataRowView selectedRow)
@@ -35,6 +36,18 @@ namespace Warehouse.Storage
         public void ReadFreezerCheck(DataGrid grid)
         {
             database.Select(selectFreezerCheck, grid);
+        }
+
+        public long GetAccountId()
+        {
+            database.Connection();
+            SqlCommand command = new SqlCommand($"Select account_id from account where username = '{AuthManager.CurrentUsername}'", database.getSqlConnection());
+
+            long id = Convert.ToInt64(command.ExecuteScalar());
+
+            database.Connection();
+
+            return id;
         }
 
     }

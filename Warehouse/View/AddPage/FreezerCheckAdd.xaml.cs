@@ -1,24 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Warehouse.DTO;
 using Warehouse.Storage;
-using Warehouse.View.AddPage;
 
-namespace Warehouse.View.EditPage
+namespace Warehouse.View.AddPage
 {
-    public partial class FreezerCheckEdit : Window
+
+    public partial class FreezerCheckAdd : Window
     {
-        DataGrid grid;
+        DataGrid data;
         Database database = new Database();
         FreezerCheckStorage freezerCheckStorage = new FreezerCheckStorage();
-
-        int id;
-
-        public FreezerCheckEdit(int id, string freezerName, string freezerCheckDate, string washingMethod, string detergent, string detergentQuantity, string disinfectionMethod, string disinfectant, string disinfectantQuantity, DataGrid grid)
+        FreezerStorage freezerStorage = new FreezerStorage();
+        public FreezerCheckAdd(DataGrid data)
         {
             InitializeComponent();
+
+            this.data = data;
+            freezerStorage.ReadFreezerNameToComboBox(FreezerComboBox);
 
             string imagePath = "D:\\ДИПЛОМ\\warehouse-main\\Warehouse\\Resources\\logo.jpg";
             BitmapImage bitmap = new BitmapImage();
@@ -26,21 +28,12 @@ namespace Warehouse.View.EditPage
             bitmap.UriSource = new Uri(imagePath);
             bitmap.EndInit();
             imageControl.Source = bitmap;
-
-            this.grid = grid;
-            this.id = id;
-            FreezerComboBox.Items.Add(freezerName);
-            Date.Text = freezerCheckDate;
-            WashingMethodBox.Text = washingMethod;
-            DetergentBox.Text = detergent;
-            DetergentQuantityBox.Text = detergentQuantity;
-            DisinfectionMethodBox.Text = disinfectionMethod;
-            DisinfectantBox.Text = disinfectant;
-            DisinfectantQuantityBox.Text = disinfectantQuantity;
         }
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
+            ComboBoxDTO dto = (ComboBoxDTO)FreezerComboBox.SelectedItem;
+            string freezerCheckDate = Date.SelectedDate.Value.ToString("yyyy-MM-dd");
             string washingMethod = WashingMethodBox.Text;
             string detergent = DetergentBox.Text;
             string detergentQuantity = DetergentQuantityBox.Text;
@@ -48,8 +41,8 @@ namespace Warehouse.View.EditPage
             string disinfectant = DisinfectantBox.Text;
             string disinfectantQuantity = DisinfectantQuantityBox.Text;
 
-            freezerCheckStorage.UpdateFreezerCheck(id, washingMethod, detergent, detergentQuantity, disinfectionMethod, disinfectant, disinfectantQuantity);
-            freezerCheckStorage.ReadFreezerCheck(grid);
+            freezerCheckStorage.CreateFreezerCheck(freezerCheckDate, washingMethod, detergent, detergentQuantity, disinfectionMethod, disinfectant, disinfectantQuantity, dto);
+            freezerCheckStorage.ReadFreezerCheck(data);
 
             this.Close();
         }

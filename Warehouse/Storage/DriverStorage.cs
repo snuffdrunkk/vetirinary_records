@@ -10,6 +10,7 @@ namespace Warehouse.Storage
         private Database database = new Database();
 
         private string selectDriver = $"select driver.driver_id, car.car_number, driver.address, driver.phone_number, driver.surname_driver, driver.first_name, driver.middle_name, driver.medical_certificate from driver, car WHERE driver.car_id = car.car_id";
+        private string selectDriverSurname = $"select driver.driver_id, driver.surname_driver from driver";
 
         public void CreateDriver(string address, string phoneNumber, string surname, string firstName, string middleName, string medCertificate, ComboBoxDTO dto)
         {
@@ -28,6 +29,11 @@ namespace Warehouse.Storage
         public void ReadDriver(DataGrid grid)
         {
             database.Select(selectDriver, grid);
+        }
+
+        public void ReadDriverSurnameToComboBox(ComboBox box)
+        {
+            database.ComboBoxToTable(selectDriverSurname, box);
         }
     }
 }

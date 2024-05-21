@@ -22,8 +22,8 @@ namespace Warehouse.View.Main
         StorekeeperStorage storekeeperStorage = new StorekeeperStorage();
         FreezerStorage freezerStorage = new FreezerStorage();
         FreezerCheckStorage freezerCheckStorage = new FreezerCheckStorage();
-        DriverCheckStorage carCheckStorage = new DriverCheckStorage();
-        CarCheckStorage driverCheckStorage = new CarCheckStorage();
+        DriverCheckStorage driverCheckStorage = new DriverCheckStorage();
+        CarCheckStorage carCheckStorage = new CarCheckStorage();
 
         private MainLogic mainLogic;
 
@@ -674,6 +674,200 @@ namespace Warehouse.View.Main
             freezerStorage.ReadFreezer(FreezerGrid);
         }
 
+        private void AddFreezerCheck_Click(object sender, RoutedEventArgs e)//Добавление мороз камеры
+        {
+            FreezerCheckAdd freezerCheckAdd = new FreezerCheckAdd(FreezerCheckGrid);
+            freezerCheckAdd.ShowDialog();
+        }
+
+        private void EditFreezerCheck_Click(object sender, RoutedEventArgs e)//Редакт мороз камеры
+        {
+            var selectedRow = FreezerCheckGrid.SelectedItem as DataRowView;
+            if (selectedRow != null)
+            {
+                FreezerCheckEdit freezerCheckEdit = new FreezerCheckEdit(Convert.ToInt32(selectedRow.Row.ItemArray[0]), Convert.ToString(selectedRow.Row.ItemArray[1]), Convert.ToString(selectedRow.Row.ItemArray[3]), Convert.ToString(selectedRow.Row.ItemArray[4]), Convert.ToString(selectedRow.Row.ItemArray[5]), Convert.ToString(selectedRow.Row.ItemArray[6]), Convert.ToString(selectedRow.Row.ItemArray[7]), Convert.ToString(selectedRow.Row.ItemArray[8]), Convert.ToString(selectedRow.Row.ItemArray[9]), FreezerCheckGrid);
+                freezerCheckEdit.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Не выбрана строка для редактирования", "Ошибка", MessageBoxButton.OK);
+            }
+        }
+
+        private void DeleteFreezerCheck_Click(object sender, RoutedEventArgs e)//Удаление мороз камеры
+        {
+            DataRowView selectedRow = FreezerCheckGrid.SelectedItem as DataRowView;
+            if (selectedRow != null)
+            {
+                try
+                {
+                    freezerCheckStorage.DeleteFreezerCheck(selectedRow);
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Удаление невозможно. Удалите связанные данные с этим отчетом!");
+                    return;
+                }
+
+                freezerCheckStorage.ReadFreezerCheck(FreezerCheckGrid);
+            }
+            else
+            {
+                MessageBox.Show("Выберите поле для удаления!");
+            }
+        }
+
+        private void FiltrationFreezerCheck_Click(object sender, RoutedEventArgs e)//Фильтр мороз камеры
+        {
+            Filtration filtration = new Filtration();
+            filtration.ShowDialog();
+
+            string field = filtration.Field;
+
+            if (field == null)
+                return;
+
+            mainLogic.ApplyFilter(field, FreezerCheckGrid);
+        }
+
+        private void SearchFreezerCheck_Click(object sender, RoutedEventArgs e)//Поиск мороз камеры
+        {
+            Search search = new Search();
+            search.ShowDialog();
+
+            string field = search.Field;
+
+            if (field == null)
+                return;
+
+            mainLogic.SearchAndSort(field, FreezerCheckGrid);
+        }
+
+        private void FreezerCheckCancel_Click(object sender, RoutedEventArgs e)//Отмена мороз камеры
+        {
+            freezerCheckStorage.ReadFreezerCheck(FreezerCheckGrid);
+        }
+
+        private void AddCarCheck_Click(object sender, RoutedEventArgs e)//Добавление очтета машины
+        {
+            CarCheckAdd carCheckAdd = new CarCheckAdd(CarCheckGrid);
+            carCheckAdd.ShowDialog();
+        }
+
+        private void DeleteCarCheck_Click(object sender, RoutedEventArgs e)//Удаление очтета машины
+        {
+            DataRowView selectedRow = CarCheckGrid.SelectedItem as DataRowView;
+            if (selectedRow != null)
+            {
+                try
+                {
+                    carCheckStorage.DeleteCarCheck(selectedRow);
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Удаление невозможно. Удалите связанные данные с этим отчетом!");
+                    return;
+                }
+
+                carCheckStorage.ReadCarCheck(CarCheckGrid);
+            }
+            else
+            {
+                MessageBox.Show("Выберите поле для удаления!");
+            }
+        }
+
+        private void FiltrationCarCheck_Click(object sender, RoutedEventArgs e)//Фильтр очтета машины
+        {
+            Filtration filtration = new Filtration();
+            filtration.ShowDialog();
+
+            string field = filtration.Field;
+
+            if (field == null)
+                return;
+
+            mainLogic.ApplyFilter(field, CarCheckGrid);
+        }
+
+        private void SearchCarCheck_Click(object sender, RoutedEventArgs e)//Поиск очтета машины
+        {
+            Search search = new Search();
+            search.ShowDialog();
+
+            string field = search.Field;
+
+            if (field == null)
+                return;
+
+            mainLogic.SearchAndSort(field, CarCheckGrid);
+        }
+
+        private void CarCheckCancel_Click(object sender, RoutedEventArgs e)//Отмена очтета машины
+        {
+            carCheckStorage.ReadCarCheck(CarCheckGrid);
+        }
+
+        private void AddDriverCheck_Click(object sender, RoutedEventArgs e)//Добавление отчета водителя
+        {
+            DriverCheckAdd driverCheckAdd = new DriverCheckAdd(DriverCheckGrid);
+            driverCheckAdd.ShowDialog();
+        }
+
+        private void DeleteDriverCheck_Click(object sender, RoutedEventArgs e)//Удаление отчета водителя
+        {
+            DataRowView selectedRow = DriverCheckGrid.SelectedItem as DataRowView;
+            if (selectedRow != null)
+            {
+                try
+                {
+                    driverCheckStorage.DeleteDriverCheck(selectedRow);
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Удаление невозможно. Удалите связанные данные с этим отчетом!");
+                    return;
+                }
+
+                driverCheckStorage.ReadDriverCheck(DriverCheckGrid);
+            }
+            else
+            {
+                MessageBox.Show("Выберите поле для удаления!");
+            }
+        }
+
+        private void FiltrationDriverCheck_Click(object sender, RoutedEventArgs e)//Фильтр отчета водителя
+        {
+            Filtration filtration = new Filtration();
+            filtration.ShowDialog();
+
+            string field = filtration.Field;
+
+            if (field == null)
+                return;
+
+            mainLogic.ApplyFilter(field, DriverCheckGrid);
+        }
+
+        private void SearchDriverCheck_Click(object sender, RoutedEventArgs e)//Поиск отчета водителя
+        {
+            Search search = new Search();
+            search.ShowDialog();
+
+            string field = search.Field;
+
+            if (field == null)
+                return;
+
+            mainLogic.SearchAndSort(field, DriverCheckGrid);
+        }
+
+        private void DriverCheckCancel_Click(object sender, RoutedEventArgs e)//Отмена отчета водителя
+        {
+            driverCheckStorage.ReadDriverCheck(DriverCheckGrid);
+        }
+
         private void AdminRegistration_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)//регистрация
         {
             MainWindow mainWindow = new MainWindow();
@@ -690,36 +884,6 @@ namespace Warehouse.View.Main
         {
             MainOutput main = new MainOutput(OrderGrid);
             main.ShowDialog();
-        }
-
-        private void AddFreezerCheck_Click(object sender, RoutedEventArgs e)//Добавление мороз камеры
-        {
-            
-        }
-
-        private void EditFreezerCheck_Click(object sender, RoutedEventArgs e)//Редакт мороз камеры
-        {
-
-        }
-
-        private void DeleteFreezerCheck_Click(object sender, RoutedEventArgs e)//Удаление мороз камеры
-        {
-
-        }
-
-        private void FiltrationFreezerCheck_Click(object sender, RoutedEventArgs e)//Фильтр мороз камеры
-        {
-
-        }
-
-        private void SearchFreezerCheck_Click(object sender, RoutedEventArgs e)//Поиск мороз камеры
-        {
-
-        }
-
-        private void FreezerCheckCancel_Click(object sender, RoutedEventArgs e)//Отмена мороз камеры
-        {
-
         }
     }
 }

@@ -138,8 +138,8 @@
     <Compile Include="View\AddPage\FreezerAdd.xaml.cs">
       <DependentUpon>FreezerAdd.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AddPage\FreezerСheckAdd.xaml.cs">
-      <DependentUpon>FreezerСheckAdd.xaml</DependentUpon>
+    <Compile Include="View\AddPage\FreezerCheckAdd.xaml.cs">
+      <DependentUpon>FreezerCheckAdd.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AddPage\OrderAdd.xaml.cs">
       <DependentUpon>OrderAdd.xaml</DependentUpon>
@@ -238,7 +238,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AddPage\FreezerСheckAdd.xaml">
+    <Page Include="View\AddPage\FreezerCheckAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

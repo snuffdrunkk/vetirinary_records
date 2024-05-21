@@ -1,4 +1,4 @@
-﻿<Window x:Class="Warehouse.View.AddPage.FreezerСheckAdd"
+﻿<Window x:Class="Warehouse.View.AddPage.FreezerCheckAdd"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -64,17 +64,6 @@
             Style="{StaticResource MaterialDesignOutlinedComboBox}"
             BorderBrush="#BC989393">
         </ComboBox>
-        <ComboBox
-            x:Name="AccountComboBox"
-            Width="225px"
-            Height="40px"
-            FontSize="15px"
-            Padding="12 0 12 0"
-            Margin="0 00 0 10" 
-            materialDesign:HintAssist.Hint="Сотрудник"
-            Style="{StaticResource MaterialDesignOutlinedComboBox}"
-            BorderBrush="#BC989393">
-        </ComboBox>
         <DatePicker 
             x:Name="Date"
             materialDesign:HintAssist.Hint="Дата отчета"
@@ -82,7 +71,7 @@
             Padding="12 0 12 0"
             Height="40px"
             Width="225px"
-            Margin="0 90 0 0" 
+            Margin="0 0 0 10" 
             Grid.Row="4"
             Grid.Column="4"
             Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
@@ -201,7 +190,7 @@
             Content="Дальше"
             RenderOptions.EdgeMode="Aliased"
             Margin="120 225 0 0"
-            Click="BackToSecondPage_Click">
+            Click="ToSecondPage_Click">
         </Button>
         <Button
             x:Name="BackToFirstPage"
@@ -219,7 +208,7 @@
             Content="Назад"
             RenderOptions.EdgeMode="Aliased"
             Margin="0 225 120 0"
-            Click="BackToSecondPage_Click">
+            Click="BackToFirstPage_Click">
         </Button>
         <Button
             x:Name="ToThirdPage"
@@ -237,7 +226,7 @@
             Content="Дальше"
             RenderOptions.EdgeMode="Aliased"
             Margin="120 225 0 0"
-            Click="BackToSecondPage_Click">
+            Click="ToThirdPage_Click">
         </Button>
         <Button
             x:Name="BackToSecondPage"
