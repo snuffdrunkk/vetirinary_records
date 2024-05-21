@@ -175,21 +175,21 @@
                 </DataGrid.ContextMenu>
             </DataGrid>
             <DataGrid   
-    Margin="175,100,30,30" 
-    Visibility="Collapsed"
-    x:Name="StorekeeperGrid" 
-    AutoGenerateColumns="false"
-    CanUserResizeColumns="False" 
-    CanUserAddRows="False" 
-    CanUserDeleteRows="False" 
-    CanUserReorderColumns="False" 
-    SelectionMode="Single" 
-    SelectionUnit="FullRow" 
-    CanUserResizeRows="False" 
-    IsReadOnly="True"
-    Foreground="Black"                
-    BorderBrush="Orange"
-    BorderThickness="2">
+                Margin="175,100,30,30" 
+                Visibility="Collapsed"
+                x:Name="StorekeeperGrid" 
+                AutoGenerateColumns="false"
+                CanUserResizeColumns="False" 
+                CanUserAddRows="False" 
+                CanUserDeleteRows="False" 
+                CanUserReorderColumns="False" 
+                SelectionMode="Single" 
+                SelectionUnit="FullRow" 
+                CanUserResizeRows="False" 
+                IsReadOnly="True"
+                Foreground="Black"                
+                BorderBrush="Orange"
+                BorderThickness="2">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="DriverId" Binding="{Binding driver_id}" Visibility="Hidden"/>
                     <DataGridTextColumn Header="Фамилия" Width="*" Binding="{Binding surname_storekeeper}"/>
@@ -243,6 +243,149 @@
                     </ContextMenu>
                 </DataGrid.ContextMenu>
             </DataGrid>
+            <DataGrid   
+                Margin="175,100,30,30" 
+                Visibility="Collapsed"
+                x:Name="FreezerGrid" 
+                AutoGenerateColumns="false"
+                CanUserResizeColumns="False" 
+                CanUserAddRows="False" 
+                CanUserDeleteRows="False" 
+                CanUserReorderColumns="False" 
+                SelectionMode="Single" 
+                SelectionUnit="FullRow" 
+                CanUserResizeRows="False" 
+                IsReadOnly="True"
+                Foreground="Black"
+                BorderBrush="Orange"
+                BorderThickness="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="FreezerId" Binding="{Binding freezer_id}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="Наименование камеры" Width="*" Binding="{Binding freezer_name}"/>
+                    <DataGridTextColumn Header="Описание" Width="*" Binding="{Binding freezer_description}"/>
+                    <DataGridTextColumn Header="Объем" Width="*" Binding="{Binding freezer_volume}"/>
+                </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="AddFreezer" Header="Добавить" Click="AddFreezer_Click"/>
+                        <MenuItem x:Name="EditFreezer" Header="Редактировать" Click="EditFreezer_Click"/>
+                        <MenuItem x:Name="DeleteFreezer"  Header="Удалить" Click="DeleteFreezer_Click"/>
+                        <MenuItem x:Name="FiltrationFreezer" Header="Фильтрация" Click="FiltrationFreezer_Click"/>
+                        <MenuItem x:Name="SearchFreezer" Header="Поиск" Click="SearchFreezer_Click"/>
+                        <MenuItem x:Name="FreezerCancel" Header="Отменить" Click="FreezerCancel_Click"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
+            <DataGrid   
+                Margin="175,100,30,30" 
+                Visibility="Collapsed"
+                x:Name="FreezerCheckGrid" 
+                AutoGenerateColumns="false"
+                CanUserResizeColumns="False" 
+                CanUserAddRows="False" 
+                CanUserDeleteRows="False" 
+                CanUserReorderColumns="False" 
+                SelectionMode="Single" 
+                SelectionUnit="FullRow" 
+                CanUserResizeRows="False" 
+                IsReadOnly="True"
+                Foreground="Black"
+                BorderBrush="Orange"
+                BorderThickness="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="FreezerCheckId" Binding="{Binding freezer_check_id}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="Наименование камеры" Width="*" Binding="{Binding freezer_name}"/>
+                    <DataGridTextColumn Header="Сотрудник" Width="*" Binding="{Binding surname}"/>
+                    <DataGridTextColumn Header="Дата" Width="*" Binding="{Binding freezer_check_date}"/>
+                    <DataGridTextColumn Header="Метод мойки" Width="*" Binding="{Binding washing_method}"/>
+                    <DataGridTextColumn Header="Моющее ср-во" Width="*" Binding="{Binding detergent}"/>
+                    <DataGridTextColumn Header="Кол-во ср-ва" Width="*" Binding="{Binding detergent_quantity}"/>
+                    <DataGridTextColumn Header="Метод дез-ции" Width="*" Binding="{Binding disinfection_method}"/>
+                    <DataGridTextColumn Header="Дез-ое ср-во" Width="*" Binding="{Binding disinfectant}"/>
+                    <DataGridTextColumn Header="Кол-во ср-ва" Width="*" Binding="{Binding disinfectant_quantity}"/>
+                </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="AddFreezerCheck" Header="Добавить" Click="AddFreezerCheck_Click"/>
+                        <MenuItem x:Name="EditFreezerCheck" Header="Редактировать" Click="EditFreezerCheck_Click"/>
+                        <MenuItem x:Name="DeleteFreezerCheck"  Header="Удалить" Click="DeleteFreezerCheck_Click"/>
+                        <MenuItem x:Name="FiltrationFreezerCheck" Header="Фильтрация" Click="FiltrationFreezerCheck_Click"/>
+                        <MenuItem x:Name="SearchFreezerCheck" Header="Поиск" Click="SearchFreezerCheck_Click"/>
+                        <MenuItem x:Name="FreezerCheckCancel" Header="Отменить" Click="FreezerCheckCancel_Click"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
+            <DataGrid   
+                Margin="175,100,30,30" 
+                Visibility="Collapsed"
+                x:Name="DriverCheckGrid" 
+                AutoGenerateColumns="false"
+                CanUserResizeColumns="False" 
+                CanUserAddRows="False" 
+                CanUserDeleteRows="False" 
+                CanUserReorderColumns="False" 
+                SelectionMode="Single" 
+                SelectionUnit="FullRow" 
+                CanUserResizeRows="False" 
+                IsReadOnly="True"
+                Foreground="Black"
+                BorderBrush="Orange"
+                BorderThickness="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="DriverCheckId" Binding="{Binding driver_check_id}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="Водитель" Width="*" Binding="{Binding surname_driver}"/>
+                    <DataGridTextColumn Header="Сотрудник" Width="*" Binding="{Binding surname}"/>
+                    <DataGridTextColumn Header="Дата" Width="*" Binding="{Binding driver_check_date}"/>
+                    <DataGridTextColumn Header="Прибытие водителя" Width="*" Binding="{Binding arrival_date}"/>
+                    <DataGridTextColumn Header="Мед справка" Width="*" Binding="{Binding admission_driver}"/>
+                </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="AddDriverCheck" Header="Добавить"/>
+                        <MenuItem x:Name="EditDriverCheck" Header="Редактировать"/>
+                        <MenuItem x:Name="DeleteDriverCheck"  Header="Удалить"/>
+                        <MenuItem x:Name="FiltrationDriverCheck" Header="Фильтрация"/>
+                        <MenuItem x:Name="SearchDriverCheck" Header="Поиск"/>
+                        <MenuItem x:Name="DriverCheckCancel" Header="Отменить"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
+            <DataGrid   
+                Margin="175,100,30,30" 
+                Visibility="Collapsed"
+                x:Name="CarCheckGrid" 
+                AutoGenerateColumns="false"
+                CanUserResizeColumns="False" 
+                CanUserAddRows="False" 
+                CanUserDeleteRows="False" 
+                CanUserReorderColumns="False" 
+                SelectionMode="Single" 
+                SelectionUnit="FullRow" 
+                CanUserResizeRows="False" 
+                IsReadOnly="True"
+                Foreground="Black"
+                BorderBrush="Orange"
+                BorderThickness="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="CarCheckId" Binding="{Binding freezer_check_id}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="Машина водителя" Width="*" Binding="{Binding surname_driver}"/>
+                    <DataGridTextColumn Header="Сотрудник" Width="*" Binding="{Binding surname}"/>
+                    <DataGridTextColumn Header="Дата" Width="*" Binding="{Binding car_check_date}"/>
+                    <DataGridTextColumn Header="Приезд машины" Width="*" Binding="{Binding arrival_date}"/>
+                    <DataGridTextColumn Header="Провека машины" Width="*" Binding="{Binding admission_car}"/>
+                    <DataGridTextColumn Header="Температура" Width="*" Binding="{Binding car_temperature}"/>
+                </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="AddCarCheck" Header="Добавить"/>
+                        <MenuItem x:Name="EditCarCheck" Header="Редактировать"/>
+                        <MenuItem x:Name="DeleteCarCheck"  Header="Удалить"/>
+                        <MenuItem x:Name="FiltrationCarCheck" Header="Фильтрация"/>
+                        <MenuItem x:Name="SearchCarCheck" Header="Поиск"/>
+                        <MenuItem x:Name="CarCheckCancel" Header="Отменить"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
         </Grid>
         <Grid x:Name="TopMenu" Height="75" VerticalAlignment="Top" Background="#FF8800">
             <StackPanel HorizontalAlignment="Stretch" >
@@ -284,16 +427,16 @@
                             <TextBlock Text="Накладные" VerticalAlignment="Center" Margin="0 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60" x:Name="Supplier" PreviewMouseLeftButtonDown="Supplier_PreviewMouseLeftButtonDown">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="BookAccount" Height="25" Width="25" Margin="10" VerticalAlignment="Center"/>
-                            <TextBlock Text="Водители" VerticalAlignment="Center" Margin="0 10"/>
-                        </StackPanel>
-                    </ListViewItem>
                     <ListViewItem Height="60" x:Name="Storekeeper" PreviewMouseLeftButtonDown="Storekeeper_PreviewMouseLeftButtonDown">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="PackageVariantPlus" Height="25" Width="25" Margin="10" VerticalAlignment="Center"/>
                             <TextBlock Text="Кладовщик" VerticalAlignment="Center" Margin="0 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" x:Name="Supplier" PreviewMouseLeftButtonDown="Supplier_PreviewMouseLeftButtonDown">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="BookAccount" Height="25" Width="25" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock Text="Водители" VerticalAlignment="Center" Margin="0 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60" x:Name="Car" PreviewMouseLeftButtonDown="Car_PreviewMouseLeftButtonDown">

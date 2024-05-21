@@ -113,9 +113,12 @@
     <Compile Include="Service\OutputService.cs" />
     <Compile Include="Service\ValidationFileds.cs" />
     <Compile Include="Storage\Authentif.cs" />
+    <Compile Include="Storage\CarCheckStorage.cs" />
     <Compile Include="Storage\CarStorage.cs" />
     <Compile Include="Storage\ComboBoxOrder.cs" />
+    <Compile Include="Storage\DriverCheckStorage.cs" />
     <Compile Include="Storage\DriverStorage.cs" />
+    <Compile Include="Storage\FreezerCheckStorage.cs" />
     <Compile Include="Storage\FreezerStorage.cs" />
     <Compile Include="Storage\ProductStorage.cs" />
     <Compile Include="Storage\ProductTypeStorage.cs" />

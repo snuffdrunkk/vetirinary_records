@@ -13,12 +13,12 @@ namespace Warehouse.Storage
 
         public void CreateDriver(string address, string phoneNumber, string surname, string firstName, string middleName, string medCertificate, ComboBoxDTO dto)
         {
-            database.Update($"insert into driver (car_id, address, phone_number, surname_driver, first_name, middle_name, medical_certificate) values ('{dto.id}', N'{address}', '{phoneNumber}', N'{surname}', N'{firstName}', N'{middleName}', N'{medCertificate}')");
+            database.Update($"insert into driver (car_id, address, phone_number, surname_driver, first_name, middle_name, medical_certificate) values ('{dto.id}', N'{address}', N'{phoneNumber}', N'{surname}', N'{firstName}', N'{middleName}', N'{medCertificate}')");
         }
 
         public void UpdateDriver(long id, string address, string phoneNumber, string surname, string firstName, string middleName, string medCertificate)
         {
-            database.Update($"update supplier set address = N'{address}', phone_number = '{phoneNumber}', surname_driver = N'{surname}', first_name = N'{firstName}', middle_name = N'{middleName}', medical_certificate = N'{medCertificate}' where driver_id = '{id}'");
+            database.Update($"update supplier set address = N'{address}', phone_number = N'{phoneNumber}', surname_driver = N'{surname}', first_name = N'{firstName}', middle_name = N'{middleName}', medical_certificate = N'{medCertificate}' where driver_id = '{id}'");
         }
 
         public void DeleteDriver(DataRowView selectedRow)

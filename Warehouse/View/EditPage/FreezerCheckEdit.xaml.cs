@@ -23,5 +23,35 @@ namespace Warehouse.View.EditPage
         {
             InitializeComponent();
         }
+
+        private void Confirm_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BackToSecondPage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ToThirdPage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BackToFirstPage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ToSecondPage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Return_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -8,7 +8,9 @@ namespace Warehouse.Storage
     {
         private Database database = new Database();
 
-        private string selectProduct = $"select product.product_id, product_type.type_name, product.presence, product.cost, product.description, product.title, product.suitability from product, product_type WHERE product.product_type_id = product_type.product_type_id";
+        private string selectProduct = $"select product.product_id, product_type.type_name, product.presence, product.cost, product.description, product.title, product.suitability " +
+            $"from product, product_type " +
+            $"WHERE product.product_type_id = product_type.product_type_id";
 
         public void CreateProduct(string title, double cost, string description, string suitability, ComboBoxDTO dto)
         {

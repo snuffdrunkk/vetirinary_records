@@ -23,5 +23,25 @@ namespace Warehouse.View.AddPage
         {
             InitializeComponent();
         }
+
+        private void Return_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ToSecondPage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BackToFirstPage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Confirm_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

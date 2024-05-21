@@ -173,3 +173,15 @@ D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\StorekeeperAdd.g
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\StorekeeperAdd.baml
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\StorekeeperEdit.g.cs
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\StorekeeperEdit.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\CarCheckAdd.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\DriverCheckAdd.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\FreezerAdd.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\FreezerСheckAdd.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\FreezerCheckEdit.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\FreezerEdit.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\CarCheckAdd.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\DriverCheckAdd.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\FreezerAdd.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\FreezerСheckAdd.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\FreezerCheckEdit.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\FreezerEdit.baml

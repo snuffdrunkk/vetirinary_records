@@ -17,7 +17,7 @@ namespace Warehouse.Storage
 
         public void UpdateCar(long id, string number, string mark, string scrutiny)
         {
-            database.Update($"update сar set car_number = N'{number}', mark = '{mark}', scrutiny = N'{scrutiny}' where car_id = '{id}'");
+            database.Update($"update сar set car_number = N'{number}', mark = N'{mark}', scrutiny = N'{scrutiny}' where car_id = '{id}'");
         }
 
         public void DeleteCar(DataRowView selectedRow)

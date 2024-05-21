@@ -146,7 +146,7 @@
             Content="Дальше"
             RenderOptions.EdgeMode="Aliased"
             Margin="120 225 0 0"
-            Click="Next_Click">
+            Click="ToSecondPage_Click">
         </Button>
         <Button
             x:Name="BackToFirstPage"
@@ -164,7 +164,7 @@
             Content="Назад"
             RenderOptions.EdgeMode="Aliased"
             Margin="0 315 120 0"
-            Click="Preview_Click">
+            Click="BackToFirstPage_Click">
         </Button>
         <Button
             x:Name="Confirm"

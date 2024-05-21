@@ -201,7 +201,7 @@
             Content="Дальше"
             RenderOptions.EdgeMode="Aliased"
             Margin="120 225 0 0"
-            Click="Next_Click">
+            Click="BackToSecondPage_Click">
         </Button>
         <Button
             x:Name="BackToFirstPage"
@@ -219,7 +219,7 @@
             Content="Назад"
             RenderOptions.EdgeMode="Aliased"
             Margin="0 225 120 0"
-            Click="Preview_Click">
+            Click="BackToSecondPage_Click">
         </Button>
         <Button
             x:Name="ToThirdPage"
@@ -237,7 +237,7 @@
             Content="Дальше"
             RenderOptions.EdgeMode="Aliased"
             Margin="120 225 0 0"
-            Click="Next_Click">
+            Click="BackToSecondPage_Click">
         </Button>
         <Button
             x:Name="BackToSecondPage"
@@ -255,7 +255,7 @@
             Content="Назад"
             RenderOptions.EdgeMode="Aliased"
             Margin="0 225 120 0"
-            Click="Preview_Click">
+            Click="BackToSecondPage_Click">
         </Button>
         <Button
             x:Name="Confirm"

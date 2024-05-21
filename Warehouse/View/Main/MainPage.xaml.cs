@@ -20,6 +20,10 @@ namespace Warehouse.View.Main
         ProductStorage productStorage = new ProductStorage();
         DriverStorage driverStorage = new DriverStorage();
         StorekeeperStorage storekeeperStorage = new StorekeeperStorage();
+        FreezerStorage freezerStorage = new FreezerStorage();
+        FreezerCheckStorage freezerCheckStorage = new FreezerCheckStorage();
+        DriverCheckStorage carCheckStorage = new DriverCheckStorage();
+        CarCheckStorage driverCheckStorage = new CarCheckStorage();
 
         private MainLogic mainLogic;
 
@@ -45,7 +49,7 @@ namespace Warehouse.View.Main
         {
             Application.Current.Shutdown();
         }
-
+        
         private void ProductType_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)//вывод типа продукта
         {
             SupplierGrid.Visibility = Visibility.Collapsed;
@@ -53,6 +57,10 @@ namespace Warehouse.View.Main
             OrderGrid.Visibility = Visibility.Collapsed;
             CarGrid.Visibility = Visibility.Collapsed;
             StorekeeperGrid.Visibility = Visibility.Collapsed;
+            FreezerGrid.Visibility = Visibility.Collapsed;
+            FreezerCheckGrid.Visibility = Visibility.Collapsed;
+            CarCheckGrid.Visibility = Visibility.Collapsed;
+            DriverCheckGrid.Visibility = Visibility.Collapsed;
 
             ProductTypeGrid.Visibility = Visibility.Visible;
 
@@ -136,12 +144,15 @@ namespace Warehouse.View.Main
 
         private void Product_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)//вывод продукта
         {
-
             ProductTypeGrid.Visibility = Visibility.Collapsed;
             SupplierGrid.Visibility = Visibility.Collapsed;
             OrderGrid.Visibility = Visibility.Collapsed;
             CarGrid.Visibility = Visibility.Collapsed;
             StorekeeperGrid.Visibility = Visibility.Collapsed;
+            FreezerGrid.Visibility = Visibility.Collapsed;
+            FreezerCheckGrid.Visibility = Visibility.Collapsed;
+            CarCheckGrid.Visibility = Visibility.Collapsed;
+            DriverCheckGrid.Visibility = Visibility.Collapsed;
 
             ProductGrid.Visibility = Visibility.Visible;
 
@@ -230,6 +241,10 @@ namespace Warehouse.View.Main
             OrderGrid.Visibility = Visibility.Collapsed;
             CarGrid.Visibility = Visibility.Collapsed;
             StorekeeperGrid.Visibility = Visibility.Collapsed;
+            FreezerGrid.Visibility = Visibility.Collapsed;
+            FreezerCheckGrid.Visibility = Visibility.Collapsed;
+            CarCheckGrid.Visibility = Visibility.Collapsed;
+            DriverCheckGrid.Visibility = Visibility.Collapsed;
 
             SupplierGrid.Visibility = Visibility.Visible;
 
@@ -309,6 +324,24 @@ namespace Warehouse.View.Main
         private void SupplierCancel_Click(object sender, RoutedEventArgs e)//отмена водителя
         {
             driverStorage.ReadDriver(SupplierGrid);
+        }
+
+        private void Storekeeper_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)//Вывод кладовщика
+        {
+            ProductGrid.Visibility = Visibility.Collapsed;
+            ProductTypeGrid.Visibility = Visibility.Collapsed;
+            OrderGrid.Visibility = Visibility.Collapsed;
+            CarGrid.Visibility = Visibility.Collapsed;
+            SupplierGrid.Visibility = Visibility.Collapsed;
+            FreezerGrid.Visibility = Visibility.Collapsed;
+            FreezerCheckGrid.Visibility = Visibility.Collapsed;
+            CarCheckGrid.Visibility = Visibility.Collapsed;
+            DriverCheckGrid.Visibility = Visibility.Collapsed;
+
+            StorekeeperGrid.Visibility = Visibility.Visible;
+
+
+            storekeeperStorage.ReadStorekeeper(StorekeeperGrid);
         }
 
         private void AddStorekeeper_Click(object sender, RoutedEventArgs e)//добавление кладовщика
@@ -393,6 +426,10 @@ namespace Warehouse.View.Main
             OrderGrid.Visibility = Visibility.Collapsed;
             ProductTypeGrid.Visibility = Visibility.Collapsed;
             StorekeeperGrid.Visibility = Visibility.Collapsed;
+            FreezerGrid.Visibility = Visibility.Collapsed;
+            FreezerCheckGrid.Visibility = Visibility.Collapsed;
+            CarCheckGrid.Visibility = Visibility.Collapsed;
+            DriverCheckGrid.Visibility = Visibility.Collapsed;
 
             CarGrid.Visibility = Visibility.Visible;
 
@@ -481,6 +518,10 @@ namespace Warehouse.View.Main
             ProductGrid.Visibility = Visibility.Collapsed;
             CarGrid.Visibility = Visibility.Collapsed;
             StorekeeperGrid.Visibility = Visibility.Collapsed;
+            FreezerGrid.Visibility = Visibility.Collapsed;
+            FreezerCheckGrid.Visibility = Visibility.Collapsed;
+            CarCheckGrid.Visibility = Visibility.Collapsed;
+            DriverCheckGrid.Visibility= Visibility.Collapsed;
 
             OrderGrid.Visibility = Visibility.Visible;
 
@@ -554,7 +595,83 @@ namespace Warehouse.View.Main
 
         private void VetDataGrid_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)//вывод вет услуг
         {
+            VetService vet = new VetService(FreezerGrid, FreezerCheckGrid, CarCheckGrid, DriverCheckGrid);
+            vet.ShowDialog();
+        }
 
+        private void AddFreezer_Click(object sender, RoutedEventArgs e)//Добавление морозилки
+        {
+            FreezerAdd freezerAdd = new FreezerAdd(FreezerGrid);
+            freezerAdd.ShowDialog();
+        }
+
+        private void EditFreezer_Click(object sender, RoutedEventArgs e)//Редактирование морозилки
+        {
+            var selectedRow = FreezerGrid.SelectedItem as DataRowView;
+            if (selectedRow != null)
+            {
+                FreezerEdit freezerEdit = new FreezerEdit(Convert.ToInt32(selectedRow.Row.ItemArray[0]), Convert.ToString(selectedRow.Row.ItemArray[1]), Convert.ToString(selectedRow.Row.ItemArray[2]), Convert.ToString(selectedRow.Row.ItemArray[3]), FreezerGrid);
+                freezerEdit.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("Не выбрана строка для редактирования", "Ошибка", MessageBoxButton.OK);
+            }
+        }
+
+        private void DeleteFreezer_Click(object sender, RoutedEventArgs e)//Удаление морозилки
+        {
+            DataRowView selectedRow = FreezerGrid.SelectedItem as DataRowView;
+            if (selectedRow != null)
+            {
+                try
+                {
+                    freezerStorage.DeleteFreezer(selectedRow);
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Удаление невозможно. Удалите связанные данные с этой камерой!");
+                    return;
+                }
+
+                freezerStorage.ReadFreezer(FreezerGrid);
+            }
+            else
+            {
+                MessageBox.Show("Выберите поле для удаления!");
+            }
+        }
+
+        private void FiltrationFreezer_Click(object sender, RoutedEventArgs e)//Фильтрация морозилки
+        {
+            Filtration filtration = new Filtration();
+            filtration.ShowDialog();
+
+            string field = filtration.Field;
+
+            if (field == null)
+                return;
+
+            mainLogic.ApplyFilter(field, FreezerGrid);
+        }
+
+        private void SearchFreezer_Click(object sender, RoutedEventArgs e)//Поиск морозилки
+        {
+            Search search = new Search();
+            search.ShowDialog();
+
+            string field = search.Field;
+
+            if (field == null)
+                return;
+
+            mainLogic.SearchAndSort(field, FreezerGrid);
+        }
+
+        private void FreezerCancel_Click(object sender, RoutedEventArgs e)//Отмена морозилки
+        {
+            freezerStorage.ReadFreezer(FreezerGrid);
         }
 
         private void AdminRegistration_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)//регистрация
@@ -575,18 +692,34 @@ namespace Warehouse.View.Main
             main.ShowDialog();
         }
 
-        private void Storekeeper_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)//Вывод кладовщика
+        private void AddFreezerCheck_Click(object sender, RoutedEventArgs e)//Добавление мороз камеры
         {
-            ProductGrid.Visibility = Visibility.Collapsed;
-            ProductTypeGrid.Visibility = Visibility.Collapsed;
-            OrderGrid.Visibility = Visibility.Collapsed;
-            CarGrid.Visibility = Visibility.Collapsed;
-            SupplierGrid.Visibility = Visibility.Collapsed;
+            
+        }
 
-            StorekeeperGrid.Visibility = Visibility.Visible;
+        private void EditFreezerCheck_Click(object sender, RoutedEventArgs e)//Редакт мороз камеры
+        {
 
+        }
 
-            storekeeperStorage.ReadStorekeeper(StorekeeperGrid);
+        private void DeleteFreezerCheck_Click(object sender, RoutedEventArgs e)//Удаление мороз камеры
+        {
+
+        }
+
+        private void FiltrationFreezerCheck_Click(object sender, RoutedEventArgs e)//Фильтр мороз камеры
+        {
+
+        }
+
+        private void SearchFreezerCheck_Click(object sender, RoutedEventArgs e)//Поиск мороз камеры
+        {
+
+        }
+
+        private void FreezerCheckCancel_Click(object sender, RoutedEventArgs e)//Отмена мороз камеры
+        {
+
         }
     }
 }

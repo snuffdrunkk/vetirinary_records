@@ -1,44 +1,89 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using Warehouse.Storage;
 
 namespace Warehouse.View.AddPage
 {
     public partial class VetService : Window
     {
-        public VetService()
+        private DataGrid dataGridFrz;
+        private DataGrid dataGridFrzCheck;
+        private DataGrid dataGridCarCheck;
+        private DataGrid dataGridDriverCheck;
+        private FreezerStorage freezerStorage = new FreezerStorage();
+        private FreezerCheckStorage freezerCheckStorage = new FreezerCheckStorage();
+        private CarCheckStorage carCheckStorage = new CarCheckStorage();
+        private DriverCheckStorage driverCheckStorage = new DriverCheckStorage();
+
+        public VetService(DataGrid dataGridFrz, DataGrid dataGridFrzCheck, DataGrid dataGridCarCheck, DataGrid dataGridDriverCheck)
         {
             InitializeComponent();
+
+            string imagePath = "D:\\ДИПЛОМ\\warehouse-main\\Warehouse\\Resources\\logo.jpg";
+
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(imagePath);
+            bitmap.EndInit();
+            imageControl.Source = bitmap;
+
+            this.dataGridFrz = dataGridFrz;
+            this.dataGridFrzCheck = dataGridFrzCheck;
+            this.dataGridCarCheck = dataGridCarCheck;
+            this.dataGridDriverCheck = dataGridDriverCheck;
         }
 
-        private void FreezerGrid_Click(object sender, RoutedEventArgs e)
+        private void FreezerGrid_Click(object sender, RoutedEventArgs e)//Вывод морозильной камеры
         {
+            freezerStorage.ReadFreezer(dataGridFrz);
 
+            dataGridDriverCheck.Visibility = Visibility.Collapsed;
+            dataGridCarCheck.Visibility = Visibility.Collapsed;
+            dataGridFrzCheck.Visibility = Visibility.Collapsed;
+
+            dataGridFrz.Visibility = Visibility.Visible;
+            this.Close();
         }
 
-        private void FreezerReportGrid_Click(object sender, RoutedEventArgs e)
+        private void FreezerReportGrid_Click(object sender, RoutedEventArgs e)//Вывод отчета морозилки
         {
+            freezerCheckStorage.ReadFreezerCheck(dataGridFrzCheck);
 
+            dataGridDriverCheck.Visibility = Visibility.Collapsed;
+            dataGridCarCheck.Visibility = Visibility.Collapsed;
+            dataGridFrz.Visibility = Visibility.Collapsed;
+
+            dataGridFrzCheck.Visibility = Visibility.Visible;
+
+            this.Close();
         }
 
-        private void DriverReportGrid_Click(object sender, RoutedEventArgs e)
+        private void DriverReportGrid_Click(object sender, RoutedEventArgs e)//Вывод очтета водителя
         {
+            driverCheckStorage.ReadDriverCheck(dataGridDriverCheck);
 
+            dataGridFrz.Visibility = Visibility.Collapsed;
+            dataGridCarCheck.Visibility = Visibility.Collapsed;
+            dataGridFrzCheck.Visibility = Visibility.Collapsed;
+
+            dataGridDriverCheck.Visibility = Visibility.Visible;
+
+            this.Close();
         }
 
-        private void CarRecord_Click(object sender, RoutedEventArgs e)
+        private void CarRecord_Click(object sender, RoutedEventArgs e)//Вывод отчета машины
         {
+            carCheckStorage.ReadCarCheck(dataGridCarCheck);
 
+            dataGridDriverCheck.Visibility = Visibility.Collapsed;
+            dataGridFrzCheck.Visibility = Visibility.Collapsed;
+            dataGridFrz.Visibility = Visibility.Collapsed;
+
+            dataGridCarCheck.Visibility = Visibility.Visible;
+
+            this.Close();
         }
     }
 }
