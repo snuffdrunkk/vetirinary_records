@@ -43,9 +43,11 @@ namespace Warehouse.View.AddPage
 
             ValidationFileds validation = new ValidationFileds();
 
-            if (validation.ValidationSupplierAdd(address, phone, surname, firstName, middleName, medCertificate, dto)){
+            if (validation.ValidationSupplierAdd(address, phone, surname, firstName, middleName, medCertificate, dto))
+            {
                 driverStorage.CreateDriver(address, phone, surname, firstName, middleName, medCertificate, dto);
                 driverStorage.ReadDriver(grid);
+                this.Close();
             }
         }
 

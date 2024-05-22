@@ -37,7 +37,6 @@ namespace Warehouse.View.AddPage
             {
                 carStorage.CreateCar(number, mark, scrutiny);
                 carStorage.ReadCar(data);
-
                 this.Close();
             }
         }
@@ -63,6 +62,12 @@ namespace Warehouse.View.AddPage
 
         private bool ValidationCarNumber(string number)
         {
+            if (!carStorage.CountCarNum(number))
+            {
+                MessageBox.Show("Этот номер автомобиля уже существует в базе данных.");
+                return false;
+            }
+
             if (string.IsNullOrEmpty(number))
             {
                 MessageBox.Show("Пожалуйста, введите номер автомобиля.");

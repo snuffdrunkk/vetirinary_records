@@ -20,7 +20,7 @@ namespace Warehouse.View.EditPage
             this.id = id;
             this.grid = grid;
             CarNumberBox.Text = number;
-            CarMarkBox.Text = mark;
+            CarMarkComboBox.Text = mark;
             CarScrutinyComboBox.Text = scrutiny;
 
             string imagePath = "D:\\ДИПЛОМ\\warehouse-main\\Warehouse\\Resources\\logo.jpg";
@@ -40,47 +40,25 @@ namespace Warehouse.View.EditPage
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            string number = CarNumberBox.Text;
-            string mark = CarMarkBox.Text;
+            string mark = CarMarkComboBox.Text;
             string scrutiny = CarScrutinyComboBox.Text;
 
-            if (ValidationCar(number, mark, scrutiny))
+            if (ValidationCar(mark, scrutiny))
             {
-                carStore.UpdateCar(id, number, mark, scrutiny);
+                carStore.UpdateCar(id, mark, scrutiny);
                 carStore.ReadCar(grid);
-
                 this.Close();
-             }
+            }
         }
 
-        public bool ValidationCar(string number, string mark, string scrutiny)
+        public bool ValidationCar(string mark, string scrutiny)
         {
-            if (!ValidationCarNumber(number))
-                return false;
-
             if (!ValidationCarMark(mark))
                 return false;
 
             if (!ValidationCarScrutiny(scrutiny))
                 return false;
 
-            return true;
-        }
-
-        private bool ValidationCarNumber(string number)
-        {
-            if (string.IsNullOrEmpty(number))
-            {
-                MessageBox.Show("Пожалуйста, введите номер автомобиля.");
-                return false;
-            }
-
-            string pattern = @"^\d{4}[A-Z]{2}-[1-7]$";
-            if (!Regex.IsMatch(number, pattern))
-            {
-                MessageBox.Show("Номер автомобиля должен соответствовать формату: 4 цифры, 2 английские буквы в верхнем регистре, тире, затем цифра от 1 до 7.");
-                return false;
-            }
             return true;
         }
 

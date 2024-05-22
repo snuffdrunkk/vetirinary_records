@@ -46,6 +46,7 @@
         </Label>
         <ComboBox
             x:Name="CarNumberComboBox"
+            IsEnabled="False"
             Width="225px"
             Height="40px"
             FontSize="15px"

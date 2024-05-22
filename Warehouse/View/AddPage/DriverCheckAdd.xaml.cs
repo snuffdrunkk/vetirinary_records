@@ -10,12 +10,13 @@ namespace Warehouse.View.AddPage
     public partial class DriverCheckAdd : Window
     {
         DataGrid data;
-        Database database = new Database();
         DriverCheckStorage driverCheckStorage = new DriverCheckStorage();
+        DriverStorage driverStorage = new DriverStorage();
         public DriverCheckAdd(DataGrid data)
         {
             InitializeComponent();
             this.data = data;
+            driverStorage.ReadDriverSurnameToComboBox(DriverComboBox);
 
             string imagePath = "D:\\ДИПЛОМ\\warehouse-main\\Warehouse\\Resources\\logo.jpg";
             BitmapImage bitmap = new BitmapImage();

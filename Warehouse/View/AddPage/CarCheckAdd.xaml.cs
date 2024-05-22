@@ -10,7 +10,6 @@ namespace Warehouse.View.AddPage
     public partial class CarCheckAdd : Window
     {
         DataGrid data;
-        Database database = new Database();
         CarCheckStorage carCheckStorage = new CarCheckStorage();
         DriverStorage driverStorage = new DriverStorage();
 

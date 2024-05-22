@@ -345,7 +345,7 @@
                 <DataGrid.ContextMenu>
                     <ContextMenu>
                         <MenuItem x:Name="AddDriverCheck" Header="Добавить" Click="AddDriverCheck_Click"/>
-                        <MenuItem x:Name="DeleteDriverCheck" Header="Редактировать" Click="DeleteDriverCheck_Click"/>
+                        <MenuItem x:Name="DeleteDriverCheck" Header="Удалить" Click="DeleteDriverCheck_Click"/>
                         <MenuItem x:Name="FiltrationDriverCheck" Header="Фильтрация" Click="FiltrationDriverCheck_Click"/>
                         <MenuItem x:Name="SearchDriverCheck" Header="Поиск" Click="SearchDriverCheck_Click"/>
                         <MenuItem x:Name="DriverCheckCancel" Header="Отменить" Click="DriverCheckCancel_Click"/>

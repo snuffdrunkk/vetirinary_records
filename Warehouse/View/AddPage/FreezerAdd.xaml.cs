@@ -100,9 +100,9 @@ namespace Warehouse.View.AddPage
                 return false;
             }
 
-            if (!int.TryParse(volume, out int volumeValue) || volumeValue < 10 || volumeValue > 500)
+            if (!int.TryParse(volume, out int volumeValue) || volumeValue < 1000 || volumeValue > 5000)
             {
-                MessageBox.Show("Объем морозильной камеры должен быть числом от 10 до 500 литров.");
+                MessageBox.Show("Объем морозильной камеры должен быть числом от 1000 до 5000 литров.");
                 return false;
             }
 

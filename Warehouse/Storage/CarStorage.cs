@@ -1,5 +1,8 @@
 ﻿using System.Data;
+using System.Data.SqlClient;
+using System.Runtime.InteropServices;
 using System.Windows.Controls;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Warehouse.Storage
 {
@@ -15,14 +18,14 @@ namespace Warehouse.Storage
             database.Update($"insert into car (car_number, mark, scrutiny) values (N'{number}', N'{mark}', N'{scrutiny}')");
         }
 
-        public void UpdateCar(long id, string number, string mark, string scrutiny)
+        public void UpdateCar(long id, string mark, string scrutiny)
         {
-            database.Update($"update сar set car_number = N'{number}', mark = N'{mark}', scrutiny = N'{scrutiny}' where car_id = '{id}'");
+            database.Update($"update car set mark = N'{mark}', scrutiny = N'{scrutiny}' where car_id = '{id}'");
         }
 
         public void DeleteCar(DataRowView selectedRow)
         {
-            database.Update($"DELETE FROM сar Where car_id = {selectedRow.Row.ItemArray[0]}");
+            database.Update($"DELETE FROM car Where car_id = {selectedRow.Row.ItemArray[0]}");
         }
 
         public void ReadCar(DataGrid grid)
@@ -35,5 +38,22 @@ namespace Warehouse.Storage
             database.ComboBoxToTable(selectCarNum, box);
         }
 
+        public bool CountCarNum(string carNum)
+        {
+            database.Connection();
+            SqlCommand command = new SqlCommand($"SELECT COUNT(*) FROM car WHERE car_number ='{carNum}'", database.getSqlConnection());
+            int count = (int)command.ExecuteScalar();
+            database.Connection();
+            return count == 0;
+        }
+
+        public bool IsCarIdUsedInDriver(long carId)
+        {
+             database.Connection();
+             SqlCommand command = new SqlCommand($"SELECT COUNT(*) FROM driver WHERE car_id ='{carId}'", database.getSqlConnection());
+             int count = (int)command.ExecuteScalar();
+             database.Connection();
+             return count > 0;
+        }
     }
 }

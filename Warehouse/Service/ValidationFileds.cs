@@ -3,11 +3,13 @@ using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Windows;
 using Warehouse.DTO;
+using Warehouse.Storage;
 
 namespace Warehouse.Service
 {
     internal class ValidationFileds
     {
+        CarStorage carStorage = new CarStorage();
         public bool ValidateFieldsAccReg(string username, string firstPassword, string secondPassword, string surname, string firstName, string middleName)//Проверка аккаунта
         {
             if (!ValidationAuth(username))
@@ -66,6 +68,9 @@ namespace Warehouse.Service
             if (!ValidationComboBoxmarkItem(box))
                 return false;
 
+            if (!ValidationComboBoxNumItem(box))
+                return false;
+
             return true;
         }
 
@@ -115,7 +120,7 @@ namespace Warehouse.Service
             return true;
         }
 
-        public bool ValidationProductAdd(string title, string cost, string description, string suitability, ComboBoxDTO box)//Добавление продукта
+        public bool ValidationProductAdd(string title, string cost, string description, ComboBoxDTO box)//Добавление продукта
         {
             if (!ValidationProductTypeTitle(title))
                 return false;
@@ -124,29 +129,9 @@ namespace Warehouse.Service
                 return false;
 
             if (!ValidationProductDescription(description))
-                return false;
-
-            if (!ValidationProductSuitability(suitability))
                 return false;
 
             if (!ValidationComboBoxItem(box))
-                return false;
-
-            return true;
-        }
-
-        public bool ValidationProductEdit(string title, string cost, string description, string suitability)//Редакт продукта
-        {
-            if (!ValidationProductTypeTitle(title))
-                return false;
-
-            if (!ValidationCost(cost))
-                return false;
-
-            if (!ValidationProductDescription(description))
-                return false;
-
-            if (!ValidationProductSuitability(suitability))
                 return false;
 
             return true;
@@ -250,6 +235,17 @@ namespace Warehouse.Service
             if (combo == null)
             {
                 MessageBox.Show("Выберите машину!");
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool ValidationComboBoxNumItem(ComboBoxDTO combo)
+        {
+            if (carStorage.IsCarIdUsedInDriver(combo.id))
+            {
+                MessageBox.Show("Этот номер машины уже используется!");
                 return false;
             }
 
@@ -428,42 +424,6 @@ namespace Warehouse.Service
                 return "ROLE_ADMIN";
             else
                 return "ROLE_USER";
-        }
-
-        public bool ValidateCarNumber(string number)
-        {
-            if (string.IsNullOrEmpty(number))
-            {
-                MessageBox.Show("Пожалуйста, введите номер автомобиля.");
-                return false;
-            }
-
-            // Можно добавить дополнительную логику проверки формата номера, если необходимо
-            return true;
-        }
-
-        public bool ValidateCarMark(string mark)
-        {
-            if (string.IsNullOrEmpty(mark))
-            {
-                MessageBox.Show("Пожалуйста, введите марку автомобиля.");
-                return false;
-            }
-
-            // Можно добавить дополнительную логику проверки формата марки, если необходимо
-            return true;
-        }
-
-        public bool ValidateCarScrutiny(string scrutiny)
-        {
-            if (string.IsNullOrEmpty(scrutiny))
-            {
-                MessageBox.Show("Пожалуйста, выберите тип осмотра автомобиля.");
-                return false;
-            }
-
-            // Можно добавить дополнительную логику проверки выбранного значения, если необходимо
-            return true;
         }
     }
 }

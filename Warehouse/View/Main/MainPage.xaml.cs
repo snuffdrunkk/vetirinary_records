@@ -286,7 +286,6 @@ namespace Warehouse.View.Main
                 MessageBox.Show("Удаление невозможно. Удалите связанные данные с этим водителем!");
                 return;
             }
-
             driverStorage.ReadDriver(SupplierGrid);
             }
             else
