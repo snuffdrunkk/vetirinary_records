@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -29,16 +30,74 @@ namespace Warehouse.View.AddPage
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
             string number = CarNumberBox.Text;
-            string mark = CarMarkBox.Text;
+            string mark = CarMarkComboBox.Text;
             string scrutiny = CarScrutinyComboBox.Text;
 
-            carStorage.CreateCar(number, mark, scrutiny);
-            carStorage.ReadCar(data);
+            if (ValidationCar(number, mark, scrutiny))
+            {
+                carStorage.CreateCar(number, mark, scrutiny);
+                carStorage.ReadCar(data);
+
+                this.Close();
+            }
         }
 
         private void Return_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        public bool ValidationCar(string number, string mark, string scrutiny)
+        {
+            if (!ValidationCarNumber(number))
+                return false;
+
+            if (!ValidationCarMark(mark))
+                return false;
+
+            if (!ValidationCarScrutiny(scrutiny))
+                return false;
+
+            return true;
+        }
+
+        private bool ValidationCarNumber(string number)
+        {
+            if (string.IsNullOrEmpty(number))
+            {
+                MessageBox.Show("Пожалуйста, введите номер автомобиля.");
+                return false;
+            }
+
+            string pattern = @"^\d{4}[A-Z]{2}-[1-7]$";
+            if (!Regex.IsMatch(number, pattern))
+            {
+                MessageBox.Show("Номер автомобиля должен соответствовать формату: 4 цифры, 2 английские буквы в верхнем регистре, тире, затем цифра от 1 до 7.");
+                return false;
+            }
+            return true;
+        }
+
+        private bool ValidationCarMark(string mark)
+        {
+            if (string.IsNullOrEmpty(mark))
+            {
+                MessageBox.Show("Выберите марку авто!");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool ValidationCarScrutiny(string scrutiny)
+        {
+            if (string.IsNullOrEmpty(scrutiny))
+            {
+                MessageBox.Show("Пожалуйста, выберите тип осмотра автомобиля.");
+                return false;
+            }
+
+            return true;
         }
     }
 }

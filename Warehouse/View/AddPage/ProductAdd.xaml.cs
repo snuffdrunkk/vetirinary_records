@@ -45,7 +45,7 @@ namespace Warehouse.View.AddPage
 
             ValidationFileds validation = new ValidationFileds();
 
-            if (validation.ValidationProductAdd(title, cost, description, dto))
+            if (validation.ValidationProductAdd(title, cost, description, suitability, dto))
             {
                 productStorage.CreateProduct(title, validation.CastCostToDouble(cost), description, suitability, dto);
                 productStorage.ReadProduct(grid);

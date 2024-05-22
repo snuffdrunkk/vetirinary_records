@@ -511,6 +511,8 @@ namespace Warehouse.View.Main
             carStorage.ReadCar(CarGrid);
         }
 
+        string stariy_bog = "старый бох";
+
         private void Order_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)//вывод накладной
         {
             ProductTypeGrid.Visibility = Visibility.Collapsed;
@@ -525,8 +527,8 @@ namespace Warehouse.View.Main
 
             OrderGrid.Visibility = Visibility.Visible;
 
-            DataTable orderTable = database.GetOrdersWithProducts();
-            OrderGrid.ItemsSource = orderTable.DefaultView;
+/*            DataTable orderTable = database.GetOrdersWithProducts();
+            OrderGrid.ItemsSource = orderTable.DefaultView;*/
         }
 
         private void OrderButtontetet_Click(object sender, RoutedEventArgs e)//Добавление ттн

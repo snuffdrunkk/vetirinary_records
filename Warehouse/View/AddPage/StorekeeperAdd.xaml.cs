@@ -74,10 +74,12 @@ namespace Warehouse.View.AddPage
 
             ValidationFileds validation = new ValidationFileds();
 
-            /*            if (validation.ValidationSupplierAdd(){*/
-            storekeeperStorage.CreateStorekeeper(surname, firstName, middleName, phone, address, medCertificate);
-            storekeeperStorage.ReadStorekeeper(grid);
-            /*            }*/
+            if (validation.ValidationStorekeeper(surname, firstName, middleName, phone, address, medCertificate))
+            {
+                storekeeperStorage.CreateStorekeeper(surname, firstName, middleName, phone, address, medCertificate);
+                storekeeperStorage.ReadStorekeeper(grid);
+                this.Close();
+            }
         }
     }
 }

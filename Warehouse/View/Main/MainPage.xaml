@@ -41,11 +41,14 @@
                 BorderThickness="2">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Номер заказа" Width="*" Binding="{Binding order_id}"/>
-                    <DataGridTextColumn Header="Поставщик" Width="*"  Binding="{Binding title}"/>
+                    <DataGridTextColumn Header="Водитель" Width="*"  Binding="{Binding surname_driver}"/>
+                    <DataGridTextColumn Header="Кладовщик" Width="*"  Binding="{Binding surname_storekeeper}"/>
                     <DataGridTextColumn Header="Сотрудник" Width="*"  Binding="{Binding surname}"/>
                     <DataGridTextColumn Header="Сумма" Width="*"  Binding="{Binding amount}"/>
                     <DataGridTextColumn Header="Дата" Width="*"  Binding="{Binding order_date, StringFormat=dd.MM.yyyy}"/>
                     <DataGridTextColumn Header="Тип" Width="*"  Binding="{Binding order_type}"/>
+                    <DataGridTextColumn Header="Точка отправления" Width="*"  Binding="{Binding departure_point}"/>
+                    <DataGridTextColumn Header="Точка прибытия" Width="*"  Binding="{Binding arrival_point}"/>
                     <DataGridTemplateColumn Header="Продукты" Width="*" >
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -296,7 +299,7 @@
                     <DataGridTextColumn Header="FreezerCheckId" Binding="{Binding freezer_check_id}" Visibility="Hidden"/>
                     <DataGridTextColumn Header="Наименование камеры" Width="*" Binding="{Binding freezer_name}"/>
                     <DataGridTextColumn Header="Сотрудник" Width="*" Binding="{Binding surname}"/>
-                    <DataGridTextColumn Header="Дата" Width="*" Binding="{Binding freezer_check_date}"/>
+                    <DataGridTextColumn Header="Дата" Width="*" Binding="{Binding freezer_check_date, StringFormat=dd.MM.yyyy}"/>
                     <DataGridTextColumn Header="Метод мойки" Width="*" Binding="{Binding washing_method}"/>
                     <DataGridTextColumn Header="Моющее ср-во" Width="*" Binding="{Binding detergent}"/>
                     <DataGridTextColumn Header="Кол-во ср-ва" Width="*" Binding="{Binding detergent_quantity}"/>
@@ -335,8 +338,8 @@
                     <DataGridTextColumn Header="DriverCheckId" Binding="{Binding driver_check_id}" Visibility="Hidden"/>
                     <DataGridTextColumn Header="Водитель" Width="*" Binding="{Binding surname_driver}"/>
                     <DataGridTextColumn Header="Сотрудник" Width="*" Binding="{Binding surname}"/>
-                    <DataGridTextColumn Header="Дата" Width="*" Binding="{Binding driver_check_date}"/>
-                    <DataGridTextColumn Header="Прибытие водителя" Width="*" Binding="{Binding arrival_date}"/>
+                    <DataGridTextColumn Header="Дата" Width="*" Binding="{Binding driver_check_date, StringFormat=dd.MM.yyyy}"/>
+                    <DataGridTextColumn Header="Прибытие водителя" Width="*" Binding="{Binding arrival_date, StringFormat=dd.MM.yyyy}"/>
                     <DataGridTextColumn Header="Мед справка" Width="*" Binding="{Binding admission_driver}"/>
                 </DataGrid.Columns>
                 <DataGrid.ContextMenu>
@@ -369,8 +372,8 @@
                     <DataGridTextColumn Header="CarCheckId" Binding="{Binding freezer_check_id}" Visibility="Hidden"/>
                     <DataGridTextColumn Header="Машина водителя" Width="*" Binding="{Binding surname_driver}"/>
                     <DataGridTextColumn Header="Сотрудник" Width="*" Binding="{Binding surname}"/>
-                    <DataGridTextColumn Header="Дата" Width="*" Binding="{Binding car_check_date}"/>
-                    <DataGridTextColumn Header="Приезд машины" Width="*" Binding="{Binding arrival_date}"/>
+                    <DataGridTextColumn Header="Дата" Width="*" Binding="{Binding car_check_date, StringFormat=dd.MM.yyyy}"/>
+                    <DataGridTextColumn Header="Приезд машины" Width="*" Binding="{Binding arrival_date, StringFormat=dd.MM.yyyy}"/>
                     <DataGridTextColumn Header="Провека машины" Width="*" Binding="{Binding admission_car}"/>
                     <DataGridTextColumn Header="Температура" Width="*" Binding="{Binding car_temperature}"/>
                 </DataGrid.Columns>

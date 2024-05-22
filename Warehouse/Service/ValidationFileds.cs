@@ -8,7 +8,7 @@ namespace Warehouse.Service
 {
     internal class ValidationFileds
     {
-        public bool ValidateFields(string username, string firstPassword, string secondPassword, string surname, string firstName, string middleName)
+        public bool ValidateFieldsAccReg(string username, string firstPassword, string secondPassword, string surname, string firstName, string middleName)//Проверка аккаунта
         {
             if (!ValidationAuth(username))
             {
@@ -43,11 +43,8 @@ namespace Warehouse.Service
             return true;
         }
 
-        public bool ValidationSupplierAdd(string title, string address, string phoneNumber, string surname, string firstName, string middleName)
+        public bool ValidationSupplierAdd(string address, string phoneNumber, string surname, string firstName, string middleName, string medCertificate, ComboBoxDTO box)//Проверка доб водителя
         {
-            if (!ValidationProductTypeTitle(title))
-                return false;
-
             if (!ValidationAddress(address))
                 return false;
 
@@ -62,6 +59,108 @@ namespace Warehouse.Service
 
             if (!ValidationMiddleName(middleName))
                 return false;
+
+            if (!ValidationProductSuitability(medCertificate))
+                return false;
+
+            if (!ValidationComboBoxmarkItem(box))
+                return false;
+
+            return true;
+        }
+
+        public bool ValidationSupplierEdit(string address, string phoneNumber, string surname, string firstName, string middleName, string medCertificate)//Проверка ред водителя
+        {
+            if (!ValidationAddress(address))
+                return false;
+
+            if (!ValidationPhoneNumber(phoneNumber))
+                return false;
+
+            if (!ValidationSurname(surname))
+                return false;
+
+            if (!ValidationFirstName(firstName))
+                return false;
+
+            if (!ValidationMiddleName(middleName))
+                return false;
+
+            if (!ValidationProductSuitability(medCertificate))
+                return false;
+
+            return true;
+        }
+
+        public bool ValidationStorekeeper(string address, string phoneNumber, string surname, string firstName, string middleName, string medCertificate)//Проверка клад
+        {
+            if (!ValidationAddress(address))
+                return false;
+
+            if (!ValidationPhoneNumber(phoneNumber))
+                return false;
+
+            if (!ValidationSurname(surname))
+                return false;
+
+            if (!ValidationFirstName(firstName))
+                return false;
+
+            if (!ValidationMiddleName(middleName))
+                return false;
+
+            if (!ValidationProductSuitability(medCertificate))
+                return false;
+
+            return true;
+        }
+
+        public bool ValidationProductAdd(string title, string cost, string description, string suitability, ComboBoxDTO box)//Добавление продукта
+        {
+            if (!ValidationProductTypeTitle(title))
+                return false;
+
+            if (!ValidationCost(cost))
+                return false;
+
+            if (!ValidationProductDescription(description))
+                return false;
+
+            if (!ValidationProductSuitability(suitability))
+                return false;
+
+            if (!ValidationComboBoxItem(box))
+                return false;
+
+            return true;
+        }
+
+        public bool ValidationProductEdit(string title, string cost, string description, string suitability)//Редакт продукта
+        {
+            if (!ValidationProductTypeTitle(title))
+                return false;
+
+            if (!ValidationCost(cost))
+                return false;
+
+            if (!ValidationProductDescription(description))
+                return false;
+
+            if (!ValidationProductSuitability(suitability))
+                return false;
+
+            return true;
+        }
+
+        public bool ValidationProductTypeTitle(string title)//Проверка типа продукта
+        {
+            string productTypePattern = @"^(?![- ])(?!.*[- ]{2})[a-zA-Zа-яА-Я -]{3,30}(?<![- ])$";
+
+            if (!Regex.IsMatch(title, productTypePattern))
+            {
+                MessageBox.Show("Размер наименования от 3 до 30 символов, без цифр и знаков!");
+                return false;
+            }
 
             return true;
         }
@@ -123,40 +222,6 @@ namespace Warehouse.Service
             return true;
         }
 
-        public bool ValidationProductAdd(string title, string cost, string description, ComboBoxDTO box)
-        {
-            if (!ValidationProductTypeTitle(title))
-                return false;
-
-            if (!ValidationCost(cost))
-                return false;
-
-            if (!ValidationProductDescription(description))
-                return false;
-
-/*            if (!ValidationProductSuitability(suitability))
-                return false;*/
-
-            if (!ValidationComboBoxItem(box))
-                return false;
-
-            return true;
-        }
-
-        public bool ValidationProductEdit(string title, string cost, string description)
-        {
-            if (!ValidationProductTypeTitle(title))
-                return false;
-
-            if (!ValidationCost(cost))
-                return false;
-
-            if (!ValidationProductDescription(description))
-                return false;
-
-            return true;
-        }
-
         public bool ValidationAddress(string address)
         {
 
@@ -174,6 +239,17 @@ namespace Warehouse.Service
             if (combo == null)
             {
                 MessageBox.Show("Выберите тип продукта!");
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool ValidationComboBoxmarkItem(ComboBoxDTO combo)
+        {
+            if (combo == null)
+            {
+                MessageBox.Show("Выберите машину!");
                 return false;
             }
 
@@ -225,17 +301,16 @@ namespace Warehouse.Service
             return true;
         }
 
-/*        public bool ValidationProductSuitability(string suitability)
+        public bool ValidationProductSuitability(string suitability)
         {
-
-            if (suitability.Length < 0)
+            if (string.IsNullOrEmpty(suitability))
             {
-                MessageBox.Show("ВЫберите пригодность продукта!");
+                MessageBox.Show("Выберите пригодность продукта!");
                 return false;
             }
 
             return true;
-        }*/
+        }
 
         public double CastCostToDouble(string cost)
         {
@@ -265,19 +340,6 @@ namespace Warehouse.Service
             } else
             {
                 MessageBox.Show("Введите число!");
-                return false;
-            }
-
-            return true;
-        }
-
-        public bool ValidationProductTypeTitle(string title)
-        {
-            string productTypePattern = @"^(?![- ])(?!.*[- ]{2})[a-zA-Zа-яА-Я -]{3,30}(?<![- ])$";
-
-            if (!Regex.IsMatch(title, productTypePattern))
-            {
-                MessageBox.Show("Размер наименования от 3 до 30 символов, без цифр и знаков!");
                 return false;
             }
 
@@ -366,6 +428,42 @@ namespace Warehouse.Service
                 return "ROLE_ADMIN";
             else
                 return "ROLE_USER";
+        }
+
+        public bool ValidateCarNumber(string number)
+        {
+            if (string.IsNullOrEmpty(number))
+            {
+                MessageBox.Show("Пожалуйста, введите номер автомобиля.");
+                return false;
+            }
+
+            // Можно добавить дополнительную логику проверки формата номера, если необходимо
+            return true;
+        }
+
+        public bool ValidateCarMark(string mark)
+        {
+            if (string.IsNullOrEmpty(mark))
+            {
+                MessageBox.Show("Пожалуйста, введите марку автомобиля.");
+                return false;
+            }
+
+            // Можно добавить дополнительную логику проверки формата марки, если необходимо
+            return true;
+        }
+
+        public bool ValidateCarScrutiny(string scrutiny)
+        {
+            if (string.IsNullOrEmpty(scrutiny))
+            {
+                MessageBox.Show("Пожалуйста, выберите тип осмотра автомобиля.");
+                return false;
+            }
+
+            // Можно добавить дополнительную логику проверки выбранного значения, если необходимо
+            return true;
         }
     }
 }

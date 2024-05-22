@@ -42,5 +42,78 @@ namespace Warehouse.View.AddPage
 
             this.Close();
         }
+
+        internal bool ValidationCarCheck(string driverCheckDate, string arrivalDate, string admissionDriver,  ComboBoxDTO dto)
+        {
+            if (!ValidationDriverCheckDate(driverCheckDate))
+                return false;
+
+            if (!ValidationArrivalDate(arrivalDate))
+                return false;
+
+            if (!ValidationCarAdmission(admissionDriver))
+                return false;
+
+            if (!ValidationDriver(dto))
+                return false;
+
+            return true;
+        }
+
+        private bool ValidationDriverCheckDate(string driverCheckDate)
+        {
+            if (string.IsNullOrEmpty(driverCheckDate))
+            {
+                MessageBox.Show("Пожалуйста, выберите дату водительского осмотра.");
+                return false;
+            }
+
+            if (DateTime.Parse(driverCheckDate) != DateTime.Today)
+            {
+                MessageBox.Show("Дата водительского осмотра должна быть сегодняшней.");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool ValidationArrivalDate(string arrivalDate)
+        {
+            if (string.IsNullOrEmpty(arrivalDate))
+            {
+                MessageBox.Show("Пожалуйста, выберите дату прибытия автомобиля.");
+                return false;
+            }
+
+            if (DateTime.Parse(arrivalDate) != DateTime.Today)
+            {
+                MessageBox.Show("Дата водительского осмотра должна быть сегодняшней.");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool ValidationCarAdmission(string admissionDriver)
+        {
+            if (string.IsNullOrEmpty(admissionDriver))
+            {
+                MessageBox.Show("Пожалуйста, введите допуск водителя.");
+                return false;
+            }
+
+            return true;
+        }
+
+        internal bool ValidationDriver(ComboBoxDTO dto)
+        {
+            if (dto == null)
+            {
+                MessageBox.Show("Пожалуйста, выберите водителя и.");
+                return false;
+            }
+
+            return true;
+        }
     }
 }

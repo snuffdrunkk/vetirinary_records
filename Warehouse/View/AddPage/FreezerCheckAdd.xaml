@@ -96,6 +96,7 @@
         <TextBox
             x:Name="DetergentBox"
             Visibility="Collapsed"
+            IsEnabled="False"
             materialDesign:HintAssist.Hint="Моющее средство"
             FontSize="15px"
             Padding="12 10 2 2"
@@ -136,6 +137,7 @@
         </ComboBox>
         <TextBox
             x:Name="DisinfectantBox"
+            IsEnabled="False"
             Visibility="Collapsed"
             materialDesign:HintAssist.Hint="Дезинфекционное средство"
             FontSize="15px"

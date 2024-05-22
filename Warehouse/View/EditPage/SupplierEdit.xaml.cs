@@ -53,13 +53,13 @@ namespace Warehouse.View.EditPage
 
             ValidationFileds validation = new ValidationFileds();
 
-            /*            if (validation.ValidationSupplierAdd(title, address, phone, surname, firstName, middleName))
-                        {*/
-            driverStorage.UpdateDriver(id, address, phone, surname, firstName, middleName, medicalCertificate);
-            driverStorage.ReadDriver(grid);
+            if (validation.ValidationSupplierEdit(address, phone, surname, firstName, middleName, medicalCertificate))
+            {
+                driverStorage.UpdateDriver(id, address, phone, surname, firstName, middleName, medicalCertificate);
+                driverStorage.ReadDriver(grid);
 
-            this.Close();
-            /*            }*/
+                this.Close();
+            }
         }
 
         private void Next_Click(object sender, RoutedEventArgs e)

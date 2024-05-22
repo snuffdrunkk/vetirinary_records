@@ -43,11 +43,10 @@ namespace Warehouse.View.AddPage
 
             ValidationFileds validation = new ValidationFileds();
 
-/*            if (validation.ValidationSupplierAdd(){*/
+            if (validation.ValidationSupplierAdd(address, phone, surname, firstName, middleName, medCertificate, dto)){
                 driverStorage.CreateDriver(address, phone, surname, firstName, middleName, medCertificate, dto);
                 driverStorage.ReadDriver(grid);
-/*            }*/
-
+            }
         }
 
         private void Next_Click(object sender, RoutedEventArgs e)

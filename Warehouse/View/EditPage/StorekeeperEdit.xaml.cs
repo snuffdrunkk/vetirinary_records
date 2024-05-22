@@ -1,18 +1,7 @@
-﻿using OfficeOpenXml.FormulaParsing.Excel.Functions.RefAndLookup;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Warehouse.DTO;
 using Warehouse.Service;
 using Warehouse.Storage;
 
@@ -58,13 +47,13 @@ namespace Warehouse.View.EditPage
 
             ValidationFileds validation = new ValidationFileds();
 
-            /*            if (validation.ValidationSupplierAdd(title, address, phone, surname, firstName, middleName))
-                        {*/
-            storekeeperStorage.UpdateStorekeeper(id, surname, firstName, middleName, phone , address,  medicalCertificate);
-            storekeeperStorage.ReadStorekeeper(grid);
+            if (validation.ValidationStorekeeper(surname, firstName, middleName, phone, address, medicalCertificate))
+            {
+                storekeeperStorage.UpdateStorekeeper(id, surname, firstName, middleName, phone , address,  medicalCertificate);
+                storekeeperStorage.ReadStorekeeper(grid);
 
-            this.Close();
-            /*            }*/
+                this.Close();
+            }
         }
 
         private void Preview_Click(object sender, RoutedEventArgs e)

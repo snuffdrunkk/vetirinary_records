@@ -25,7 +25,7 @@ namespace Warehouse.Storage
         {
             database.Update($"update freezer_check " +
                 $"set washing_method = N'{washingMethod}', detergent = N'{detergent}', detergent_quantity = '{detergentQuantity}', disinfection_method = N'{disinfectionMethod}', disinfectant = N'{disinfectant}', disinfectant_quantity = '{disinfectantQuantity}' " +
-                $"where freezerCheck_id = '{id}'");
+                $"where freezer_check_id = '{id}'");
         }
 
         public void DeleteFreezerCheck(DataRowView selectedRow)

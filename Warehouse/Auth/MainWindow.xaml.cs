@@ -35,7 +35,7 @@ namespace Warehouse
             bool isAdmin = (bool) AdminBox.IsChecked;
             string role = validationFileds.ReturnRole(isAdmin);
 
-            if (validationFileds.ValidateFields(username, firstPassword, secondPassword, surname, firstName, middleName))
+            if (validationFileds.ValidateFieldsAccReg(username, firstPassword, secondPassword, surname, firstName, middleName))
             {
                 Database database = new Database();
                 if (database.CountUsersWithLogin(username) == 0)

@@ -60,7 +60,7 @@ namespace Warehouse.View.EditPage
 
             ValidationFileds validation = new ValidationFileds();
 
-            if (validation.ValidationProductEdit(title, cost, description))
+            if (validation.ValidationProductEdit(title, cost, description, suitability))
             {
                 productStorage.UpdateProduct(id, title, validation.CastCostToDouble(cost), description, suitability);
                 productStorage.ReadProduct(grid);
