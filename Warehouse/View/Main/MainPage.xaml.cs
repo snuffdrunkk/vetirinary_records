@@ -883,8 +883,8 @@ namespace Warehouse.View.Main
 
         private void Output_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)//вывод печати
         {
-            MainOutput main = new MainOutput(OrderGrid);
-            main.ShowDialog();
+            DocumentsOutput documentsOutput = new DocumentsOutput(FreezerCheckGrid, CarCheckGrid, DriverCheckGrid);
+            documentsOutput.ShowDialog();
         }
     }
 }

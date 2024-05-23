@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Warehouse.View.AddPage"
         mc:Ignorable="d"
         Icon="/Resources/ColorIcon.png"
-        Height="600" Width="650"
+        Height="600" Width="850"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -23,8 +23,8 @@
             Background="White"
             CornerRadius="10" 
             BorderBrush="Black" 
-            Width="300px" 
-            Padding="10" Margin="175,142,175,141">
+            Width="800px" 
+            Padding="10" Margin="0,142,0,141">
             <Border.Effect>
                 <DropShadowEffect 
                 ShadowDepth="0" 
@@ -71,19 +71,16 @@
             Padding="12 0 12 0"
             Height="40px"
             Width="225px"
-            Margin="0 0 0 10" 
-            Grid.Row="4"
-            Grid.Column="4"
+            Margin="0,205,525,0"
             Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
-            BorderBrush="#BC989393"/>
+            BorderBrush="#BC989393" VerticalAlignment="Top"/>
         <ComboBox
             x:Name="WashingMethodBox"
-            Visibility="Collapsed"
             Width="225px"
             Height="40px"
             FontSize="15px"
             Padding="12 0 12 0"
-            Margin="0 0 0 110" 
+            Margin="0 0 525 0" 
             materialDesign:HintAssist.Hint="Метод мойки"
             Style="{StaticResource MaterialDesignOutlinedComboBox}"
             BorderBrush="#BC989393">
@@ -95,7 +92,6 @@
         </ComboBox>
         <TextBox
             x:Name="DetergentBox"
-            Visibility="Collapsed"
             IsEnabled="False"
             materialDesign:HintAssist.Hint="Моющее средство"
             FontSize="15px"
@@ -103,29 +99,27 @@
             Height="40px"
             Width="225px"
             Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-            Margin="0 0 0 10" 
+            Margin="0 0 0 0" 
             BorderBrush="#BC989393">
         </TextBox>
         <TextBox
             x:Name="DetergentQuantityBox"
-            Visibility="Collapsed"
-            materialDesign:HintAssist.Hint="Количество моющего средства"
+            materialDesign:HintAssist.Hint="Количество моющего ср-ва"
             FontSize="15px"
             Padding="12 10 2 2"
             Height="40px"
             Width="225px"
             Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-            Margin="0 90 0 0" 
+            Margin="525 0 0 0" 
             BorderBrush="#BC989393">
         </TextBox>
         <ComboBox
             x:Name="DisinfectionMethodBox"
-            Visibility="Collapsed"
             Width="225px"
             Height="40px"
             FontSize="15px"
             Padding="12 0 12 0"
-            Margin="0 0 0 110" 
+            Margin="0 110 525 0" 
             materialDesign:HintAssist.Hint="Метод дезинфекции"
             Style="{StaticResource MaterialDesignOutlinedComboBox}"
             BorderBrush="#BC989393">
@@ -138,31 +132,29 @@
         <TextBox
             x:Name="DisinfectantBox"
             IsEnabled="False"
-            Visibility="Collapsed"
             materialDesign:HintAssist.Hint="Дезинфекционное средство"
             FontSize="15px"
             Padding="12 10 2 2"
             Height="40px"
             Width="225px"
             Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-            Margin="0 0 0 10" 
+            Margin="0 110 0 0" 
             BorderBrush="#BC989393">
         </TextBox>
         <TextBox
             x:Name="DisinfectantQuantityBox"
-            Visibility="Collapsed"
-            materialDesign:HintAssist.Hint="Количество дезинфекционного средства"
+            materialDesign:HintAssist.Hint="Количество дез-го ср-ва"
             FontSize="15px"
             Padding="12 10 2 2"
             Height="40px"
             Width="225px"
             Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-            Margin="0 90 0 0" 
+            Margin="525 110 0 0" 
             BorderBrush="#BC989393">
         </TextBox>
         <Button
             x:Name="Return"
-            Width="105px"
+            Width="135px"
             Height="45px"
             materialDesign:ButtonAssist.CornerRadius="20"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -172,86 +164,14 @@
             BorderBrush="Transparent"
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
-            Content="Вернуться"
             RenderOptions.EdgeMode="Aliased"
-            Margin="0 225 120 0"
+            Margin="0 225 525 0"
             Click="Return_Click">
-        </Button>
-        <Button
-            x:Name="ToSecondPage"
-            Width="105px"
-            Height="45px"
-            materialDesign:ButtonAssist.CornerRadius="20"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            Background="#FF8800"
-            Foreground="White"
-            BorderBrush="Transparent"
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Center" 
-            Content="Дальше"
-            RenderOptions.EdgeMode="Aliased"
-            Margin="120 225 0 0"
-            Click="ToSecondPage_Click">
-        </Button>
-        <Button
-            x:Name="BackToFirstPage"
-            Width="105px"
-            Height="45px"
-            Visibility="Collapsed"
-            materialDesign:ButtonAssist.CornerRadius="20"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            Background="#FF8800"
-            Foreground="White"
-            BorderBrush="Transparent"
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Center" 
-            Content="Назад"
-            RenderOptions.EdgeMode="Aliased"
-            Margin="0 225 120 0"
-            Click="BackToFirstPage_Click">
-        </Button>
-        <Button
-            x:Name="ToThirdPage"
-            Visibility="Collapsed"
-            Width="105px"
-            Height="45px"
-            materialDesign:ButtonAssist.CornerRadius="20"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            Background="#FF8800"
-            Foreground="White"
-            BorderBrush="Transparent"
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Center" 
-            Content="Дальше"
-            RenderOptions.EdgeMode="Aliased"
-            Margin="120 225 0 0"
-            Click="ToThirdPage_Click">
-        </Button>
-        <Button
-            x:Name="BackToSecondPage"
-            Width="105px"
-            Height="45px"
-            Visibility="Collapsed"
-            materialDesign:ButtonAssist.CornerRadius="20"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            Background="#FF8800"
-            Foreground="White"
-            BorderBrush="Transparent"
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Center" 
-            Content="Назад"
-            RenderOptions.EdgeMode="Aliased"
-            Margin="0 225 120 0"
-            Click="BackToSecondPage_Click">
+            <materialDesign:PackIcon Kind="Backburger" Height="35" Width="35"/>
         </Button>
         <Button
             x:Name="Confirm"
-            Visibility="Collapsed"
-            Width="105px"
+            Width="135px"
             Height="45px"
             materialDesign:ButtonAssist.CornerRadius="20"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -261,10 +181,10 @@
             BorderBrush="Transparent"
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
-            Content="Добавить"
             RenderOptions.EdgeMode="Aliased"
-            Margin="120 225 0 0"
+            Margin="525 225 0 0"
             Click="Confirm_Click">
+            <materialDesign:PackIcon Kind="Plus" Height="35" Width="35"/>
         </Button>
     </Grid>
 </Window>

@@ -26,7 +26,6 @@ namespace Warehouse.View.EditPage
             bitmap.EndInit();
             imageControl.Source = bitmap;
 
-            MessageBox.Show(freezerName);
             this.grid = grid;
             this.id = id;
             FreezerComboBox.Items.Add(freezerName);
@@ -56,72 +55,6 @@ namespace Warehouse.View.EditPage
 
                 this.Close();
             }
-        }
-
-        private void BackToSecondPage_Click(object sender, RoutedEventArgs e)
-        {
-            WashingMethodBox.Visibility = Visibility.Visible;
-            DetergentBox.Visibility = Visibility.Visible;
-            DetergentQuantityBox.Visibility = Visibility.Visible;
-
-            DisinfectionMethodBox.Visibility = Visibility.Collapsed;
-            DisinfectantBox.Visibility = Visibility.Collapsed;
-            DisinfectantQuantityBox.Visibility = Visibility.Collapsed;
-
-            BackToFirstPage.Visibility = Visibility.Visible;
-            ToThirdPage.Visibility = Visibility.Visible;
-
-            BackToSecondPage.Visibility = Visibility.Collapsed;
-            Confirm.Visibility = Visibility.Collapsed;
-        }
-
-        private void ToThirdPage_Click(object sender, RoutedEventArgs e)
-        {
-            WashingMethodBox.Visibility = Visibility.Collapsed;
-            DetergentBox.Visibility = Visibility.Collapsed;
-            DetergentQuantityBox.Visibility = Visibility.Collapsed;
-
-            DisinfectionMethodBox.Visibility = Visibility.Visible;
-            DisinfectantBox.Visibility = Visibility.Visible;
-            DisinfectantQuantityBox.Visibility = Visibility.Visible;
-
-            BackToFirstPage.Visibility = Visibility.Collapsed;
-            ToThirdPage.Visibility = Visibility.Collapsed;
-
-            BackToSecondPage.Visibility = Visibility.Visible;
-            Confirm.Visibility = Visibility.Visible;
-        }
-
-        private void BackToFirstPage_Click(object sender, RoutedEventArgs e)
-        {
-            FreezerComboBox.Visibility = Visibility.Visible;
-            Date.Visibility = Visibility.Visible;
-
-            WashingMethodBox.Visibility = Visibility.Collapsed;
-            DetergentBox.Visibility = Visibility.Collapsed;
-            DetergentQuantityBox.Visibility = Visibility.Collapsed;
-
-            Return.Visibility = Visibility.Visible;
-            ToSecondPage.Visibility = Visibility.Visible;
-
-            BackToFirstPage.Visibility = Visibility.Collapsed;
-            ToThirdPage.Visibility = Visibility.Collapsed;
-        }
-
-        private void ToSecondPage_Click(object sender, RoutedEventArgs e)
-        {
-            FreezerComboBox.Visibility = Visibility.Collapsed;
-            Date.Visibility = Visibility.Collapsed;
-
-            WashingMethodBox.Visibility = Visibility.Visible;
-            DetergentBox.Visibility = Visibility.Visible;
-            DetergentQuantityBox.Visibility = Visibility.Visible;
-
-            Return.Visibility = Visibility.Collapsed;
-            ToSecondPage.Visibility = Visibility.Collapsed;
-
-            BackToFirstPage.Visibility = Visibility.Visible;
-            ToThirdPage.Visibility = Visibility.Visible;
         }
 
         private void Return_Click(object sender, RoutedEventArgs e)

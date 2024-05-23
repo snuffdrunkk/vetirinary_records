@@ -63,15 +63,15 @@
             materialDesign:ButtonAssist.CornerRadius="20"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                        Background="#FF8800"
+            Background="#FF8800"
             Foreground="White"
             BorderBrush="Transparent"
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
-            Content="Вернуться"
             RenderOptions.EdgeMode="Aliased"
             Margin="0 120 120 0"
             Click="Return_Click">
+            <materialDesign:PackIcon Kind="Backburger" Height="35" Width="35"/>
         </Button>
         <Button
             x:Name="Confirm"
@@ -80,15 +80,15 @@
             materialDesign:ButtonAssist.CornerRadius="20"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                        Background="#FF8800"
+            Background="#FF8800"
             Foreground="White"
             BorderBrush="Transparent"
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
-            Content="Изменить"
             RenderOptions.EdgeMode="Aliased"
             Margin="120 120 0 0"
             Click="Confirm_Click">
+            <materialDesign:PackIcon Kind="Pencil" Height="35" Width="35"/>
         </Button>
     </Grid>
 </Window>

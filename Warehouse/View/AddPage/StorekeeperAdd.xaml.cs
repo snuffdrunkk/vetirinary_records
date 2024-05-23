@@ -33,36 +33,6 @@ namespace Warehouse.View.AddPage
             this.Close();
         }
 
-        private void Next_Click(object sender, RoutedEventArgs e)
-        {
-            StorekeeperAdressBox.Visibility = Visibility.Collapsed;
-            StorekeeperPhoneBox.Visibility = Visibility.Collapsed;
-            MedicalCertificateComboBox.Visibility = Visibility.Collapsed;
-            Next.Visibility = Visibility.Collapsed;
-            Return.Visibility = Visibility.Collapsed;
-
-            SurnameBox.Visibility = Visibility.Visible;
-            FirstNameBox.Visibility = Visibility.Visible;
-            MiddleNameBox.Visibility = Visibility.Visible;
-            Preview.Visibility = Visibility.Visible;
-            Confirm.Visibility = Visibility.Visible;
-        }
-
-        private void Preview_Click(object sender, RoutedEventArgs e)
-        {
-            SurnameBox.Visibility = Visibility.Collapsed;
-            FirstNameBox.Visibility = Visibility.Collapsed;
-            MiddleNameBox.Visibility = Visibility.Collapsed;
-            Preview.Visibility = Visibility.Collapsed;
-            Confirm.Visibility = Visibility.Collapsed;
-
-            StorekeeperAdressBox.Visibility = Visibility.Visible;
-            StorekeeperPhoneBox.Visibility = Visibility.Visible;
-            MedicalCertificateComboBox.Visibility = Visibility.Visible;
-            Next.Visibility = Visibility.Visible;
-            Return.Visibility = Visibility.Visible;
-        }
-
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
             string address = StorekeeperAdressBox.Text;

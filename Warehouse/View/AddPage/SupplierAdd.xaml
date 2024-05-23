@@ -23,8 +23,7 @@
             Background="White"
             CornerRadius="10" 
             BorderBrush="Black" 
-            Width="300px" 
-            Padding="10" Margin="175,142,175,106">
+            Padding="10" Margin="70,142,70,106">
             <Border.Effect>
                 <DropShadowEffect 
                     ShadowDepth="0" 
@@ -50,7 +49,7 @@
             Height="40px"
             FontSize="15px"
             Padding="12 0 12 0"
-            Margin="0 0 0 110"
+            Margin="0 0 250 110"
             materialDesign:HintAssist.Hint="Номер машины"
             Style="{StaticResource MaterialDesignOutlinedComboBox}"
             BorderBrush="#BC989393">
@@ -63,7 +62,7 @@
             Height="40px"
             Width="225px"
             Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-            Margin="0 0 0 10" 
+            Margin="0 0 250 10" 
             BorderBrush="#BC989393">
         </TextBox>
         <TextBox
@@ -74,7 +73,7 @@
             Height="40px"
             Width="225px"
             Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-            Margin="0 90 0 0" 
+            Margin="0 90 250 0" 
             BorderBrush="#BC989393">
         </TextBox>
         <ComboBox
@@ -92,43 +91,40 @@
         </ComboBox>
         <TextBox
             x:Name="SurnameBox"
-            Visibility="Collapsed"
             materialDesign:HintAssist.Hint="Фамилия"
             FontSize="15px"
             Padding="12 10 2 2"
             Height="40px"
             Width="225px"
             Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-            Margin="0 0 0 110" 
+            Margin="250 0 0 110" 
             BorderBrush="#BC989393">
         </TextBox>
         <TextBox
             x:Name="FirstNameBox"
-            Visibility="Collapsed"
             materialDesign:HintAssist.Hint="Имя"
             FontSize="15px"
             Padding="12 10 2 2"
             Height="40px"
             Width="225px"
             Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-            Margin="0 0 0 10" 
+            Margin="250 0 0 10" 
             BorderBrush="#BC989393">
         </TextBox>
         <TextBox
             x:Name="MiddleNameBox"
-            Visibility="Collapsed"
             materialDesign:HintAssist.Hint="Отчество"
             FontSize="15px"
             Padding="12 10 2 2"
             Height="40px"
             Width="225px"
             Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-            Margin="0 90 0 0" 
+            Margin="250 90 0 0" 
             BorderBrush="#BC989393">
         </TextBox>
         <Button
             x:Name="Return"
-            Width="105px"
+            Width="135px"
             Height="45px"
             materialDesign:ButtonAssist.CornerRadius="20"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -138,50 +134,14 @@
             BorderBrush="Transparent"
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
-            Content="Вернуться"
             RenderOptions.EdgeMode="Aliased"
-            Margin="0 295 120 0"
+            Margin="0 295 150 0"
             Click="Return_Click">
-        </Button>
-        <Button
-            x:Name="Next"
-            Width="105px"
-            Height="45px"
-            materialDesign:ButtonAssist.CornerRadius="20"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            Background="#FF8800"
-            Foreground="White"
-            BorderBrush="Transparent"
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Center" 
-            Content="Дальше"
-            RenderOptions.EdgeMode="Aliased"
-            Margin="120 295 0 0"
-            Click="Next_Click">
-        </Button>
-        <Button
-            x:Name="Preview"
-            Width="105px"
-            Height="45px"
-            Visibility="Collapsed"
-            materialDesign:ButtonAssist.CornerRadius="20"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            Background="#FF8800"
-            Foreground="White"
-            BorderBrush="Transparent"
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Center" 
-            Content="Назад"
-            RenderOptions.EdgeMode="Aliased"
-            Margin="0 225 120 0"
-            Click="Preview_Click">
+            <materialDesign:PackIcon Kind="Backburger" Height="35" Width="35"/>
         </Button>
         <Button
             x:Name="Confirm"
-            Visibility="Collapsed"
-            Width="105px"
+            Width="135px"
             Height="45px"
             materialDesign:ButtonAssist.CornerRadius="20"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -191,10 +151,10 @@
             BorderBrush="Transparent"
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
-            Content="Добавить"
             RenderOptions.EdgeMode="Aliased"
-            Margin="120 225 0 0"
+            Margin="150 295 0 0"
             Click="Confirm_Click">
+            <materialDesign:PackIcon Kind="Plus" Height="35" Width="35"/>
         </Button>
     </Grid>
 </Window>

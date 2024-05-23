@@ -98,10 +98,10 @@
             BorderBrush="Transparent"
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
-            Content="Редакт"
             RenderOptions.EdgeMode="Aliased"
             Margin="120 170 0 0"
             Click="Confirm_Click">
+            <materialDesign:PackIcon Kind="Pencil" Height="35" Width="35"/>
         </Button>
         <Button
             x:Name="Return"
@@ -115,10 +115,10 @@
             BorderBrush="Transparent"
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
-            Content="Вернуться"
             RenderOptions.EdgeMode="Aliased"
             Margin="0 170 120 0"
             Click="Return_Click">
+            <materialDesign:PackIcon Kind="Backburger" Height="35" Width="35"/>
         </Button>
     </Grid>
 </Window>

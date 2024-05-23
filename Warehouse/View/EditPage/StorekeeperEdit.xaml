@@ -20,170 +20,130 @@
     <Grid>
         <Image x:Name="imageControl" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Uniform" Margin="0 10 0 0"/>
         <Border 
-            Background="White"
-            CornerRadius="10" 
-            BorderBrush="Black" 
-            Width="300px" 
-            Padding="10" Margin="175,142,175,141">
+           Background="White"
+           CornerRadius="10" 
+           BorderBrush="Black" 
+           Padding="10" Margin="70,142,70,141">
             <Border.Effect>
                 <DropShadowEffect 
-                ShadowDepth="0" 
-                Color="Black" 
-                Opacity="0.3" 
-                BlurRadius="15" 
-                Direction="360" 
-                RenderingBias="Quality"/>
+                   ShadowDepth="0" 
+                   Color="Black" 
+                   Opacity="0.3" 
+                   BlurRadius="15" 
+                   Direction="360" 
+                   RenderingBias="Quality"/>
             </Border.Effect>
         </Border>
         <Label 
-            FontSize="18px"
-            Foreground="#FF7E00"
-            Height="30px"
-            Content="Редактировать кладовщика"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Margin="0 0 0 220">
+           FontSize="18px"
+           Foreground="#FF7E00"
+           Height="30px"
+           Content="Изменить кладовщика"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Center"
+           Margin="0 0 0 220">
         </Label>
         <TextBox
-            x:Name="StorekeeperAdressBox"
-            materialDesign:HintAssist.Hint="Адрес"
-            FontSize="15px"
-            Padding="12 10 2 2"
-            Height="40px"
-            Width="225px"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-            Margin="0 0 0 110" 
-            BorderBrush="#BC989393">
+           x:Name="StorekeeperAdressBox"
+           materialDesign:HintAssist.Hint="Адрес"
+           FontSize="15px"
+           Padding="12 10 2 2"
+           Height="40px"
+           Width="225px"
+           Style="{StaticResource MaterialDesignOutlinedTextBox}" 
+           Margin="0 0 250 110" 
+           BorderBrush="#BC989393">
         </TextBox>
         <TextBox
-            x:Name="StorekeeperPhoneBox"
-            materialDesign:HintAssist.Hint="Номер телефона"
-            FontSize="15px"
-            Padding="12 10 2 2"
-            Margin="0 0 0 10" 
-            Height="40px"
-            Width="225px"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-            BorderBrush="#BC989393">
+           x:Name="StorekeeperPhoneBox"
+           materialDesign:HintAssist.Hint="Номер телефона"
+           FontSize="15px"
+           Padding="12 10 2 2"
+           Margin="0 0 250 10" 
+           Height="40px"
+           Width="225px"
+           Style="{StaticResource MaterialDesignOutlinedTextBox}" 
+           BorderBrush="#BC989393">
         </TextBox>
         <ComboBox
-            x:Name="MedicalCertificateComboBox"
-            Width="225px"
-            Height="40px"
-            FontSize="15px"
-            Padding="12 0 12 0"
-            Margin="0 90 0 0" 
-            materialDesign:HintAssist.Hint="Мед карта"
-            Style="{StaticResource MaterialDesignOutlinedComboBox}"
-            BorderBrush="#BC989393">
-                <ComboBoxItem Content="Допущен"/>
-                <ComboBoxItem Content="Недопущен"/>
+           x:Name="MedicalCertificateComboBox"
+           Width="225px"
+           Height="40px"
+           FontSize="15px"
+           Padding="12 0 12 0"
+           Margin="0 90 250 0" 
+           materialDesign:HintAssist.Hint="Мед карта"
+           Style="{StaticResource MaterialDesignOutlinedComboBox}"
+           BorderBrush="#BC989393">
+            <ComboBoxItem Content="Допущен"/>
+            <ComboBoxItem Content="Недопущен"/>
         </ComboBox>
         <TextBox
-            x:Name="SurnameBox"
-            Visibility="Collapsed"
-            materialDesign:HintAssist.Hint="Фамилия"
-            FontSize="15px"
-            Padding="12 10 2 2"
-            Height="40px"
-            Width="225px"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-            Margin="0 0 0 110" 
-            BorderBrush="#BC989393">
+           x:Name="SurnameBox"
+           materialDesign:HintAssist.Hint="Фамилия"
+           FontSize="15px"
+           Padding="12 10 2 2"
+           Height="40px"
+           Width="225px"
+           Style="{StaticResource MaterialDesignOutlinedTextBox}" 
+           Margin="250 0 0 110" 
+           BorderBrush="#BC989393">
         </TextBox>
         <TextBox
-            x:Name="FirstNameBox"
-            Visibility="Collapsed"
-            materialDesign:HintAssist.Hint="Имя"
-            FontSize="15px"
-            Padding="12 10 2 2"
-            Height="40px"
-            Width="225px"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-            Margin="0 0 0 10" 
-            BorderBrush="#BC989393">
+           x:Name="FirstNameBox"
+           materialDesign:HintAssist.Hint="Имя"
+           FontSize="15px"
+           Padding="12 10 2 2"
+           Height="40px"
+           Width="225px"
+           Style="{StaticResource MaterialDesignOutlinedTextBox}" 
+           Margin="250 0 0 10" 
+           BorderBrush="#BC989393">
         </TextBox>
         <TextBox
-            x:Name="MiddleNameBox"
-            Visibility="Collapsed"
-            materialDesign:HintAssist.Hint="Отчество"
-            FontSize="15px"
-            Padding="12 10 2 2"
-            Height="40px"
-            Width="225px"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-            Margin="0 90 0 0" 
-            BorderBrush="#BC989393">
+           x:Name="MiddleNameBox"
+           materialDesign:HintAssist.Hint="Отчество"
+           FontSize="15px"
+           Padding="12 10 2 2"
+           Height="40px"
+           Width="225px"
+           Style="{StaticResource MaterialDesignOutlinedTextBox}" 
+           Margin="250 90 0 0" 
+           BorderBrush="#BC989393">
         </TextBox>
         <Button
-            x:Name="Return"
-            Width="105px"
-            Height="45px"
-            materialDesign:ButtonAssist.CornerRadius="20"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            Background="#FF8800"
-            Foreground="White"
-            BorderBrush="Transparent"
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Center" 
-            Content="Вернуться"
-            RenderOptions.EdgeMode="Aliased"
-            Margin="0 225 120 0"
-            Click="Return_Click">
+           x:Name="Return"
+           Width="135px"
+           Height="45px"
+           materialDesign:ButtonAssist.CornerRadius="20"
+           IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+           Style="{StaticResource MaterialDesignRaisedDarkButton}"
+           Background="#FF8800"
+           Foreground="White"
+           BorderBrush="Transparent"
+           HorizontalAlignment="Center" 
+           VerticalAlignment="Center" 
+           RenderOptions.EdgeMode="Aliased"
+           Margin="0 205 150 0"
+           Click="Return_Click">
+            <materialDesign:PackIcon Kind="Backburger" Height="35" Width="35"/>
         </Button>
         <Button
-            x:Name="Next"
-            Width="105px"
-            Height="45px"
-            materialDesign:ButtonAssist.CornerRadius="20"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            Background="#FF8800"
-            Foreground="White"
-            BorderBrush="Transparent"
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Center" 
-            Content="Дальше"
-            RenderOptions.EdgeMode="Aliased"
-            Margin="120 225 0 0"
-            Click="Next_Click">
-        </Button>
-        <Button
-            x:Name="Preview"
-            Width="105px"
-            Height="45px"
-            Visibility="Collapsed"
-            materialDesign:ButtonAssist.CornerRadius="20"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            Background="#FF8800"
-            Foreground="White"
-            BorderBrush="Transparent"
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Center" 
-            Content="Назад"
-            RenderOptions.EdgeMode="Aliased"
-            Margin="0 225 120 0"
-            Click="Preview_Click">
-        </Button>
-        <Button
-            x:Name="Confirm"
-            Visibility="Collapsed"
-            Width="105px"
-            Height="45px"
-            materialDesign:ButtonAssist.CornerRadius="20"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            Background="#FF8800"
-            Foreground="White"
-            BorderBrush="Transparent"
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Center" 
-            Content="Редактировать"
-            RenderOptions.EdgeMode="Aliased"
-            Margin="120 225 0 0"
-            Click="Confirm_Click">
+           x:Name="Confirm"
+           Width="135px"
+           Height="45px"
+           materialDesign:ButtonAssist.CornerRadius="20"
+           IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+           Style="{StaticResource MaterialDesignRaisedDarkButton}"
+           Background="#FF8800"
+           Foreground="White"
+           BorderBrush="Transparent"
+           HorizontalAlignment="Center" 
+           VerticalAlignment="Center" 
+           RenderOptions.EdgeMode="Aliased"
+           Margin="150 205 0 0"
+           Click="Confirm_Click">
+            <materialDesign:PackIcon Kind="Pencil" Height="35" Width="35"/>
         </Button>
     </Grid>
 </Window>

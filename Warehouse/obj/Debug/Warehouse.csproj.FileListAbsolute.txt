@@ -185,3 +185,9 @@ D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\FreezerCheckEdi
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\FreezerEdit.baml
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\FreezerCheckAdd.g.cs
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\FreezerCheckAdd.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\DocumentsOutput.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\DocumentsOutput.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\DocumentFormat.OpenXml.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\DocumentFormat.OpenXml.Framework.dll
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\DocumentFormat.OpenXml.xml
+D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\DocumentFormat.OpenXml.Framework.xml

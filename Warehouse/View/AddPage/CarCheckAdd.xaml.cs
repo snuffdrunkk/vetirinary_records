@@ -33,34 +33,6 @@ namespace Warehouse.View.AddPage
 
         }
 
-        private void ToSecondPage_Click(object sender, RoutedEventArgs e)
-        {
-            DriverComboBox.Visibility = Visibility.Collapsed;
-            Date.Visibility = Visibility.Collapsed;
-            Return.Visibility = Visibility.Collapsed;
-            ToSecondPage.Visibility = Visibility.Collapsed;
-
-            ArrivalDate.Visibility = Visibility.Visible;
-            CarAdmissionBox.Visibility = Visibility.Visible;
-            CarTemperatureBox.Visibility = Visibility.Visible;
-            BackToFirstPage.Visibility = Visibility.Visible;
-            Confirm.Visibility = Visibility.Visible;
-        }
-
-        private void BackToFirstPage_Click(object sender, RoutedEventArgs e)
-        {
-            DriverComboBox.Visibility = Visibility.Visible;
-            Date.Visibility = Visibility.Visible;
-            Return.Visibility = Visibility.Visible;
-            ToSecondPage.Visibility = Visibility.Visible;
-
-            ArrivalDate.Visibility = Visibility.Collapsed;
-            CarAdmissionBox.Visibility = Visibility.Collapsed;
-            CarTemperatureBox.Visibility = Visibility.Collapsed;
-            BackToFirstPage.Visibility = Visibility.Collapsed;
-            Confirm.Visibility = Visibility.Collapsed;
-        }
-
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
             ComboBoxDTO dto = (ComboBoxDTO)DriverComboBox.SelectedItem;
