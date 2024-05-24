@@ -25,7 +25,7 @@
             x:Name="MainBorder"
             BorderBrush="Black" 
             Width="300px" 
-            Padding="10" Margin="175,130,175,130">
+            Padding="10" Margin="175,130,175,100">
             <Border.Effect>
                 <DropShadowEffect 
                 ShadowDepth="0" 
@@ -127,6 +127,23 @@
             Click="DriverReportGrid_Click">
         </Button>
         <Button
+            x:Name="StorekeeperReportGrid"
+            Width="218"
+            Height="45px"
+            materialDesign:ButtonAssist.CornerRadius="20"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Background="#FF8800"
+            Foreground="White"
+            BorderBrush="Transparent"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top" 
+            Content="Отчет пр-ок кладовщика"
+            RenderOptions.EdgeMode="Aliased"
+            Margin="0,360,0,0"
+            Click="StorekeeperReportGrid_Click">
+        </Button>
+        <Button
             x:Name="CarRecord"
             Width="218"
             Height="45px"
@@ -140,7 +157,7 @@
             VerticalAlignment="Top" 
             Content="Отчет проверок машин"
             RenderOptions.EdgeMode="Aliased"
-            Margin="0,360,0,0"
+            Margin="0,415,0,0"
             Click="CarRecord_Click">
         </Button>
     </Grid>

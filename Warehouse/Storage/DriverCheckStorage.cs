@@ -14,16 +14,24 @@ namespace Warehouse.Storage
             $"driver.surname_driver, " +
             $"account.surname, " +
             $"driver_check_date, " +
-            $"arrival_date, " +
+            $"sertificate_start_date, " +
+            $"sertificate_end_date, " +
             $"admission_driver " +
             $"from driver_check, driver, account " +
             $"Where driver_check.driver_id = driver.driver_id " +
             $"And driver_check.account_id = account.account_id";
 
-        public void CreateDriverCheck(string driverCheckDate, string arrivalDate, string admissionDriver, ComboBoxDTO drvName)
+        public void CreateDriverCheck(string driverCheckDate, string startDate, string endDate, string admissionDriver, ComboBoxDTO drvName)
         {
-            database.Update($"insert into driver_check (driver_id, account_id, driver_check_date, arrival_date, admission_driver) " +
-                $"values ('{drvName.id}','{GetAccountId()}', '{driverCheckDate}', '{arrivalDate}', N'{admissionDriver}')");
+            database.Update($"insert into driver_check (driver_id, account_id, driver_check_date, sertificate_start_date, sertificate_end_date, admission_driver) " +
+                $"values ('{drvName.id}','{GetAccountId()}', '{driverCheckDate}', '{startDate}', '{endDate}', N'{admissionDriver}')");
+        }
+
+        public void UpdateDriverCheck(long id, string driverCheckDate, string startDate, string endDate, string admissionDriver)
+        {
+            database.Update($"update driver_check " +
+                $"set driver_check_date = '{driverCheckDate}', sertificate_start_date = '{startDate}', sertificate_end_date = '{endDate}', admission_driver = N'{admissionDriver}' " +
+                $"where driver_check_id = '{id}'");
         }
 
         public void DeleteDriverCheck(DataRowView selectedRow)

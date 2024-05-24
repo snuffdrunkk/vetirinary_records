@@ -154,7 +154,7 @@
         </TextBox>
         <Button
             x:Name="Return"
-            Width="135px"
+            Width="155px"
             Height="45px"
             materialDesign:ButtonAssist.CornerRadius="20"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -165,13 +165,13 @@
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
             RenderOptions.EdgeMode="Aliased"
-            Margin="0 225 525 0"
+            Margin="0 225 300 0"
             Click="Return_Click">
             <materialDesign:PackIcon Kind="Backburger" Height="35" Width="35"/>
         </Button>
         <Button
             x:Name="Confirm"
-            Width="135px"
+            Width="155px"
             Height="45px"
             materialDesign:ButtonAssist.CornerRadius="20"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -182,7 +182,7 @@
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
             RenderOptions.EdgeMode="Aliased"
-            Margin="525 225 0 0"
+            Margin="300 225 0 0"
             Click="Confirm_Click">
             <materialDesign:PackIcon Kind="Plus" Height="35" Width="35"/>
         </Button>

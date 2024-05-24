@@ -11,13 +11,13 @@ namespace Warehouse.View.AddPage
     {
         DataGrid data;
         CarCheckStorage carCheckStorage = new CarCheckStorage();
-        DriverStorage driverStorage = new DriverStorage();
+        CarStorage carStorage = new CarStorage();
 
         public CarCheckAdd(DataGrid data)
         {
             InitializeComponent();
             this.data = data;
-            driverStorage.ReadDriverSurnameToComboBox(DriverComboBox);
+            carStorage.ReadCarNumberToComboBox(CarComboBox);
 
             string imagePath = "D:\\ДИПЛОМ\\warehouse-main\\Warehouse\\Resources\\logo.jpg";
             BitmapImage bitmap = new BitmapImage();
@@ -25,23 +25,27 @@ namespace Warehouse.View.AddPage
             bitmap.UriSource = new Uri(imagePath);
             bitmap.EndInit();
             imageControl.Source = bitmap;
+
+            Date.SelectedDate = DateTime.Today;
+            Date.IsEnabled = false;
+            ArrivalDate.SelectedDate = DateTime.Today;
+            ArrivalDate.IsEnabled = false;
         }
 
         private void Return_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-
         }
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            ComboBoxDTO dto = (ComboBoxDTO)DriverComboBox.SelectedItem;
+            ComboBoxDTO dto = (ComboBoxDTO)CarComboBox.SelectedItem;
             string carCheckDate = Date.SelectedDate.Value.ToString("yyyy-MM-dd");
             string arrivalDate = ArrivalDate.SelectedDate.Value.ToString("yyyy-MM-dd");
             string admissionCar = CarAdmissionBox.Text;
             string carTemperature = CarTemperatureBox.Text;
 
-            if (ValidationCarCheck(carCheckDate, arrivalDate, admissionCar, carTemperature, dto)) 
+            if (ValidationCarCheck(arrivalDate, admissionCar, carTemperature, dto)) 
             {
                 carCheckStorage.CreateCarCheck(carCheckDate, arrivalDate, admissionCar, carTemperature, dto);
                 carCheckStorage.ReadCarCheck(data);
@@ -50,11 +54,8 @@ namespace Warehouse.View.AddPage
             }
         }
 
-        internal bool ValidationCarCheck(string carCheckDate, string arrivalDate, string admissionCar, string carTemperature, ComboBoxDTO dto)
+        internal bool ValidationCarCheck(string arrivalDate, string admissionCar, string carTemperature, ComboBoxDTO dto)
         {
-            if (!ValidationCarCheckDate(carCheckDate))
-                return false;
-
             if (!ValidationArrivalDate(arrivalDate))
                 return false;
 
@@ -64,25 +65,8 @@ namespace Warehouse.View.AddPage
             if (!ValidationCarTemperature(carTemperature))
                 return false;
 
-            if (!ValidationDriver(dto))
+            if (!ValidationCar(dto))
                 return false;
-
-            return true;
-        }
-
-        private bool ValidationCarCheckDate(string carCheckDate)
-        {
-            if (string.IsNullOrEmpty(carCheckDate))
-            {
-                MessageBox.Show("Пожалуйста, выберите дату водительского осмотра.");
-                return false;
-            }
-
-            if (DateTime.Parse(carCheckDate) != DateTime.Today)
-            {
-                MessageBox.Show("Дата водительского осмотра должна быть сегодняшней.");
-                return false;
-            }
 
             return true;
         }
@@ -97,7 +81,7 @@ namespace Warehouse.View.AddPage
 
             if (DateTime.Parse(arrivalDate) != DateTime.Today)
             {
-                MessageBox.Show("Дата водительского осмотра должна быть сегодняшней.");
+                MessageBox.Show("Дата приезда машины должна быть сегодняшней.");
                 return false;
             }
 
@@ -132,11 +116,11 @@ namespace Warehouse.View.AddPage
             return true;
         }
 
-        internal bool ValidationDriver(ComboBoxDTO dto)
+        internal bool ValidationCar(ComboBoxDTO dto)
         {
             if (dto == null)
             {
-                MessageBox.Show("Пожалуйста, выберите водителя и машину.");
+                MessageBox.Show("Пожалуйста, выберите машину.");
                 return false;
             }
 

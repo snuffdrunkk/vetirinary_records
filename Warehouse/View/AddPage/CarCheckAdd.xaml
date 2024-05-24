@@ -23,8 +23,7 @@
             Background="White"
             CornerRadius="10" 
             BorderBrush="Black" 
-            Width="300px" 
-            Padding="10" Margin="175,100,175,100">
+            Padding="10" Margin="70,130,70,130">
             <Border.Effect>
                 <DropShadowEffect 
                 ShadowDepth="0" 
@@ -34,16 +33,6 @@
                 Direction="360" 
                 RenderingBias="Quality"/>
             </Border.Effect>
-            <DatePicker 
-            x:Name="Date"
-            materialDesign:HintAssist.Hint="Дата отчета"
-            FontSize="15px"
-            Padding="12 0 12 0"
-            Height="40px"
-            Width="225px"
-            Margin="0,105,15,0"
-            Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
-            BorderBrush="#BC989393" VerticalAlignment="Top"/>
         </Border>
         <Label 
             FontSize="18px"
@@ -52,7 +41,7 @@
             Content="Добавить отчет"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Margin="0 0 0 325">
+            Margin="0 0 0 250">
         </Label>
         <Label 
            FontSize="18px"
@@ -61,16 +50,16 @@
            Content="проверки температуры машины"
            HorizontalAlignment="Center"
            VerticalAlignment="Top"
-           Margin="0,120,0,0">
+           Margin="0,160,0,0">
         </Label>
         <ComboBox
-            x:Name="DriverComboBox"
+            x:Name="CarComboBox"
             Width="225px"
             Height="40px"
             FontSize="15px"
             Padding="12 0 12 0"
-            Margin="0,160,0,0" 
-            materialDesign:HintAssist.Hint="Машина водителя"
+            Margin="0,200,250,0" 
+            materialDesign:HintAssist.Hint="Машина"
             Style="{StaticResource MaterialDesignOutlinedComboBox}"
             BorderBrush="#BC989393" VerticalAlignment="Top">
         </ComboBox>
@@ -81,22 +70,9 @@
             Padding="12 0 12 0"
             Height="40px"
             Width="225px"
-            Margin="0,270,0,0"
+            Margin="250,260,0,0"
             Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
             BorderBrush="#BC989393" VerticalAlignment="Top"/>
-        <ComboBox
-           x:Name="CarAdmissionBox"
-           Width="225px"
-           Height="40px"
-           FontSize="15px"
-           Padding="12 0 12 0"
-           Margin="0,325,0,0" 
-           materialDesign:HintAssist.Hint="Температура в машине"
-           Style="{StaticResource MaterialDesignOutlinedComboBox}"
-           BorderBrush="#BC989393" VerticalAlignment="Top">
-            <ComboBoxItem Content="Допустимая"/>
-            <ComboBoxItem Content="Недопустимая" IsEnabled="False"/>
-        </ComboBox>
         <TextBox
             x:Name="CarTemperatureBox"
             materialDesign:HintAssist.Hint="Температура в машине"
@@ -105,12 +81,12 @@
             Height="40px"
             Width="225px"
             Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-            Margin="0,225,0,0" 
+            Margin="250,120,0,0" 
             BorderBrush="#BC989393">
         </TextBox>
         <Button
             x:Name="Return"
-            Width="105px"
+            Width="135px"
             Height="45px"
             materialDesign:ButtonAssist.CornerRadius="20"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -121,13 +97,13 @@
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
             RenderOptions.EdgeMode="Aliased"
-            Margin="0 325 120 0"
+            Margin="0 225 150 0"
             Click="Return_Click">
             <materialDesign:PackIcon Kind="Backburger" Height="35" Width="35"/>
         </Button>
         <Button
             x:Name="Confirm"
-            Width="105px"
+            Width="135px"
             Height="45px"
             materialDesign:ButtonAssist.CornerRadius="20"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -138,9 +114,32 @@
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
             RenderOptions.EdgeMode="Aliased"
-            Margin="120 325 0 0"
+            Margin="150 225 0 0"
             Click="Confirm_Click">
             <materialDesign:PackIcon Kind="Plus" Height="35" Width="35"/>
         </Button>
+        <DatePicker 
+            x:Name="Date"
+            materialDesign:HintAssist.Hint="Дата отчета"
+            FontSize="15px"
+            Padding="12 0 12 0"
+            Height="40px"
+            Width="225px"
+            Margin="0,260,250,0"
+            Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
+            BorderBrush="#BC989393" VerticalAlignment="Top"/>
+        <ComboBox
+           x:Name="CarAdmissionBox"
+           Width="225px"
+           Height="40px"
+           FontSize="15px"
+           Padding="12 0 12 0"
+           Margin="0,320,250,0" 
+           materialDesign:HintAssist.Hint="Температура в машине"
+           Style="{StaticResource MaterialDesignOutlinedComboBox}"
+           BorderBrush="#BC989393" VerticalAlignment="Top">
+            <ComboBoxItem Content="Допустимая"/>
+            <ComboBoxItem Content="Недопустимая" IsEnabled="False"/>
+        </ComboBox>
     </Grid>
 </Window>

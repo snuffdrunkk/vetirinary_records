@@ -23,6 +23,7 @@ namespace Warehouse.View.Main
         FreezerStorage freezerStorage = new FreezerStorage();
         FreezerCheckStorage freezerCheckStorage = new FreezerCheckStorage();
         DriverCheckStorage driverCheckStorage = new DriverCheckStorage();
+        StorekeeperCheckStorage storekeeperCheckStorage = new StorekeeperCheckStorage();
         CarCheckStorage carCheckStorage = new CarCheckStorage();
 
         private MainLogic mainLogic;
@@ -61,6 +62,7 @@ namespace Warehouse.View.Main
             FreezerCheckGrid.Visibility = Visibility.Collapsed;
             CarCheckGrid.Visibility = Visibility.Collapsed;
             DriverCheckGrid.Visibility = Visibility.Collapsed;
+            StorekeeperCheckGrid.Visibility = Visibility.Collapsed;
 
             ProductTypeGrid.Visibility = Visibility.Visible;
 
@@ -153,6 +155,7 @@ namespace Warehouse.View.Main
             FreezerCheckGrid.Visibility = Visibility.Collapsed;
             CarCheckGrid.Visibility = Visibility.Collapsed;
             DriverCheckGrid.Visibility = Visibility.Collapsed;
+            StorekeeperCheckGrid.Visibility = Visibility.Collapsed;
 
             ProductGrid.Visibility = Visibility.Visible;
 
@@ -245,6 +248,7 @@ namespace Warehouse.View.Main
             FreezerCheckGrid.Visibility = Visibility.Collapsed;
             CarCheckGrid.Visibility = Visibility.Collapsed;
             DriverCheckGrid.Visibility = Visibility.Collapsed;
+            StorekeeperCheckGrid.Visibility = Visibility.Collapsed;
 
             SupplierGrid.Visibility = Visibility.Visible;
 
@@ -262,7 +266,7 @@ namespace Warehouse.View.Main
             var selectedRow = SupplierGrid.SelectedItem as DataRowView;
             if (selectedRow != null)
             {
-                SupplierEdit supplierEdit = new SupplierEdit(Convert.ToInt32(selectedRow.Row.ItemArray[0]), Convert.ToString(selectedRow.Row.ItemArray[1]), Convert.ToString(selectedRow.Row.ItemArray[2]), Convert.ToString(selectedRow.Row.ItemArray[3]), Convert.ToString(selectedRow.Row.ItemArray[4]), Convert.ToString(selectedRow.Row.ItemArray[5]), Convert.ToString(selectedRow.Row.ItemArray[6]), Convert.ToString(selectedRow.Row.ItemArray[7]), SupplierGrid);
+                SupplierEdit supplierEdit = new SupplierEdit(Convert.ToInt32(selectedRow.Row.ItemArray[0]), Convert.ToString(selectedRow.Row.ItemArray[1]), Convert.ToString(selectedRow.Row.ItemArray[2]), Convert.ToString(selectedRow.Row.ItemArray[3]), Convert.ToString(selectedRow.Row.ItemArray[4]), Convert.ToString(selectedRow.Row.ItemArray[5]), SupplierGrid);
                 supplierEdit.ShowDialog();
 
             }
@@ -336,6 +340,7 @@ namespace Warehouse.View.Main
             FreezerCheckGrid.Visibility = Visibility.Collapsed;
             CarCheckGrid.Visibility = Visibility.Collapsed;
             DriverCheckGrid.Visibility = Visibility.Collapsed;
+            StorekeeperCheckGrid.Visibility = Visibility.Collapsed;
 
             StorekeeperGrid.Visibility = Visibility.Visible;
 
@@ -354,7 +359,7 @@ namespace Warehouse.View.Main
             var selectedRow = StorekeeperGrid.SelectedItem as DataRowView;
             if (selectedRow != null)
             {
-                StorekeeperEdit storekeeperEdit = new StorekeeperEdit(Convert.ToInt32(selectedRow.Row.ItemArray[0]), Convert.ToString(selectedRow.Row.ItemArray[5]), Convert.ToString(selectedRow.Row.ItemArray[4]), Convert.ToString(selectedRow.Row.ItemArray[1]), Convert.ToString(selectedRow.Row.ItemArray[2]), Convert.ToString(selectedRow.Row.ItemArray[3]), Convert.ToString(selectedRow.Row.ItemArray[4]), StorekeeperGrid);
+                StorekeeperEdit storekeeperEdit = new StorekeeperEdit(Convert.ToInt32(selectedRow.Row.ItemArray[0]), Convert.ToString(selectedRow.Row.ItemArray[1]), Convert.ToString(selectedRow.Row.ItemArray[2]), Convert.ToString(selectedRow.Row.ItemArray[3]), Convert.ToString(selectedRow.Row.ItemArray[4]), Convert.ToString(selectedRow.Row.ItemArray[5]), StorekeeperGrid);
                 storekeeperEdit.ShowDialog();
 
             }
@@ -429,6 +434,7 @@ namespace Warehouse.View.Main
             FreezerCheckGrid.Visibility = Visibility.Collapsed;
             CarCheckGrid.Visibility = Visibility.Collapsed;
             DriverCheckGrid.Visibility = Visibility.Collapsed;
+            StorekeeperCheckGrid.Visibility = Visibility.Collapsed;
 
             CarGrid.Visibility = Visibility.Visible;
 
@@ -523,6 +529,7 @@ namespace Warehouse.View.Main
             FreezerCheckGrid.Visibility = Visibility.Collapsed;
             CarCheckGrid.Visibility = Visibility.Collapsed;
             DriverCheckGrid.Visibility= Visibility.Collapsed;
+            StorekeeperCheckGrid.Visibility= Visibility.Collapsed;
 
             OrderGrid.Visibility = Visibility.Visible;
 
@@ -596,7 +603,7 @@ namespace Warehouse.View.Main
 
         private void VetDataGrid_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)//вывод вет услуг
         {
-            VetService vet = new VetService(FreezerGrid, FreezerCheckGrid, CarCheckGrid, DriverCheckGrid);
+            VetService vet = new VetService(FreezerGrid, FreezerCheckGrid, CarCheckGrid, DriverCheckGrid, StorekeeperCheckGrid);
             vet.ShowDialog();
         }
 
@@ -815,6 +822,20 @@ namespace Warehouse.View.Main
             driverCheckAdd.ShowDialog();
         }
 
+        private void EditDriverCheck_Click(object sender, RoutedEventArgs e)//Редактирование отчета водителя
+        {
+            var selectedRow = DriverCheckGrid.SelectedItem as DataRowView;
+            if (selectedRow != null)
+            {
+                DriverCheckEdit driverCheckEdit = new DriverCheckEdit(Convert.ToInt32(selectedRow.Row.ItemArray[0]), Convert.ToString(selectedRow.Row.ItemArray[1]), Convert.ToString(selectedRow.Row.ItemArray[3]), Convert.ToString(selectedRow.Row.ItemArray[4]), Convert.ToString(selectedRow.Row.ItemArray[5]), Convert.ToString(selectedRow.Row.ItemArray[6]), DriverCheckGrid);
+                driverCheckEdit.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Не выбрана строка для редактирования", "Ошибка", MessageBoxButton.OK);
+            }
+        }
+
         private void DeleteDriverCheck_Click(object sender, RoutedEventArgs e)//Удаление отчета водителя
         {
             DataRowView selectedRow = DriverCheckGrid.SelectedItem as DataRowView;
@@ -867,6 +888,80 @@ namespace Warehouse.View.Main
         private void DriverCheckCancel_Click(object sender, RoutedEventArgs e)//Отмена отчета водителя
         {
             driverCheckStorage.ReadDriverCheck(DriverCheckGrid);
+        }
+
+        private void AddStorekeeperCheck_Click(object sender, RoutedEventArgs e)//Добавление отчета кладовщика
+        {
+            StorekeeperCheckAdd storekeeperCheckAdd = new StorekeeperCheckAdd(StorekeeperCheckGrid);
+            storekeeperCheckAdd.ShowDialog();
+        }
+
+        private void EditStorekeeperCheck_Click(object sender, RoutedEventArgs e)//Редакт отчета кладовщика
+        {
+            var selectedRow = StorekeeperCheckGrid.SelectedItem as DataRowView;
+            if (selectedRow != null)
+            {
+                StorekeeperCheckEdit storekeeperCheckEdit = new StorekeeperCheckEdit(Convert.ToInt32(selectedRow.Row.ItemArray[0]), Convert.ToString(selectedRow.Row.ItemArray[1]), Convert.ToString(selectedRow.Row.ItemArray[3]), Convert.ToString(selectedRow.Row.ItemArray[4]), Convert.ToString(selectedRow.Row.ItemArray[5]), Convert.ToString(selectedRow.Row.ItemArray[6]), StorekeeperCheckGrid);
+                storekeeperCheckEdit.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Не выбрана строка для редактирования", "Ошибка", MessageBoxButton.OK);
+            }
+        }
+
+        private void DeleteStorekeeperCheck_Click(object sender, RoutedEventArgs e)//Удаление отчета кладовщика
+        {
+            DataRowView selectedRow = StorekeeperCheckGrid.SelectedItem as DataRowView;
+            if (selectedRow != null)
+            {
+                try
+                {
+                    storekeeperCheckStorage.DeleteStorekeeperCheck(selectedRow);
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Удаление невозможно. Удалите связанные данные с этим отчетом!");
+                    return;
+                }
+
+                storekeeperCheckStorage.ReadStorekeeperCheck(StorekeeperCheckGrid);
+            }
+            else
+            {
+                MessageBox.Show("Выберите поле для удаления!");
+            }
+        }
+
+        private void FiltrationStorekeeperCheck_Click(object sender, RoutedEventArgs e)//Фильтр отчета кладовщика
+        {
+            Filtration filtration = new Filtration();
+            filtration.ShowDialog();
+
+            string field = filtration.Field;
+
+            if (field == null)
+                return;
+
+            mainLogic.ApplyFilter(field, StorekeeperCheckGrid);
+        }
+
+        private void SearchStorekeeperCheck_Click(object sender, RoutedEventArgs e)//Поиск отчета кладовщика
+        {
+            Search search = new Search();
+            search.ShowDialog();
+
+            string field = search.Field;
+
+            if (field == null)
+                return;
+
+            mainLogic.SearchAndSort(field, StorekeeperCheckGrid);
+        }
+
+        private void StorekeeperCheckCancel_Click(object sender, RoutedEventArgs e)//Отмена отчета кладовщика
+        {
+            storekeeperCheckStorage.ReadStorekeeperCheck(StorekeeperCheckGrid);
         }
 
         private void AdminRegistration_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)//регистрация

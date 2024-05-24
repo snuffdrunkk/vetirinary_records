@@ -34,8 +34,9 @@ namespace Warehouse.View.EditPage
             ProductTypeComboBox.Items.Add(productType);
             ProductTypeComboBox.SelectedIndex = 0;
             ProductCost.Text = cost;
-            ProductDescription.Text = description;
+            ProductDescriptionBox.Text = description;
             OrderSuitabilityComboBox.Text = suitability;
+            ProductTypeComboBox.SelectedIndex = 0;
 
             if (!presence.Trim().Equals("0"))
             {
@@ -56,7 +57,7 @@ namespace Warehouse.View.EditPage
         {
             string title = ProductTitleBox.Text;
             string cost = ProductCost.Text;
-            string description = ProductDescription.Text;
+            string description = ProductDescriptionBox.Text;
             string suitability = OrderSuitabilityComboBox.Text;
 
             ValidationFileds validation = new ValidationFileds();

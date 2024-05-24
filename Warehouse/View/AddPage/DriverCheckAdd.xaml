@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Warehouse.View.AddPage"
         mc:Ignorable="d"
         Icon="/Resources/ColorIcon.png"
-        Height="600" Width="650"
+        Height="600" Width="850"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -23,8 +23,7 @@
             Background="White"
             CornerRadius="10" 
             BorderBrush="Black" 
-            Width="300px" 
-            Padding="10" Margin="175,142,175,97">
+            Padding="10" Margin="35,150,35,170">
             <Border.Effect>
                 <DropShadowEffect 
                 ShadowDepth="0" 
@@ -59,7 +58,7 @@
             Height="40px"
             FontSize="15px"
             Padding="12 0 12 0"
-            Margin="0 0 0 110" 
+            Margin="0,0,525,100" 
             materialDesign:HintAssist.Hint="Водитель"
             Style="{StaticResource MaterialDesignOutlinedComboBox}"
             BorderBrush="#BC989393">
@@ -71,19 +70,31 @@
             Padding="12 0 12 0"
             Height="40px"
             Width="225px"
-            Margin="0 5 0 0" 
+            Margin="0 0 0 100" 
             Grid.Row="4"
             Grid.Column="4"
             Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
             BorderBrush="#BC989393"/>
         <DatePicker 
-            x:Name="ArrivalDate"
-            materialDesign:HintAssist.Hint="Дата въезда водителя"
+            x:Name="EndDate"
+            materialDesign:HintAssist.Hint="Дата окончания действ."
             FontSize="15px"
             Padding="12 0 12 0"
             Height="40px"
             Width="225px"
-            Margin="0 120 0 0" 
+            Margin="0 20 0 0" 
+            Grid.Row="4"
+            Grid.Column="4"
+            Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
+            BorderBrush="#BC989393"/>
+        <DatePicker 
+            x:Name="StartDate"
+            materialDesign:HintAssist.Hint="Дата начала действия"
+            FontSize="15px"
+            Padding="12 0 12 0"
+            Height="40px"
+            Width="225px"
+            Margin="0 20 525 0" 
             Grid.Row="4"
             Grid.Column="4"
             Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
@@ -94,7 +105,7 @@
            Height="40px"
            FontSize="15px"
            Padding="12 0 12 0"
-           Margin="0 235 0 0" 
+           Margin="525 20 0 0" 
            materialDesign:HintAssist.Hint="Допуск водителя"
            Style="{StaticResource MaterialDesignOutlinedComboBox}"
            BorderBrush="#BC989393">
@@ -103,7 +114,7 @@
         </ComboBox>
         <Button
             x:Name="Return"
-            Width="105px"
+            Width="155px"
             Height="45px"
             materialDesign:ButtonAssist.CornerRadius="20"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -114,13 +125,13 @@
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
             RenderOptions.EdgeMode="Aliased"
-            Margin="0 330 120 0"
+            Margin="0 150 300 0"
             Click="Return_Click">
             <materialDesign:PackIcon Kind="Backburger" Height="35" Width="35"/>
         </Button>
         <Button
             x:Name="Confirm"
-            Width="105px"
+            Width="155px"
             Height="45px"
             materialDesign:ButtonAssist.CornerRadius="20"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -131,7 +142,7 @@
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
             RenderOptions.EdgeMode="Aliased"
-            Margin="120 330 0 0"
+            Margin="300 150 0 0"
             Click="Confirm_Click">
             <materialDesign:PackIcon Kind="Plus" Height="35" Width="35"/>
         </Button>

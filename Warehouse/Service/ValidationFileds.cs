@@ -45,7 +45,7 @@ namespace Warehouse.Service
             return true;
         }
 
-        public bool ValidationSupplierAdd(string address, string phoneNumber, string surname, string firstName, string middleName, string medCertificate, ComboBoxDTO box)//Проверка доб водителя
+        public bool ValidationSupplierAdd(string address, string phoneNumber, string surname, string firstName, string middleName)//Проверка доб водителя
         {
             if (!ValidationAddress(address))
                 return false;
@@ -60,21 +60,12 @@ namespace Warehouse.Service
                 return false;
 
             if (!ValidationMiddleName(middleName))
-                return false;
-
-            if (!ValidationProductSuitability(medCertificate))
-                return false;
-
-            if (!ValidationComboBoxmarkItem(box))
-                return false;
-
-            if (!ValidationComboBoxNumItem(box))
                 return false;
 
             return true;
         }
 
-        public bool ValidationSupplierEdit(string address, string phoneNumber, string surname, string firstName, string middleName, string medCertificate)//Проверка ред водителя
+        public bool ValidationSupplierEdit(string address, string phoneNumber, string surname, string firstName, string middleName)//Проверка ред водителя
         {
             if (!ValidationAddress(address))
                 return false;
@@ -89,22 +80,13 @@ namespace Warehouse.Service
                 return false;
 
             if (!ValidationMiddleName(middleName))
-                return false;
-
-            if (!ValidationProductSuitability(medCertificate))
                 return false;
 
             return true;
         }
 
-        public bool ValidationStorekeeper(string address, string phoneNumber, string surname, string firstName, string middleName, string medCertificate)//Проверка клад
+        public bool ValidationStorekeeper(string surname, string firstName, string middleName, string address, string phoneNumber)//Проверка клад
         {
-            if (!ValidationAddress(address))
-                return false;
-
-            if (!ValidationPhoneNumber(phoneNumber))
-                return false;
-
             if (!ValidationSurname(surname))
                 return false;
 
@@ -114,7 +96,10 @@ namespace Warehouse.Service
             if (!ValidationMiddleName(middleName))
                 return false;
 
-            if (!ValidationProductSuitability(medCertificate))
+            if (!ValidationAddress(address))
+                return false;
+
+            if (!ValidationPhoneNumber(phoneNumber))
                 return false;
 
             return true;

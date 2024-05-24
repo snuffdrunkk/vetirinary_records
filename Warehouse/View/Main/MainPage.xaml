@@ -158,13 +158,11 @@
                 BorderThickness="2">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="DriverId" Binding="{Binding driver_id}" Visibility="Hidden"/>
-                    <DataGridTextColumn Header="Машина" Width="*" Binding="{Binding car_number}"/>
-                    <DataGridTextColumn Header="Адрес" Width="*" Binding="{Binding address}"/>
-                    <DataGridTextColumn Header="Номер телефона" Width="*" Binding="{Binding phone_number}"/>
                     <DataGridTextColumn Header="Фамилия" Width="*" Binding="{Binding surname_driver}"/>
                     <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding first_name}"/>
                     <DataGridTextColumn Header="Отчество" Width="*" Binding="{Binding middle_name}"/>
-                    <DataGridTextColumn Header="Мед справка" Width="*" Binding="{Binding medical_certificate}"/>
+                    <DataGridTextColumn Header="Адрес" Width="*" Binding="{Binding address}"/>
+                    <DataGridTextColumn Header="Номер телефона" Width="*" Binding="{Binding phone_number}"/>
                 </DataGrid.Columns>
                 <DataGrid.ContextMenu>
                     <ContextMenu>
@@ -194,13 +192,12 @@
                 BorderBrush="Orange"
                 BorderThickness="2">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="DriverId" Binding="{Binding driver_id}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="StorekeeperId" Binding="{Binding storekeeper_id}" Visibility="Hidden"/>
                     <DataGridTextColumn Header="Фамилия" Width="*" Binding="{Binding surname_storekeeper}"/>
                     <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding first_name}"/>
                     <DataGridTextColumn Header="Отчество" Width="*" Binding="{Binding middle_name}"/>
                     <DataGridTextColumn Header="Номер телефона" Width="*" Binding="{Binding phone_number}"/>
                     <DataGridTextColumn Header="Адрес" Width="*" Binding="{Binding address}"/>
-                    <DataGridTextColumn Header="Мед справка" Width="*" Binding="{Binding medical_certificate}"/>
                 </DataGrid.Columns>
                 <DataGrid.ContextMenu>
                     <ContextMenu>
@@ -338,17 +335,55 @@
                     <DataGridTextColumn Header="DriverCheckId" Binding="{Binding driver_check_id}" Visibility="Hidden"/>
                     <DataGridTextColumn Header="Водитель" Width="*" Binding="{Binding surname_driver}"/>
                     <DataGridTextColumn Header="Сотрудник" Width="*" Binding="{Binding surname}"/>
-                    <DataGridTextColumn Header="Дата" Width="*" Binding="{Binding driver_check_date, StringFormat=dd.MM.yyyy}"/>
-                    <DataGridTextColumn Header="Прибытие водителя" Width="*" Binding="{Binding arrival_date, StringFormat=dd.MM.yyyy}"/>
+                    <DataGridTextColumn Header="Дата отчета" Width="*" Binding="{Binding driver_check_date, StringFormat=dd.MM.yyyy}"/>
+                    <DataGridTextColumn Header="Дата начала справки" Width="*" Binding="{Binding sertificate_start_date, StringFormat=dd.MM.yyyy}"/>
+                    <DataGridTextColumn Header="Дата окончания справки" Width="*" Binding="{Binding sertificate_end_date, StringFormat=dd.MM.yyyy}"/>
                     <DataGridTextColumn Header="Мед справка" Width="*" Binding="{Binding admission_driver}"/>
                 </DataGrid.Columns>
                 <DataGrid.ContextMenu>
                     <ContextMenu>
                         <MenuItem x:Name="AddDriverCheck" Header="Добавить" Click="AddDriverCheck_Click"/>
+                        <MenuItem x:Name="EditDriverCheck" Header="Изменить" Click="EditDriverCheck_Click"/>
                         <MenuItem x:Name="DeleteDriverCheck" Header="Удалить" Click="DeleteDriverCheck_Click"/>
                         <MenuItem x:Name="FiltrationDriverCheck" Header="Фильтрация" Click="FiltrationDriverCheck_Click"/>
                         <MenuItem x:Name="SearchDriverCheck" Header="Поиск" Click="SearchDriverCheck_Click"/>
                         <MenuItem x:Name="DriverCheckCancel" Header="Отменить" Click="DriverCheckCancel_Click"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
+            <DataGrid   
+                Margin="175,100,30,30" 
+                Visibility="Collapsed"
+                x:Name="StorekeeperCheckGrid" 
+                AutoGenerateColumns="false"
+                CanUserResizeColumns="False" 
+                CanUserAddRows="False" 
+                CanUserDeleteRows="False" 
+                CanUserReorderColumns="False" 
+                SelectionMode="Single" 
+                SelectionUnit="FullRow" 
+                CanUserResizeRows="False" 
+                IsReadOnly="True"
+                Foreground="Black"
+                BorderBrush="Orange"
+                BorderThickness="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="DriverCheckId" Binding="{Binding storekeeper_check_id}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="Водитель" Width="*" Binding="{Binding surname_storekeeper}"/>
+                    <DataGridTextColumn Header="Сотрудник" Width="*" Binding="{Binding surname}"/>
+                    <DataGridTextColumn Header="Дата отчета" Width="*" Binding="{Binding storekeeper_check_date, StringFormat=dd.MM.yyyy}"/>
+                    <DataGridTextColumn Header="Дата начала справки" Width="*" Binding="{Binding sertificate_start_date, StringFormat=dd.MM.yyyy}"/>
+                    <DataGridTextColumn Header="Дата окончания справки" Width="*" Binding="{Binding sertificate_end_date, StringFormat=dd.MM.yyyy}"/>
+                    <DataGridTextColumn Header="Мед справка" Width="*" Binding="{Binding admission_storekeeper}"/>
+                </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="AddStorekeeperCheck" Header="Добавить" Click="AddStorekeeperCheck_Click"/>
+                        <MenuItem x:Name="EditStorekeeperCheck" Header="Изменить" Click="EditStorekeeperCheck_Click"/>
+                        <MenuItem x:Name="DeleteStorekeeperCheck" Header="Удалить" Click="DeleteStorekeeperCheck_Click"/>
+                        <MenuItem x:Name="FiltrationStorekeeperCheck" Header="Фильтрация" Click="FiltrationStorekeeperCheck_Click"/>
+                        <MenuItem x:Name="SearchStorekeeperCheck" Header="Поиск" Click="SearchStorekeeperCheck_Click"/>
+                        <MenuItem x:Name="StorekeeperCheckCancel" Header="Отменить" Click="StorekeeperCheckCancel_Click"/>
                     </ContextMenu>
                 </DataGrid.ContextMenu>
             </DataGrid>
@@ -370,7 +405,7 @@
                 BorderThickness="2">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="CarCheckId" Binding="{Binding freezer_check_id}" Visibility="Hidden"/>
-                    <DataGridTextColumn Header="Машина водителя" Width="*" Binding="{Binding surname_driver}"/>
+                    <DataGridTextColumn Header="Машина" Width="*" Binding="{Binding car_number}"/>
                     <DataGridTextColumn Header="Сотрудник" Width="*" Binding="{Binding surname}"/>
                     <DataGridTextColumn Header="Дата" Width="*" Binding="{Binding car_check_date, StringFormat=dd.MM.yyyy}"/>
                     <DataGridTextColumn Header="Приезд машины" Width="*" Binding="{Binding arrival_date, StringFormat=dd.MM.yyyy}"/>

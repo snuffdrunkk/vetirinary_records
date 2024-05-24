@@ -30,7 +30,8 @@ namespace Warehouse.View.EditPage
             this.id = id;
             FreezerComboBox.Items.Add(freezerName);
             FreezerComboBox.SelectedIndex = 0;
-            Date.Text = freezerCheckDate;
+            Date.SelectedDate = DateTime.Today;
+            Date.IsEnabled = false;
             WashingMethodBox.Text = washingMethod;
             DetergentBox.Text = detergent;
             DetergentQuantityBox.Text = detergentQuantity;

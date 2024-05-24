@@ -77,17 +77,19 @@
             Margin="0 40 0 0" 
             BorderBrush="#BC989393">
         </TextBox>
-        <TextBox
-            x:Name="ProductDescription"
-            materialDesign:HintAssist.Hint="Описание"
-            FontSize="15px"
-            Padding="12 10 2 2"
-            Height="40px"
-            Width="225px"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-            Margin="0 140 0 0" 
-            BorderBrush="#BC989393">
-        </TextBox>
+        <ComboBox
+           x:Name="ProductDescriptionBox"
+           Width="225px"
+           Height="40px"
+           FontSize="15px"
+           Padding="12 0 12 0"
+           Margin="0 140 0 0" 
+           materialDesign:HintAssist.Hint="Описание"
+           Style="{StaticResource MaterialDesignOutlinedComboBox}"
+           BorderBrush="#BC989393">
+            <ComboBoxItem Content="Замороженная"/>
+            <ComboBoxItem Content="Охлажденная"/>
+        </ComboBox>
         <ComboBox
             x:Name="OrderSuitabilityComboBox"
             IsEnabled="False"

@@ -129,6 +129,7 @@
     <Compile Include="Storage\FreezerStorage.cs" />
     <Compile Include="Storage\ProductStorage.cs" />
     <Compile Include="Storage\ProductTypeStorage.cs" />
+    <Compile Include="Storage\StorekeeperCheckStorage.cs" />
     <Compile Include="Storage\StorekeeperStorage.cs" />
     <Compile Include="View\AddPage\AddFromComboBoxOrder.xaml.cs">
       <DependentUpon>AddFromComboBoxOrder.xaml</DependentUpon>
@@ -160,6 +161,9 @@
     <Compile Include="View\AddPage\StorekeeperAdd.xaml.cs">
       <DependentUpon>StorekeeperAdd.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AddPage\StorekeeperCheckAdd.xaml.cs">
+      <DependentUpon>StorekeeperCheckAdd.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddPage\SupplierAdd.xaml.cs">
       <DependentUpon>SupplierAdd.xaml</DependentUpon>
     </Compile>
@@ -168,6 +172,9 @@
     </Compile>
     <Compile Include="View\EditPage\CarEdit.xaml.cs">
       <DependentUpon>CarEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditPage\DriverCheckEdit.xaml.cs">
+      <DependentUpon>DriverCheckEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EditPage\FreezerCheckEdit.xaml.cs">
       <DependentUpon>FreezerCheckEdit.xaml</DependentUpon>
@@ -180,6 +187,9 @@
     </Compile>
     <Compile Include="View\EditPage\ProductTypeEdit.xaml.cs">
       <DependentUpon>ProductTypeEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditPage\StorekeeperCheckEdit.xaml.cs">
+      <DependentUpon>StorekeeperCheckEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EditPage\StorekeeperEdit.xaml.cs">
       <DependentUpon>StorekeeperEdit.xaml</DependentUpon>
@@ -268,6 +278,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\AddPage\StorekeeperCheckAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AddPage\SupplierAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -277,6 +291,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EditPage\CarEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditPage\DriverCheckEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -293,6 +311,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EditPage\ProductTypeEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditPage\StorekeeperCheckEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

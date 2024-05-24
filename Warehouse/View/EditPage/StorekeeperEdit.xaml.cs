@@ -12,17 +12,15 @@ namespace Warehouse.View.EditPage
         long id;
         DataGrid grid;
         StorekeeperStorage storekeeperStorage = new StorekeeperStorage();
-        public StorekeeperEdit(long id, string address, string phoneNumber, string surname, string firstName, string middleName, string medicalCertificate, DataGrid grid)
+        public StorekeeperEdit(long id, string surname, string firstName, string middleName, string phoneNumber, string address,  DataGrid grid)
         {
             InitializeComponent();
 
             string imagePath = "D:\\ДИПЛОМ\\warehouse-main\\Warehouse\\Resources\\logo.jpg";
-
             BitmapImage bitmap = new BitmapImage();
             bitmap.BeginInit();
             bitmap.UriSource = new Uri(imagePath);
             bitmap.EndInit();
-
             imageControl.Source = bitmap;
 
             this.id = id;
@@ -32,8 +30,6 @@ namespace Warehouse.View.EditPage
             SurnameBox.Text = surname;
             FirstNameBox.Text = firstName;
             MiddleNameBox.Text = middleName;
-            MedicalCertificateComboBox.Text = medicalCertificate;
-            MedicalCertificateComboBox.SelectedIndex = 0;
         }
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
@@ -43,13 +39,12 @@ namespace Warehouse.View.EditPage
             string surname = SurnameBox.Text;
             string firstName = FirstNameBox.Text;
             string middleName = MiddleNameBox.Text;
-            string medicalCertificate = MedicalCertificateComboBox.Text;
 
             ValidationFileds validation = new ValidationFileds();
 
-            if (validation.ValidationStorekeeper(surname, firstName, middleName, phone, address, medicalCertificate))
+            if (validation.ValidationStorekeeper(surname, firstName, middleName, address, phone))
             {
-                storekeeperStorage.UpdateStorekeeper(id, surname, firstName, middleName, phone , address,  medicalCertificate);
+                storekeeperStorage.UpdateStorekeeper(id, surname, firstName, middleName, phone , address);
                 storekeeperStorage.ReadStorekeeper(grid);
 
                 this.Close();

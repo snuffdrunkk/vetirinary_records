@@ -12,14 +12,12 @@ namespace Warehouse.View.AddPage
     {
         DataGrid grid;
         Database database = new Database();
-        CarStorage carStorage = new CarStorage();
         DriverStorage driverStorage = new DriverStorage();
 
         public SupplierAdd(DataGrid grid)
         {
             InitializeComponent();
             this.grid = grid;
-            carStorage.ReadCarNumberToComboBox(CarNumberComboBox);
 
             string imagePath = "D:\\ДИПЛОМ\\warehouse-main\\Warehouse\\Resources\\logo.jpg";
 
@@ -33,19 +31,17 @@ namespace Warehouse.View.AddPage
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            ComboBoxDTO dto = (ComboBoxDTO)CarNumberComboBox.SelectedItem;
             string address = SupplierAdressBox.Text;
             string phone = SupplierPhoneBox.Text;
             string surname = SurnameBox.Text;
             string firstName = FirstNameBox.Text;
             string middleName = MiddleNameBox.Text;
-            string medCertificate = MedicalCertificateComboBox.Text;
 
             ValidationFileds validation = new ValidationFileds();
 
-            if (validation.ValidationSupplierAdd(address, phone, surname, firstName, middleName, medCertificate, dto))
+            if (validation.ValidationSupplierAdd(address, phone, surname, firstName, middleName))
             {
-                driverStorage.CreateDriver(address, phone, surname, firstName, middleName, medCertificate, dto);
+                driverStorage.CreateDriver(address, phone, surname, firstName, middleName);
                 driverStorage.ReadDriver(grid);
                 this.Close();
             }

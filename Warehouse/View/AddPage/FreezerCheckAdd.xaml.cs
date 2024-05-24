@@ -29,7 +29,10 @@ namespace Warehouse.View.AddPage
             bitmap.UriSource = new Uri(imagePath);
             bitmap.EndInit();
             imageControl.Source = bitmap;
-            
+
+            Date.SelectedDate = DateTime.Today;
+            Date.IsEnabled = false;
+
         }
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
@@ -43,7 +46,7 @@ namespace Warehouse.View.AddPage
             string disinfectant = DisinfectantBox.Text;
             string disinfectantQuantity = DisinfectantQuantityBox.Text;
 
-            if (ValidationCarCheckAdd(dto, freezerCheckDate, washingMethod, detergent, detergentQuantity, disinfectionMethod, disinfectant, disinfectantQuantity)) 
+            if (ValidationCarCheckAdd(dto, washingMethod, detergent, detergentQuantity, disinfectionMethod, disinfectant, disinfectantQuantity)) 
             {
                 freezerCheckStorage.CreateFreezerCheck(freezerCheckDate, washingMethod, detergent, detergentQuantity, disinfectionMethod, disinfectant, disinfectantQuantity, dto);
                 freezerCheckStorage.ReadFreezerCheck(data);
@@ -57,12 +60,9 @@ namespace Warehouse.View.AddPage
             this.Close();
         }
 
-        private bool ValidationCarCheckAdd(ComboBoxDTO dto, string freezerCheckDate, string washingMethod, string detergent, string detergentQuantity, string disinfectionMethod, string disinfectant, string disinfectantQuantity)
+        private bool ValidationCarCheckAdd(ComboBoxDTO dto, string washingMethod, string detergent, string detergentQuantity, string disinfectionMethod, string disinfectant, string disinfectantQuantity)
         {
             if (!ValidationFreezer(dto))
-                return false;
-
-            if (!ValidationFreezerCheckDate(freezerCheckDate))
                 return false;
 
             if (!ValidationWashingMethod(washingMethod))
@@ -91,23 +91,6 @@ namespace Warehouse.View.AddPage
             if (dto == null)
             {
                 MessageBox.Show("Пожалуйста, выберите морозильную камеру.");
-                return false;
-            }
-
-            return true;
-        }
-
-        private bool ValidationFreezerCheckDate(string freezerCheckDate)
-        {
-            if (string.IsNullOrEmpty(freezerCheckDate))
-            {
-                MessageBox.Show("Пожалуйста, введите дату проверки морозильной камеры.");
-                return false;
-            }
-
-            if (DateTime.Parse(freezerCheckDate) != DateTime.Today)
-            {
-                MessageBox.Show("Дата проверки морозильной камеры должна быть сегодняшней.");
                 return false;
             }
 

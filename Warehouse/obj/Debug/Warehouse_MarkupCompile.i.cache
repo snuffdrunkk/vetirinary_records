@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\ДИПЛОМ\warehouse-main\Warehouse\App.xaml
-27396869950
+30-2059405568
 
-52137273632
+56-1021947311
 36-1081582247
-Auth\AuthPage.xaml;Auth\MainWindow.xaml;Profile\PrfSettings.xaml;View\AddPage\AddFromComboBoxOrder.xaml;View\AddPage\CarAdd.xaml;View\AddPage\CarCheckAdd.xaml;View\AddPage\DriverCheckAdd.xaml;View\AddPage\FreezerAdd.xaml;View\AddPage\FreezerCheckAdd.xaml;View\AddPage\OrderAdd.xaml;View\AddPage\ProductAdd.xaml;View\AddPage\ProductType.xaml;View\AddPage\StorekeeperAdd.xaml;View\AddPage\SupplierAdd.xaml;View\AddPage\VetService.xaml;View\EditPage\CarEdit.xaml;View\EditPage\FreezerCheckEdit.xaml;View\EditPage\FreezerEdit.xaml;View\EditPage\ProductEdit.xaml;View\EditPage\ProductTypeEdit.xaml;View\EditPage\StorekeeperEdit.xaml;View\EditPage\SupplierEdit.xaml;View\FIltrationAndSearch\Filtration.xaml;View\FIltrationAndSearch\Search.xaml;View\Main\MainPage.xaml;View\OutputDocuments\DocumentsOutput.xaml;View\OutputDocuments\MainOutput.xaml;
+Auth\AuthPage.xaml;Auth\MainWindow.xaml;Profile\PrfSettings.xaml;View\AddPage\AddFromComboBoxOrder.xaml;View\AddPage\CarAdd.xaml;View\AddPage\CarCheckAdd.xaml;View\AddPage\DriverCheckAdd.xaml;View\AddPage\FreezerAdd.xaml;View\AddPage\FreezerCheckAdd.xaml;View\AddPage\OrderAdd.xaml;View\AddPage\ProductAdd.xaml;View\AddPage\ProductType.xaml;View\AddPage\StorekeeperAdd.xaml;View\AddPage\StorekeeperCheckAdd.xaml;View\AddPage\SupplierAdd.xaml;View\AddPage\VetService.xaml;View\EditPage\CarEdit.xaml;View\EditPage\DriverCheckEdit.xaml;View\EditPage\FreezerCheckEdit.xaml;View\EditPage\FreezerEdit.xaml;View\EditPage\ProductEdit.xaml;View\EditPage\ProductTypeEdit.xaml;View\EditPage\StorekeeperCheckEdit.xaml;View\EditPage\StorekeeperEdit.xaml;View\EditPage\SupplierEdit.xaml;View\FIltrationAndSearch\Filtration.xaml;View\FIltrationAndSearch\Search.xaml;View\Main\MainPage.xaml;View\OutputDocuments\DocumentsOutput.xaml;View\OutputDocuments\MainOutput.xaml;
 
 True
 

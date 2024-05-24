@@ -191,3 +191,9 @@ D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\DocumentFormat.OpenXml.dll
 D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\DocumentFormat.OpenXml.Framework.dll
 D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\DocumentFormat.OpenXml.xml
 D:\ДИПЛОМ\warehouse-main\Warehouse\bin\Debug\DocumentFormat.OpenXml.Framework.xml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\DriverCheckEdit.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\DriverCheckEdit.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\StorekeeperCheckAdd.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\StorekeeperCheckEdit.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\StorekeeperCheckAdd.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\StorekeeperCheckEdit.baml

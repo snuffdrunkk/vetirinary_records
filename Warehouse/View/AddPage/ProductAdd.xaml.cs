@@ -40,7 +40,7 @@ namespace Warehouse.View.AddPage
             string title = ProductTitleBox.Text;
             ComboBoxDTO dto = (ComboBoxDTO) ProductTypeComboBox.SelectedItem;
             string cost = ProductCost.Text;
-            string description = ProductDescription.Text;
+            string description = ProductDescriptionBox.Text;
             string suitability = OrderSuitabilityComboBox.Text;
 
             ValidationFileds validation = new ValidationFileds();

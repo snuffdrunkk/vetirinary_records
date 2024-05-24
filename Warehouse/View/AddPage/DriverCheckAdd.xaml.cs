@@ -24,6 +24,20 @@ namespace Warehouse.View.AddPage
             bitmap.UriSource = new Uri(imagePath);
             bitmap.EndInit();
             imageControl.Source = bitmap;
+
+            Date.SelectedDate = DateTime.Today;
+            Date.IsEnabled = false;
+
+            if (DateTime.Today < EndDate.SelectedDate)
+            {
+                DriverAdmissionBox.SelectedIndex = 1;
+                DriverAdmissionBox.IsEnabled = false;
+            }
+            else
+            {
+                DriverAdmissionBox.SelectedIndex = 0;
+                DriverAdmissionBox.IsEnabled = false;
+            }
         }
 
         private void Return_Click(object sender, RoutedEventArgs e)
@@ -35,21 +49,27 @@ namespace Warehouse.View.AddPage
         {
             ComboBoxDTO dto = (ComboBoxDTO)DriverComboBox.SelectedItem;
             string driverCheckDate = Date.SelectedDate.Value.ToString("yyyy-MM-dd");
-            string arrivalDate = ArrivalDate.SelectedDate.Value.ToString("yyyy-MM-dd");
+            string startDate = StartDate.SelectedDate.Value.ToString("yyyy-MM-dd");
+            string endDate = EndDate.SelectedDate.Value.ToString("yyyy-MM-dd");
             string admissionDriver = DriverAdmissionBox.Text;
 
-            driverCheckStorage.CreateDriverCheck(driverCheckDate, arrivalDate, admissionDriver, dto);
-            driverCheckStorage.ReadDriverCheck(data);
+            if (ValidationdDriverCheck(startDate, endDate, admissionDriver, dto))
+            {
+                driverCheckStorage.CreateDriverCheck(driverCheckDate, startDate, endDate, admissionDriver, dto);
+                driverCheckStorage.ReadDriverCheck(data);
 
-            this.Close();
+                this.Close();
+            }
         }
 
-        internal bool ValidationCarCheck(string driverCheckDate, string arrivalDate, string admissionDriver,  ComboBoxDTO dto)
+        internal bool ValidationdDriverCheck(string startDate, string endDate, string admissionDriver,  ComboBoxDTO dto)
         {
-            if (!ValidationDriverCheckDate(driverCheckDate))
+
+            if (!ValidationStartDate(startDate))
                 return false;
 
-            if (!ValidationArrivalDate(arrivalDate))
+
+            if (!ValidationEndDate(endDate))
                 return false;
 
             if (!ValidationCarAdmission(admissionDriver))
@@ -58,37 +78,31 @@ namespace Warehouse.View.AddPage
             if (!ValidationDriver(dto))
                 return false;
 
-            return true;
-        }
-
-        private bool ValidationDriverCheckDate(string driverCheckDate)
-        {
-            if (string.IsNullOrEmpty(driverCheckDate))
-            {
-                MessageBox.Show("Пожалуйста, выберите дату водительского осмотра.");
+            if (!ValidateDateRange(startDate, endDate))
                 return false;
-            }
 
-            if (DateTime.Parse(driverCheckDate) != DateTime.Today)
-            {
-                MessageBox.Show("Дата водительского осмотра должна быть сегодняшней.");
+            if (!ValidateStorekeeperAdmission(endDate))
                 return false;
-            }
 
             return true;
         }
 
-        private bool ValidationArrivalDate(string arrivalDate)
+        private bool ValidationStartDate(string startDate)
         {
-            if (string.IsNullOrEmpty(arrivalDate))
+            if (string.IsNullOrEmpty(startDate))
             {
-                MessageBox.Show("Пожалуйста, выберите дату прибытия автомобиля.");
+                MessageBox.Show("Пожалуйста, выберите дату начала действия справки.");
                 return false;
             }
 
-            if (DateTime.Parse(arrivalDate) != DateTime.Today)
+            return true;
+        }
+
+        private bool ValidationEndDate(string endlDate)
+        {
+            if (string.IsNullOrEmpty(endlDate))
             {
-                MessageBox.Show("Дата водительского осмотра должна быть сегодняшней.");
+                MessageBox.Show("Пожалуйста, выберите дату окончания действия справки.");
                 return false;
             }
 
@@ -110,11 +124,51 @@ namespace Warehouse.View.AddPage
         {
             if (dto == null)
             {
-                MessageBox.Show("Пожалуйста, выберите водителя и.");
+                MessageBox.Show("Пожалуйста, выберите водителя.");
                 return false;
             }
 
             return true;
+        }
+
+        private bool ValidateDateRange(string startDate, string endDate)
+        {
+            if (!DateTime.TryParse(startDate, out DateTime startDateTime) ||
+                !DateTime.TryParse(endDate, out DateTime endDateTime))
+            {
+                MessageBox.Show("Неверный формат даты.");
+                return false;
+            }
+
+            if (endDateTime.Year - startDateTime.Year != 1)
+            {
+                MessageBox.Show("Диапазон между датами должен быть равен 1 году.");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool ValidateStorekeeperAdmission(string endDate)
+        {
+            if (!DateTime.TryParse(endDate, out DateTime endDateTime))
+            {
+                MessageBox.Show("Неверный формат даты.");
+                return false;
+            }
+
+            if (DateTime.Today < endDateTime)
+            {
+                DriverAdmissionBox.SelectedIndex = 1;
+                DriverAdmissionBox.IsEnabled = false;
+                return true;
+            }
+            else
+            {
+                DriverAdmissionBox.SelectedIndex = 0;
+                DriverAdmissionBox.IsEnabled = false;
+                return true;
+            }
         }
     }
 }
