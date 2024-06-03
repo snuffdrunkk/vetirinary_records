@@ -23,10 +23,9 @@
             Background="White"
             CornerRadius="10" 
             x:Name="MainBorder"
-            BorderBrush="Black"
-            Height="330px" 
+            BorderBrush="Black" 
             Width="300px" 
-            Padding="10">
+            Padding="10" Margin="175,127,175,103">
             <Border.Effect>
                 <DropShadowEffect 
                     ShadowDepth="0" 
@@ -81,6 +80,22 @@
             Margin="0 0 0 40">
         </Button>
         <Button
+            x:Name="StorkeeperReport"
+            Width="200px"
+            Height="45px"
+            materialDesign:ButtonAssist.CornerRadius="20"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Background="#FF8800"
+            Foreground="White"
+            BorderBrush="Transparent"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            Content="Отчет по мед. карте клад."
+            RenderOptions.EdgeMode="Aliased"
+            Margin="0 110 0 40">
+        </Button>
+        <Button
             x:Name="CarReport"
             Width="200px"
             Height="45px"
@@ -94,7 +109,7 @@
             VerticalAlignment="Center" 
             Content="Отчет проверки машины"
             RenderOptions.EdgeMode="Aliased"
-            Margin="0 70 0 0">
+            Margin="0 180 0 0" Click="CarReport_Click">
         </Button>
         <Button
             x:Name="MedicalSertificate"
@@ -110,7 +125,7 @@
             VerticalAlignment="Center" 
             Content="Мед. свидетельство"
             RenderOptions.EdgeMode="Aliased"
-            Margin="0 180 0 0">
+            Margin="0 290 0 0">
         </Button>
     </Grid>
 </Window>

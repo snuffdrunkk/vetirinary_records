@@ -197,3 +197,5 @@ D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\StorekeeperCheck
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\StorekeeperCheckEdit.g.cs
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\StorekeeperCheckAdd.baml
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\StorekeeperCheckEdit.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\CarOutputView.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\CarOutputView.baml
