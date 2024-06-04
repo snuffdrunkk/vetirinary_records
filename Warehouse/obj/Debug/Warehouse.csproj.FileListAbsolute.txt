@@ -134,7 +134,6 @@ D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\SupplierEdit.g.
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\FIltrationAndSearch\Filtration.g.cs
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\FIltrationAndSearch\Search.g.cs
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\Main\MainPage.g.cs
-D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\MainOutput.g.cs
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\App.g.cs
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\Warehouse_MarkupCompile.cache
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\Warehouse_MarkupCompile.lref
@@ -153,7 +152,6 @@ D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\SupplierEdit.ba
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\FIltrationAndSearch\Filtration.baml
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\FIltrationAndSearch\Search.baml
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\Main\MainPage.baml
-D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\MainOutput.baml
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\Warehouse.g.resources
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\Warehouse.Properties.Resources.resources
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\Warehouse.csproj.GenerateResource.cache
@@ -199,3 +197,9 @@ D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\AddPage\StorekeeperCheck
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\EditPage\StorekeeperCheckEdit.baml
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\CarOutputView.g.cs
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\CarOutputView.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\DriverOutputView.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\DriverOutputView.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\StorekeeperOutputView.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\StorekeeperOutputView.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\FreezerOutputView.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\FreezerOutputView.baml

@@ -28,7 +28,9 @@ FD:\ДИПЛОМ\warehouse-main\Warehouse\View\EditPage\SupplierEdit.xaml;;
 FD:\ДИПЛОМ\warehouse-main\Warehouse\View\FIltrationAndSearch\Filtration.xaml;;
 FD:\ДИПЛОМ\warehouse-main\Warehouse\View\FIltrationAndSearch\Search.xaml;;
 FD:\ДИПЛОМ\warehouse-main\Warehouse\View\Main\MainPage.xaml;;
-FD:\ДИПЛОМ\warehouse-main\Warehouse\View\OutputDocuments\DocumentsOutput.xaml;;
-FD:\ДИПЛОМ\warehouse-main\Warehouse\View\OutputDocuments\MainOutput.xaml;;
 FD:\ДИПЛОМ\warehouse-main\Warehouse\View\OutputDocuments\CarOutputView.xaml;;
+FD:\ДИПЛОМ\warehouse-main\Warehouse\View\OutputDocuments\DocumentsOutput.xaml;;
+FD:\ДИПЛОМ\warehouse-main\Warehouse\View\OutputDocuments\DriverOutputView.xaml;;
+FD:\ДИПЛОМ\warehouse-main\Warehouse\View\OutputDocuments\StorekeeperOutputView.xaml;;
+FD:\ДИПЛОМ\warehouse-main\Warehouse\View\OutputDocuments\FreezerOutputView.xaml;;
 

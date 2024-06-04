@@ -9,14 +9,7 @@ namespace Warehouse.View.OutputDocuments
 
     public partial class DocumentsOutput : Window
     {
-
-        private DataGrid dataGridFrzCheck;
-        private DataGrid dataGridCarCheck;
-        private DataGrid dataGridDriverCheck;
-
-        OutputDocumentsService outputDocumentsService = new OutputDocumentsService();
-
-        public DocumentsOutput(DataGrid dataGridFrzCheck, DataGrid dataGridCarCheck, DataGrid dataGridDriverCheck)
+        public DocumentsOutput()
         {
             InitializeComponent();
 
@@ -26,21 +19,30 @@ namespace Warehouse.View.OutputDocuments
             bitmap.UriSource = new Uri(imagePath);
             bitmap.EndInit();
             imageControl.Source = bitmap;
-
-            this.dataGridFrzCheck = dataGridFrzCheck;
-            this.dataGridCarCheck = dataGridCarCheck;
-            this.dataGridDriverCheck = dataGridDriverCheck;
         }
         
         private void FreezerReport_Click(object sender, RoutedEventArgs e)
         {
-  
+            FreezerOutputView freezerOutputView = new FreezerOutputView();
+            freezerOutputView.ShowDialog();
         }
 
         private void CarReport_Click(object sender, RoutedEventArgs e)
         {
             CarOutputView carOutputView = new CarOutputView();
             carOutputView.ShowDialog();
+        }
+
+        private void DriverReport_Click(object sender, RoutedEventArgs e)
+        {
+            DriverOutputView driverOutputView = new DriverOutputView();
+            driverOutputView.ShowDialog();
+        }
+
+        private void StorkeeperReport_Click(object sender, RoutedEventArgs e)
+        {
+            StorekeeperOutputView storekeeperOutputView = new StorekeeperOutputView();
+            storekeeperOutputView.ShowDialog();
         }
     }
 }

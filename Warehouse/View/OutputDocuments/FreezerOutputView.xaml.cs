@@ -4,18 +4,19 @@ using System.Windows;
 using Application = Microsoft.Office.Interop.Word.Application;
 using System.Windows.Media.Imaging;
 
+
 namespace Warehouse.View.OutputDocuments
 {
-    public partial class CarOutputView : Window
+    public partial class FreezerOutputView : Window
     {
         private Database database;
 
         private Application wordApplication;
         private Microsoft.Office.Interop.Word.Document document;
 
-        private string templatePath = @"D:\ДИПЛОМ\warehouse-main\Warehouse\Resources\CarTemplate.docx";
+        private string templatePath = @"D:\ДИПЛОМ\warehouse-main\Warehouse\Resources\FreezerTemplate.docx";
 
-        public CarOutputView()
+        public FreezerOutputView()
         {
             InitializeComponent();
 
@@ -32,7 +33,7 @@ namespace Warehouse.View.OutputDocuments
             SecondDate.Text = DateTime.Today.ToString("yyyy-MM-dd");
         }
 
-        public void generateCarWordDocument()
+        public void generateFreezerWordDocument()
         {
             try
             {
@@ -60,12 +61,12 @@ namespace Warehouse.View.OutputDocuments
 
                 using (SqlConnection connection = database.getSqlConnection())
                 {
-                    string tableQuery = $"SELECT car_check_id, car.car_number, account.surname, car_check_date, arrival_date, admission_car, car_temperature " +
-                        $"FROM car_check, car, account " +
-                        $"WHERE car.car_id = car_check.car_id " +
-                        $"AND car_check.account_id = account.account_id " +
-                        $"AND car_check_date " +
-                        $"BETWEEN '{firstDate}' AND '{secondDate}'";
+                    string tableQuery = $"SELECT freezer_check_id, freezer.freezer_name, account.surname, freezer_check_date, washing_method, detergent, detergent_quantity, disinfection_method, disinfectant, disinfectant_quantity " +
+                                        $"FROM freezer_check, freezer, account " +
+                                        $"WHERE freezer_check.freezer_id = freezer.freezer_id " +
+                                        $"AND freezer_check.account_id = account.account_id" +
+                                        $"AND freezer_check_date" +
+                                        $"BETWEEN '{firstDate}' AND '{secondDate}'";
 
                     connection.Open();
 
@@ -78,21 +79,27 @@ namespace Warehouse.View.OutputDocuments
 
                         while (reader.Read())
                         {
-                            string date = Convert.ToDateTime(reader["car_check_date"]).ToString("dd.MM.yyyy");
-                            string dateArv = Convert.ToDateTime(reader["arrival_date"]).ToString("dd.MM.yyyy");
-                            string id = reader["car_check_id"].ToString();
-                            string carN = reader["car_number"].ToString();
+                            string date = Convert.ToDateTime(reader["freezer_check_date"]).ToString("dd.MM.yyyy");
+                            string id = reader["freezer_check_id"].ToString();
+                            string frzN = reader["freezer_name"].ToString();
                             string surname = reader["surname"].ToString();
-                            string adm = reader["admission_car"].ToString();
-                            string temp = reader["car_temperature"].ToString();
+                            string w_met = reader["washing_method"].ToString();
+                            string det = reader["detergent"].ToString();
+                            string detQ = reader["detergent_quantity"].ToString();
+                            string d_met = reader["disinfection_method"].ToString();
+                            string dis = reader["disinfectant"].ToString();
+                            string disQ = reader["disinfectant_quantity"].ToString();
 
                             replaceField($"{{i_{index}}}", id);
-                            replaceField($"{{c_{index}}}", carN);
+                            replaceField($"{{frz_{index}}}", frzN);
                             replaceField($"{{acc_{index}}}", surname);
                             replaceField($"{{check_{index}}}", date);
-                            replaceField($"{{a_{index}}}", dateArv);
-                            replaceField($"{{ad_{index}}}", adm);
-                            replaceField($"{{car_{index}}}", temp);
+                            replaceField($"{{wMet_{index}}}", w_met);
+                            replaceField($"{{det_{index}}}", det);
+                            replaceField($"{{detQ_{index}}}", detQ);
+                            replaceField($"{{dMet_{index}}}", d_met);
+                            replaceField($"{{dis_{index}}}", dis);
+                            replaceField($"{{disQ_{index}}}", disQ);
 
                             index++;
                         }
@@ -102,12 +109,15 @@ namespace Warehouse.View.OutputDocuments
                         for (int i = index; i <= 10; i++)
                         {
                             replaceField($"{{i_{i}}}", "");
-                            replaceField($"{{c_{i}}}", "");
+                            replaceField($"{{drz{i}}}", "");
                             replaceField($"{{acc_{i}}}", "");
                             replaceField($"{{check_{i}}}", "");
-                            replaceField($"{{a_{i}}}", "");
-                            replaceField($"{{ad_{i}}}", "");
-                            replaceField($"{{car_{i}}}", "");
+                            replaceField($"{{wMet{i}}}", "");
+                            replaceField($"{{det{i}}}", "");
+                            replaceField($"{{detQ{i}}}", "");
+                            replaceField($"{{dMet{i}}}", "");
+                            replaceField($"{{dis{i}}}", "");
+                            replaceField($"{{disQ{i}}}", "");
                         }
                     }
 
@@ -115,7 +125,7 @@ namespace Warehouse.View.OutputDocuments
 
                 }
 
-                string fileName = "Журнал проверок температуры машины водителя";
+                string fileName = "Журнал о мойке и дезинфекции морозильных камер";
 
                 string outputPath = @"D:\ДИПЛОМ\warehouse-main\Warehouse\Resources\" + fileName + ".docx";
 
@@ -143,7 +153,6 @@ namespace Warehouse.View.OutputDocuments
             document.Content.Find.ClearFormatting();
             document.Content.Find.Execute(FindText: field, ReplaceWith: value);
         }
-
         private void Return_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -151,7 +160,7 @@ namespace Warehouse.View.OutputDocuments
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            generateCarWordDocument();
+            generateFreezerWordDocument();
         }
     }
 }

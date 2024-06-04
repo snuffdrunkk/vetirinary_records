@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|d:\\\u0434\u0438\u043F\u043B\u043E\u043C\\warehouse-main\\warehouse\\view\\outputdocuments\\freezeroutputview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|solutionrelative:warehouse\\view\\outputdocuments\\freezeroutputview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|d:\\\u0434\u0438\u043F\u043B\u043E\u043C\\warehouse-main\\warehouse\\view\\outputdocuments\\caroutputview.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
       "RelativeMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|solutionrelative:warehouse\\view\\outputdocuments\\caroutputview.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|d:\\\u0434\u0438\u043F\u043B\u043E\u043C\\warehouse-main\\warehouse\\view\\outputdocuments\\documentsoutput.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\warehouse\\view\\outputdocuments\\documentsoutput.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
       "RelativeMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|solutionrelative:warehouse\\view\\outputdocuments\\documentsoutput.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|d:\\\u0434\u0438\u043F\u043B\u043E\u043C\\warehouse-main\\warehouse\\service\\outputdocumentsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|solutionrelative:warehouse\\service\\outputdocumentsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|d:\\\u0434\u0438\u043F\u043B\u043E\u043C\\warehouse-main\\warehouse\\view\\outputdocuments\\caroutputview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|solutionrelative:warehouse\\view\\outputdocuments\\caroutputview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A0CBEF35-6B88-4959-AF23-0EE7E7E326E0}|Warehouse\\Warehouse.csproj|d:\\\u0434\u0438\u043F\u043B\u043E\u043C\\warehouse-main\\warehouse\\view\\outputdocuments\\documentsoutput.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -38,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 209,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,70 +66,71 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CarOutputView.xaml.cs",
               "DocumentMoniker": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\OutputDocuments\\CarOutputView.xaml.cs",
               "RelativeDocumentMoniker": "Warehouse\\View\\OutputDocuments\\CarOutputView.xaml.cs",
               "ToolTip": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\OutputDocuments\\CarOutputView.xaml.cs",
               "RelativeToolTip": "Warehouse\\View\\OutputDocuments\\CarOutputView.xaml.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAAAowEwAAABKAAAA",
+              "ViewState": "AQIAACQAAAAAAAAAAAAowAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T10:36:33.174Z",
+              "WhenOpened": "2024-06-04T11:22:40.688Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CarOutputView.xaml",
-              "DocumentMoniker": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\OutputDocuments\\CarOutputView.xaml",
-              "RelativeDocumentMoniker": "Warehouse\\View\\OutputDocuments\\CarOutputView.xaml",
-              "ToolTip": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\OutputDocuments\\CarOutputView.xaml",
-              "RelativeToolTip": "Warehouse\\View\\OutputDocuments\\CarOutputView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-06-03T10:35:59.087Z",
+              "DocumentIndex": 0,
+              "Title": "View\\OutputDocuments\\FreezerOutputView.xaml.cs",
+              "DocumentMoniker": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\OutputDocuments\\FreezerOutputView.xaml.cs",
+              "RelativeDocumentMoniker": "Warehouse\\View\\OutputDocuments\\FreezerOutputView.xaml.cs",
+              "ToolTip": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\OutputDocuments\\FreezerOutputView.xaml.cs",
+              "RelativeToolTip": "Warehouse\\View\\OutputDocuments\\FreezerOutputView.xaml.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAowDsAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T11:01:07.671Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "OutputDocumentsService.cs",
-              "DocumentMoniker": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\Service\\OutputDocumentsService.cs",
-              "RelativeDocumentMoniker": "Warehouse\\Service\\OutputDocumentsService.cs",
-              "ToolTip": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\Service\\OutputDocumentsService.cs",
-              "RelativeToolTip": "Warehouse\\Service\\OutputDocumentsService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T10:00:47.22Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "DocumentsOutput.xaml.cs",
               "DocumentMoniker": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\OutputDocuments\\DocumentsOutput.xaml.cs",
               "RelativeDocumentMoniker": "Warehouse\\View\\OutputDocuments\\DocumentsOutput.xaml.cs",
               "ToolTip": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\OutputDocuments\\DocumentsOutput.xaml.cs",
               "RelativeToolTip": "Warehouse\\View\\OutputDocuments\\DocumentsOutput.xaml.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAiwCoAAAAnAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwBoAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-03T10:00:39.91Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "DocumentsOutput.xaml",
               "DocumentMoniker": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\OutputDocuments\\DocumentsOutput.xaml",
               "RelativeDocumentMoniker": "Warehouse\\View\\OutputDocuments\\DocumentsOutput.xaml",
               "ToolTip": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\OutputDocuments\\DocumentsOutput.xaml",
               "RelativeToolTip": "Warehouse\\View\\OutputDocuments\\DocumentsOutput.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-27T15:53:16.39Z",
+              "WhenOpened": "2024-06-04T10:48:53.955Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
+              "Title": "MainPage.xaml.cs",
+              "DocumentMoniker": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\Main\\MainPage.xaml.cs",
+              "RelativeDocumentMoniker": "Warehouse\\View\\Main\\MainPage.xaml.cs",
+              "ToolTip": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\Main\\MainPage.xaml.cs",
+              "RelativeToolTip": "Warehouse\\View\\Main\\MainPage.xaml.cs",
+              "ViewState": "AQIAALYDAAAAAAAAAAAswNUDAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T14:39:26.955Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "MainPage.xaml",
               "DocumentMoniker": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\Main\\MainPage.xaml",
               "RelativeDocumentMoniker": "Warehouse\\View\\Main\\MainPage.xaml",
@@ -141,19 +138,6 @@
               "RelativeToolTip": "Warehouse\\View\\Main\\MainPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-05-27T15:25:10.118Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MainPage.xaml.cs",
-              "DocumentMoniker": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\Main\\MainPage.xaml.cs",
-              "RelativeDocumentMoniker": "Warehouse\\View\\Main\\MainPage.xaml.cs",
-              "ToolTip": "D:\\\u0414\u0418\u041F\u041B\u041E\u041C\\warehouse-main\\Warehouse\\View\\Main\\MainPage.xaml.cs",
-              "RelativeToolTip": "Warehouse\\View\\Main\\MainPage.xaml.cs",
-              "ViewState": "AQIAAMYDAAAAAAAAAAAUwEcAAABjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-10T14:39:26.955Z",
               "EditorCaption": ""
             }
           ]

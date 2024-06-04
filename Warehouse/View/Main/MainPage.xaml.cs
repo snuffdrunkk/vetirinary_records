@@ -978,7 +978,7 @@ namespace Warehouse.View.Main
 
         private void Output_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)//вывод печати
         {
-            DocumentsOutput documentsOutput = new DocumentsOutput(FreezerCheckGrid, CarCheckGrid, DriverCheckGrid);
+            DocumentsOutput documentsOutput = new DocumentsOutput();
             documentsOutput.ShowDialog();
         }
     }

@@ -6,16 +6,16 @@ using System.Windows.Media.Imaging;
 
 namespace Warehouse.View.OutputDocuments
 {
-    public partial class CarOutputView : Window
+    public partial class StorekeeperOutputView : Window
     {
         private Database database;
 
         private Application wordApplication;
         private Microsoft.Office.Interop.Word.Document document;
 
-        private string templatePath = @"D:\ДИПЛОМ\warehouse-main\Warehouse\Resources\CarTemplate.docx";
+        private string templatePath = @"D:\ДИПЛОМ\warehouse-main\Warehouse\Resources\StorekeeperTemplate.docx";
 
-        public CarOutputView()
+        public StorekeeperOutputView()
         {
             InitializeComponent();
 
@@ -32,7 +32,7 @@ namespace Warehouse.View.OutputDocuments
             SecondDate.Text = DateTime.Today.ToString("yyyy-MM-dd");
         }
 
-        public void generateCarWordDocument()
+        public void generateStorekeeperWordDocument()
         {
             try
             {
@@ -60,11 +60,11 @@ namespace Warehouse.View.OutputDocuments
 
                 using (SqlConnection connection = database.getSqlConnection())
                 {
-                    string tableQuery = $"SELECT car_check_id, car.car_number, account.surname, car_check_date, arrival_date, admission_car, car_temperature " +
-                        $"FROM car_check, car, account " +
-                        $"WHERE car.car_id = car_check.car_id " +
-                        $"AND car_check.account_id = account.account_id " +
-                        $"AND car_check_date " +
+                    string tableQuery = $"SELECT storekeeper_check_id, storekeeper.surname_storekeeper, account.surname, storekeeper_check_date, sertificate_start_date, sertificate_end_date, admission_storekeeper " +
+                        $"FROM storekeeper_check, storekeeper, account " +
+                        $"WHERE storekeeper.storekeeper_id = storekeeper_check.storekeeper_id " +
+                        $"AND storekeeper_check.account_id = account.account_id " +
+                        $"AND storekeeper_check_date " +
                         $"BETWEEN '{firstDate}' AND '{secondDate}'";
 
                     connection.Open();
@@ -78,21 +78,21 @@ namespace Warehouse.View.OutputDocuments
 
                         while (reader.Read())
                         {
-                            string date = Convert.ToDateTime(reader["car_check_date"]).ToString("dd.MM.yyyy");
-                            string dateArv = Convert.ToDateTime(reader["arrival_date"]).ToString("dd.MM.yyyy");
-                            string id = reader["car_check_id"].ToString();
-                            string carN = reader["car_number"].ToString();
+                            string date = Convert.ToDateTime(reader["storekeeper_check_date"]).ToString("dd.MM.yyyy");
+                            string dateStart = Convert.ToDateTime(reader["sertificate_start_date"]).ToString("dd.MM.yyyy");
+                            string dateEnd = Convert.ToDateTime(reader["sertificate_end_date"]).ToString("dd.MM.yyyy");
+                            string id = reader["storekeeper_check_id"].ToString();
+                            string drvN = reader["surname_storekeeper"].ToString();
                             string surname = reader["surname"].ToString();
-                            string adm = reader["admission_car"].ToString();
-                            string temp = reader["car_temperature"].ToString();
+                            string adm = reader["admission_storekeeper"].ToString();
 
                             replaceField($"{{i_{index}}}", id);
-                            replaceField($"{{c_{index}}}", carN);
+                            replaceField($"{{drv_{index}}}", drvN);
                             replaceField($"{{acc_{index}}}", surname);
                             replaceField($"{{check_{index}}}", date);
-                            replaceField($"{{a_{index}}}", dateArv);
-                            replaceField($"{{ad_{index}}}", adm);
-                            replaceField($"{{car_{index}}}", temp);
+                            replaceField($"{{start_{index}}}", dateStart);
+                            replaceField($"{{end_{index}}}", dateEnd);
+                            replaceField($"{{adm_{index}}}", adm);
 
                             index++;
                         }
@@ -102,12 +102,12 @@ namespace Warehouse.View.OutputDocuments
                         for (int i = index; i <= 10; i++)
                         {
                             replaceField($"{{i_{i}}}", "");
-                            replaceField($"{{c_{i}}}", "");
+                            replaceField($"{{drv_{i}}}", "");
                             replaceField($"{{acc_{i}}}", "");
                             replaceField($"{{check_{i}}}", "");
-                            replaceField($"{{a_{i}}}", "");
-                            replaceField($"{{ad_{i}}}", "");
-                            replaceField($"{{car_{i}}}", "");
+                            replaceField($"{{start_{i}}}", "");
+                            replaceField($"{{end_{i}}}", "");
+                            replaceField($"{{adm_{i}}}", "");
                         }
                     }
 
@@ -115,7 +115,7 @@ namespace Warehouse.View.OutputDocuments
 
                 }
 
-                string fileName = "Журнал проверок температуры машины водителя";
+                string fileName = "Журнал проверок медосмотра кладовщика";
 
                 string outputPath = @"D:\ДИПЛОМ\warehouse-main\Warehouse\Resources\" + fileName + ".docx";
 
@@ -151,7 +151,7 @@ namespace Warehouse.View.OutputDocuments
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            generateCarWordDocument();
+            generateStorekeeperWordDocument();
         }
     }
 }
