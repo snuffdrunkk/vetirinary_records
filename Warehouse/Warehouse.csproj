@@ -224,6 +224,7 @@
     <Compile Include="View\OutputDocuments\StorekeeperOutputView.xaml.cs">
       <DependentUpon>StorekeeperOutputView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\OutputDocuments\WaybillOutputView.cs" />
     <Page Include="Auth\AuthPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -10,6 +10,7 @@ namespace Warehouse.Service
     internal class ValidationFileds
     {
         CarStorage carStorage = new CarStorage();
+        ProductTypeStorage productTypeStorage = new ProductTypeStorage();
         public bool ValidateFieldsAccReg(string username, string firstPassword, string secondPassword, string surname, string firstName, string middleName)//Проверка аккаунта
         {
             if (!ValidationAuth(username))
@@ -129,6 +130,12 @@ namespace Warehouse.Service
             if (!Regex.IsMatch(title, productTypePattern))
             {
                 MessageBox.Show("Размер наименования от 3 до 30 символов, без цифр и знаков!");
+                return false;
+            }
+
+            if (!productTypeStorage.CountTypeName(title))
+            {
+                MessageBox.Show("Данный продукт уже существует.");
                 return false;
             }
 
@@ -259,6 +266,16 @@ namespace Warehouse.Service
             return true;
         }
 
+        public bool ValidateAdressOrd(string adr)
+        {
+            if (string.IsNullOrWhiteSpace(adr) || adr.Length < 3 || adr.Length > 40)
+            {
+                MessageBox.Show($"Адрес должен быть от 3 до 40 символов.");
+            }
+
+            return true;
+        }
+
         public bool ValidationComboBoxProduct(ComboBoxDTO combo, string type)
         {
             if (combo == null)
@@ -355,9 +372,9 @@ namespace Warehouse.Service
         {
             string firstNamePattern = @"^[a-zA-Zа-яА-Я]*-?[a-zA-Zа-яА-Я]{3,24}$";
 
-            if (!Regex.IsMatch(firstName, firstNamePattern) || (firstName.Length < 3) || (firstName.Length > 25))
+            if (!Regex.IsMatch(firstName, firstNamePattern) || (firstName.Length < 2) || (firstName.Length > 25))
             {
-                MessageBox.Show("Минимальный размер имени - 3, без знаков и цифр, максимальный размер 25!");
+                MessageBox.Show("Минимальный размер имени - 2, без знаков и цифр, максимальный размер 25!");
                 return false;
             }
 

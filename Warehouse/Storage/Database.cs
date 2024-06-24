@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OfficeOpenXml.FormulaParsing.Excel.Functions.Logical;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -32,7 +33,13 @@ namespace Warehouse
 
         private string selectOrderAll = $"select order_id, order_id from ord";
         private string selectProductAll = $"select product_id, title from product";
-        private string selectDriverAll = $"select driver_id, surname_driver from driver";
+        private string selectDriverAll = $"select driver_check_id, driver.surname_driver " +
+                                         $"from driver, driver_check " +
+                                         $"where driver.driver_id = driver_check.driver_id";
+        private string selectCarAll = $"select car_check_id, car.car_number " +
+                                      $"from car, car_check " +
+                                      $"where car.car_id = car_check.car_id";
+        private string selectStorekeeperAll = $"select storekeeper_check_id, storekeeper.surname_storekeeper from storekeeper, storekeeper_check where storekeeper.storekeeper_id = storekeeper_check.storekeeper_id";
 
         public void Connection()
         {
@@ -59,10 +66,10 @@ namespace Warehouse
         {
             SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
-            SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
+                SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
 
             DataTable data = new DataTable();
-            adapter.Fill(data);
+                adapter.Fill(data);
             return data;
         }
 
@@ -132,186 +139,6 @@ namespace Warehouse
             Update(query);
         }
 
-        public OrderedDictionary ProductIdDate(DateTime firstDate, DateTime secondDate)
-        {
-            string queryWithProductIdDate = $@"
-                            SELECT ord.order_id, product.product_id, product.title
-                            FROM ord
-                            JOIN order_composition ON ord.order_id = order_composition.order_id
-                            JOIN product ON order_composition.product_id = product.product_id
-                            WHERE ord.order_date >= '{firstDate.ToString("yyyy-MM-dd")}' AND ord.order_date <= '{secondDate.ToString("yyyy-MM-dd")}'";
-
-            return GetProductWithOrderId(queryWithProductIdDate);
-        }
-
-        public OrderedDictionary ProductIdDateWithType(DateTime firstDate, DateTime secondDate, string type)
-        {
-            string queryWithProductIdDate = $@"
-                            SELECT ord.order_id, product.product_id, product.title
-                            FROM ord
-                            JOIN order_composition ON ord.order_id = order_composition.order_id
-                            JOIN product ON order_composition.product_id = product.product_id
-                            WHERE ord.order_date >= '{firstDate.ToString("yyyy-MM-dd")}' AND ord.order_date <= '{secondDate.ToString("yyyy-MM-dd")}'
-                            AND ord.order_type = N'{type}'";
-
-            return GetProductWithOrderId(queryWithProductIdDate);
-        }
-
-        public OrderedDictionary ProductsForOrder(long orderId)
-        {
-            string query = $@"
-                SELECT ord.order_id, product.product_id, product.title
-                FROM ord
-                JOIN order_composition ON ord.order_id = order_composition.order_id
-                JOIN product ON order_composition.product_id = product.product_id 
-                WHERE order_composition.order_id = {orderId}";
-
-            return GetProductWithOrderId(query);
-        }
-
-        public long GetSupplierId(long orderId)
-        {
-            Connection();
-            SqlCommand command = new SqlCommand($"select supplier_id from ord where order_id = '{orderId}'", sqlConnection);
-            long count = (long)command.ExecuteScalar();
-            Connection();
-            return count;
-        }
-
-        public DataTable GetSupplier(long supplierId)
-        {
-            string query = $@"select supplier_id, title, address, phone_number, surname, first_name, middle_name from supplier where supplier_id = '{supplierId}'";
-
-            DataTable result = Select(query);
-            DataTable newTable = new DataTable();
-            newTable.Columns.Add("Номер", typeof(long));
-            newTable.Columns.Add("Название", typeof(string));
-            newTable.Columns.Add("Адрес", typeof(string));
-            newTable.Columns.Add("Номер телефона", typeof(string));
-            newTable.Columns.Add("Фамилия", typeof(string));
-            newTable.Columns.Add("Имя", typeof(string));
-            newTable.Columns.Add("Отчество", typeof(string));
-
-            foreach (DataRow row in result.Rows)
-            {
-                long id = long.Parse(row["supplier_id"].ToString());
-                string title = row["title"].ToString();
-                string address = row["address"].ToString();
-                string phoneNumber = row["phone_number"].ToString();
-                string surname = row["surname"].ToString();
-                string firstName = row["first_name"].ToString();
-                string middleName = row["middle_name"].ToString();
-
-                DataRow newRow = newTable.NewRow();
-
-                newRow["Номер"] = id;
-                newRow["Название"] = title;
-                newRow["Адрес"] = address;
-                newRow["Номер телефона"] = phoneNumber;
-                newRow["Фамилия"] = surname;
-                newRow["Имя"] = firstName;
-                newRow["Отчество"] = middleName;
-
-                newTable.Rows.Add(newRow);
-            }
-
-            return newTable;
-        }
-
-        public DataTable GetOrderWithOrderId(long orderId)
-        {
-            string query = $@"select order_id, supplier.surname as 'supplier_surname', account.surname, amount, order_date, order_type 
-                from ord, supplier, account
-                where ord.supplier_id = supplier.supplier_id
-                and account.account_id = ord.account_id
-                and ord.order_id = '{orderId}'";
-
-            DataTable result = Select(query);
-            DataTable newTable = new DataTable();
-            newTable.Columns.Add("Номер", typeof(long));
-            newTable.Columns.Add("Поставщик", typeof(string));
-            newTable.Columns.Add("Сотрудник", typeof(string));
-            newTable.Columns.Add("Сумма", typeof(double));
-            newTable.Columns.Add("Дата", typeof(DateTime));
-            newTable.Columns.Add("Тип", typeof(string));
-
-            foreach (DataRow row in result.Rows)
-            {
-                long id = long.Parse(row["order_id"].ToString());
-                string supplier = row["supplier_surname"].ToString();
-                string account = row["surname"].ToString();
-                double quantity = double.Parse(row["amount"].ToString());
-                DateTime date = DateTime.Parse(row["order_date"].ToString());
-                string orderType = row["order_type"].ToString();
-
-                DataRow newRow = newTable.NewRow();
-
-                newRow["Номер"] = id;
-                newRow["Поставщик"] = supplier;
-                newRow["Сотрудник"] = account;
-                newRow["Сумма"] = quantity;
-                newRow["Дата"] = date;
-                newRow["Тип"] = orderType;
-
-                newTable.Rows.Add(newRow);
-            }
-
-            return newTable;
-        }
-
-        public DataTable GetOrderComposition(string productName)
-        {
-            string query = $@"SELECT product.title, order_composition.quantity, ord.order_type
-                FROM order_composition, ord, product
-                where ord.order_id = order_composition.order_id
-                and order_composition.product_id = product.product_id
-                and product.title = N'{productName}'";
-
-            DataTable result = Select(query);
-            DataTable newTable = new DataTable();
-            newTable.Columns.Add("Название", typeof(string));
-            newTable.Columns.Add("Приход", typeof(int));
-            newTable.Columns.Add("Расход", typeof(int));
-            newTable.Columns.Add("Остаток", typeof(int));
-
-            foreach (DataRow row in result.Rows)
-            {
-                string title = row["title"].ToString();
-                int quantity = int.Parse(row["quantity"].ToString());
-                string orderType = row["order_type"].ToString();
-
-                DataRow newRow = newTable.NewRow();
-
-                newRow["Название"] = title;
-                newRow["Приход"] = orderType == "Поступление" ? quantity : 0;
-                newRow["Расход"] = orderType == "Выбытие" ? quantity : 0;
-
-                int previousBalance = 0;
-
-                if (newTable.Rows.Count > 0)
-                {
-                    previousBalance = int.Parse(newTable.Rows[newTable.Rows.Count - 1]["Остаток"].ToString());
-                }
-
-                int currentBalance = previousBalance;
-
-                if (orderType == "Поступление")
-                {
-                    currentBalance += quantity;
-                }
-                else if (orderType == "Выбытие")
-                {
-                    currentBalance -= quantity;
-                }
-
-                newRow["Остаток"] = currentBalance;
-
-                newTable.Rows.Add(newRow);
-            }
-
-            return newTable;
-        }
-
         public OrderedDictionary GetProductWithOrderId(string query)
         {
             OrderedDictionary productFromOrder = new OrderedDictionary();
@@ -348,28 +175,6 @@ namespace Warehouse
             return productFromOrder;
         }
 
-        public void ShowProductFromOrder(OrderedDictionary productFromOrder)
-        {
-            StringBuilder message = new StringBuilder();
-
-            foreach (DictionaryEntry entry in productFromOrder)
-            {
-                long orderId = (long)entry.Key;
-                List<Product> products = (List<Product>)entry.Value;
-
-                message.AppendLine($"Order ID: {orderId}");
-
-                foreach (Product product in products)
-                {
-                    message.AppendLine($"Product ID: {product.id}, Title: {product.title}");
-                }
-
-                message.AppendLine();
-            }
-
-            MessageBox.Show(message.ToString());
-        }
-
         public long GetAccountId()
         {
             SqlCommand command = new SqlCommand($"Select account_id from account where username = '{AuthManager.CurrentUsername}'", sqlConnection);
@@ -379,20 +184,7 @@ namespace Warehouse
             return id;
         }
 
-        public long GetOrderId()
-        {
-            Connection();
-
-            SqlCommand command = new SqlCommand($"Select order_id from ord where username = {AuthManager.CurrentUsername}", sqlConnection);
-
-            long id = Convert.ToInt64(command.ExecuteScalar());
-
-            Connection();
-
-            return id;
-        }
-
-        public void CreateOrder(ComboBoxDTO supplierDTO, double amount, string orderType, string orderDate)
+        public void CreateOrder(ComboBoxDTO supplierDTO, double amount, string orderType, string orderDate, long carCheckId, long storeKeeperCheckId, string department, string arrival)
         {
             Connection();
 
@@ -411,7 +203,7 @@ namespace Warehouse
                 }
             }
 
-            SqlCommand command = new SqlCommand($"insert into ord (supplier_id, account_id, amount, order_date, order_type) output inserted.order_id values ('{supplierDTO.id}', '{GetAccountId()}', '{amount}', '{orderDate}', N'{orderType}')", sqlConnection);
+            SqlCommand command = new SqlCommand($"insert into ord (driver_check_id, account_id, amount, order_date, order_type, car_check_id, storekeeper_check_id, departure_point, arrival_point) output inserted.order_id values ('{supplierDTO.id}', '{GetAccountId()}', '{amount}', '{orderDate}', N'{orderType}', N'{carCheckId}', N'{storeKeeperCheckId}', N'{department}', N'{arrival}')", sqlConnection);
             long orderId = (long)command.ExecuteScalar();
 
             foreach (DictionaryEntry item in ComboBoxOrder.dicrtionaryWithId1)
@@ -494,21 +286,32 @@ namespace Warehouse
             ComboBoxToTable(selectProductAll, box);
         }
 
-        public void ReadOrderToComboBox(ComboBox box)
-        {
-            ComboBoxToTableOrder(selectOrderAll, box);
-        }
-
         public void ReadSupplierToComboBox(ComboBox boxi)
         {
             ComboBoxToTable(selectDriverAll, boxi);
+        }
+        public void ReadCarToComboBox(ComboBox boxi)
+        {
+            ComboBoxToTable(selectCarAll, boxi);
+        }
+        public void ReadStorekeeperToComboBox(ComboBox boxi)
+        {
+            ComboBoxToTable(selectStorekeeperAll, boxi);
         }
 
         public DataTable GetOrdersWithProducts()
         {
             Connection();
 
-            string selectOrderWithoutProducts = "SELECT DISTINCT ord.order_id, supplier.title, account.surname, ord.amount, ord.order_date, ord.order_type FROM ord, supplier, account, order_composition WHERE ord.supplier_id = supplier.supplier_id AND ord.account_id = account.account_id";
+            string selectOrderWithoutProducts = "SELECT DISTINCT ord.order_id, driver.surname_driver, storekeeper.surname_storekeeper, car.car_number, account.surname, ord.amount, ord.order_date, ord.order_type, ord.departure_point, ord.arrival_point " +
+                "FROM ord, storekeeper, storekeeper_check, driver, driver_check, car, car_check, account, order_composition " +
+                "WHERE storekeeper.storekeeper_id = storekeeper_check.storekeeper_id " +
+                "AND driver.driver_id = driver_check.driver_id " +
+                "AND car.car_id = car_check.car_id " +
+                "AND ord.account_id = account.account_id " +
+                "AND driver_check.driver_check_id = ord.driver_check_id " +
+                "AND car_check.car_check_id = ord.car_check_id " +
+                "AND storekeeper_check.storekeeper_check_id = ord.storekeeper_check_id ";
 
             DataTable orderTable = Select(selectOrderWithoutProducts);
             orderTable.Columns.Add("product", typeof(DataTable));
@@ -527,11 +330,6 @@ namespace Warehouse
             return orderTable;
         }
 
-        public void ReadAddFromComboBoxOrder(DataGrid grid)
-        {
-            Select(selectProductAll, grid);
-        }
-
         public void ComboBoxToTable(string query, ComboBox box)
         {
             Connection();
@@ -544,24 +342,6 @@ namespace Warehouse
                 ComboBoxDTO dto = new ComboBoxDTO();
                 dto.id = reader.GetInt64(0);
                 dto.name = reader.GetString(1).ToString();
-                box.Items.Add(dto);
-            }
-            reader.Close();
-            Connection();
-        }
-
-        public void ComboBoxToTableOrder(string query, ComboBox box)
-        {
-            Connection();
-            SqlCommand command = new SqlCommand(query, sqlConnection);
-            SqlDataReader reader = command.ExecuteReader();
-
-            box.Items.Clear();
-            while (reader.Read())
-            {
-                ComboBoxDTO dto = new ComboBoxDTO();
-                dto.id = reader.GetInt64(0);
-                dto.name = reader.GetInt64(1).ToString();
                 box.Items.Add(dto);
             }
             reader.Close();

@@ -136,6 +136,19 @@ namespace Warehouse.View.EditPage
                 return false;
             }
 
+            DateTime parsedStartDate;
+            if (!DateTime.TryParse(startDate, out parsedStartDate))
+            {
+                MessageBox.Show("Неправильный формат даты начала действия справки.");
+                return false;
+            }
+
+            if (parsedStartDate > DateTime.Today)
+            {
+                MessageBox.Show("Дата начала действия справки не может быть больше сегодняшней даты.");
+                return false;
+            }
+
             return true;
         }
 

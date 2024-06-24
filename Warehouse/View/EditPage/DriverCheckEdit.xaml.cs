@@ -96,9 +96,16 @@ namespace Warehouse.View.EditPage
                 return false;
             }
 
-            if (DateTime.Parse(startDate) != DateTime.Today)
+            DateTime parsedStartDate;
+            if (!DateTime.TryParse(startDate, out parsedStartDate))
             {
-                MessageBox.Show("Дата начала действия справки должна быть сегодняшней.");
+                MessageBox.Show("Неправильный формат даты начала действия справки.");
+                return false;
+            }
+
+            if (parsedStartDate > DateTime.Today)
+            {
+                MessageBox.Show("Дата начала действия справки не может быть больше сегодняшней даты.");
                 return false;
             }
 
@@ -110,12 +117,6 @@ namespace Warehouse.View.EditPage
             if (string.IsNullOrEmpty(endlDate))
             {
                 MessageBox.Show("Пожалуйста, выберите дату окончания действия справки.");
-                return false;
-            }
-
-            if (DateTime.Parse(endlDate) != DateTime.Today)
-            {
-                MessageBox.Show("Дата окончания действия справки должна быть сегодняшней.");
                 return false;
             }
 

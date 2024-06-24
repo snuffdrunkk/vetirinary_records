@@ -533,8 +533,8 @@ namespace Warehouse.View.Main
 
             OrderGrid.Visibility = Visibility.Visible;
 
-/*            DataTable orderTable = database.GetOrdersWithProducts();
-            OrderGrid.ItemsSource = orderTable.DefaultView;*/
+            DataTable orderTable = database.GetOrdersWithProducts();
+            OrderGrid.ItemsSource = orderTable.DefaultView;
         }
 
         private void OrderButtontetet_Click(object sender, RoutedEventArgs e)//Добавление ттн

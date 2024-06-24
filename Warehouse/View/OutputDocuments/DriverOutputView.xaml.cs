@@ -125,9 +125,9 @@ namespace Warehouse.View.OutputDocuments
                 System.Diagnostics.Process.Start(outputPath);
 
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show("Произошла ошибка. Закройте все экземпляры Microsoft Word и попробуйте снова!" + ex);
+                MessageBox.Show("Произошла ошибка. Закройте все экземпляры Microsoft Word и попробуйте снова!");
 
                 foreach (var process in System.Diagnostics.Process.GetProcessesByName("WINWORD"))
                 {

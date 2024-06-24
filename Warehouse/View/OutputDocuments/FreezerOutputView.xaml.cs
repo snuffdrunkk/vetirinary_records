@@ -64,8 +64,8 @@ namespace Warehouse.View.OutputDocuments
                     string tableQuery = $"SELECT freezer_check_id, freezer.freezer_name, account.surname, freezer_check_date, washing_method, detergent, detergent_quantity, disinfection_method, disinfectant, disinfectant_quantity " +
                                         $"FROM freezer_check, freezer, account " +
                                         $"WHERE freezer_check.freezer_id = freezer.freezer_id " +
-                                        $"AND freezer_check.account_id = account.account_id" +
-                                        $"AND freezer_check_date" +
+                                        $"AND freezer_check.account_id = account.account_id " +
+                                        $"AND freezer_check_date " +
                                         $"BETWEEN '{firstDate}' AND '{secondDate}'";
 
                     connection.Open();

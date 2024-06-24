@@ -40,7 +40,7 @@
                 BorderBrush="Orange"
                 BorderThickness="2">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Номер заказа" Width="*" Binding="{Binding order_id}"/>
+                    <DataGridTextColumn Header="Номер накладной" Width="*" Binding="{Binding order_id}"/>
                     <DataGridTextColumn Header="Водитель" Width="*"  Binding="{Binding surname_driver}"/>
                     <DataGridTextColumn Header="Кладовщик" Width="*"  Binding="{Binding surname_storekeeper}"/>
                     <DataGridTextColumn Header="Сотрудник" Width="*"  Binding="{Binding surname}"/>
@@ -466,7 +466,7 @@
                     <ListViewItem Height="60" x:Name="Storekeeper" PreviewMouseLeftButtonDown="Storekeeper_PreviewMouseLeftButtonDown">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="PackageVariantPlus" Height="25" Width="25" Margin="10" VerticalAlignment="Center"/>
-                            <TextBlock Text="Кладовщик" VerticalAlignment="Center" Margin="0 10"/>
+                            <TextBlock Text="Кладовщики" VerticalAlignment="Center" Margin="0 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60" x:Name="Supplier" PreviewMouseLeftButtonDown="Supplier_PreviewMouseLeftButtonDown">

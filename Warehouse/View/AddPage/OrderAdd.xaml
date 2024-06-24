@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Warehouse.View.AddPage"
         mc:Ignorable="d"
-        Height="600" Width="650"
+        Height="700" Width="850"
         Icon="/Resources/ColorIcon.png"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -23,8 +23,8 @@
             Background="White"
             CornerRadius="10" 
             BorderBrush="Black"
-            Height="360px" 
-            Width="300px" 
+            Height="460px" 
+            Width="750px" 
             Padding="10">
             <Border.Effect>
                 <DropShadowEffect 
@@ -43,7 +43,7 @@
             Foreground="#FF7E00"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Margin="0 0 0 280">
+            Margin="0 0 0 390">
         </Label>
         <ComboBox
             x:Name="SupplierComboBox"
@@ -51,8 +51,30 @@
             Height="40px"
             FontSize="15px"
             Padding="12 0 12 0"
-            Margin="0 0 0 160"
+            Margin="0 0 500 165"
             materialDesign:HintAssist.Hint="Водитель"
+            Style="{StaticResource MaterialDesignOutlinedComboBox}"
+            BorderBrush="#BC989393">
+        </ComboBox>
+        <ComboBox
+            x:Name="CarComboBox"
+            Width="225px"
+            Height="40px"
+            FontSize="15px"
+            Padding="12 0 12 0"
+            Margin="0 0 0 165"
+            materialDesign:HintAssist.Hint="Машина"
+            Style="{StaticResource MaterialDesignOutlinedComboBox}"
+            BorderBrush="#BC989393">
+        </ComboBox>
+        <ComboBox
+            x:Name="StorekeeperComboBox"
+            Width="225px"
+            Height="40px"
+            FontSize="15px"
+            Padding="12 0 12 0"
+            Margin="500 0 0 165"
+            materialDesign:HintAssist.Hint="Кладовщик"
             Style="{StaticResource MaterialDesignOutlinedComboBox}"
             BorderBrush="#BC989393">
         </ComboBox>
@@ -62,7 +84,7 @@
             Height="40px"
             FontSize="15px"
             Padding="12 0 12 0"
-            Margin="0 0 0 60"
+            Margin="0 0 0 280"
             materialDesign:HintAssist.Hint="Тип накладной"
             Style="{StaticResource MaterialDesignOutlinedComboBox}"
             BorderBrush="#BC989393">
@@ -77,9 +99,33 @@
             Height="40px"
             Width="225px"
             Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-            Margin="0 40 0 0" 
+            Margin="500 0 0 280" 
             IsReadOnly="True"
             IsEnabled="False"
+            BorderBrush="#BC989393">
+        </TextBox>
+        <TextBox
+            x:Name="DeparturePointBox"
+            IsEnabled="False"
+            materialDesign:HintAssist.Hint="Точка отправления"
+            FontSize="15px"
+            Padding="12 10 2 2"
+            Height="40px"
+            Width="225px"
+            Style="{StaticResource MaterialDesignOutlinedTextBox}" 
+            Margin="0 0 500 60" 
+            BorderBrush="#BC989393">
+        </TextBox>
+        <TextBox
+            x:Name="ArrivalPointBox"
+            IsEnabled="False"
+            materialDesign:HintAssist.Hint="Точка прибытия"
+            FontSize="15px"
+            Padding="12 10 2 2"
+            Height="40px"
+            Width="225px"
+            Style="{StaticResource MaterialDesignOutlinedTextBox}" 
+            Margin="0,45,500,0" 
             BorderBrush="#BC989393">
         </TextBox>
         <DatePicker 
@@ -88,15 +134,15 @@
             Padding="12 0 12 0"
             Height="40px"
             Width="225px"
-            Margin="0 140 0 0" 
+            Margin="0 0 500 280" 
             Grid.Row="4"
             Grid.Column="4"
+            materialDesign:HintAssist.Hint="Дата накладной"
             Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
             BorderBrush="#BC989393"/>
-        
         <Button
             x:Name="ReturnToMain"
-            Width="105px"
+            Width="155px"
             Height="45px"
             materialDesign:ButtonAssist.CornerRadius="20"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -106,51 +152,15 @@
             BorderBrush="Transparent"
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
-            Content="Вернуться"
             RenderOptions.EdgeMode="Aliased"
-            Margin="0 290 120 0"
+            Margin="0 360 320 0"
             Click="ReturnToMain_Click">
-        </Button>
-        <Button
-            x:Name="ReturnToFirstPage"
-            Width="105px"
-            Height="45px"
-            Visibility="Collapsed"
-            materialDesign:ButtonAssist.CornerRadius="20"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            Background="#FF8800"
-            Foreground="White"
-            BorderBrush="Transparent"
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Center" 
-            Content="Вернуться"
-            RenderOptions.EdgeMode="Aliased"
-            Margin="0 290 120 0"
-            Click="ReturnToFirstPage_Click">
-        </Button>
-        <Button
-            x:Name="NextToSecondPage"
-            Width="105px"
-            Height="45px"
-            materialDesign:ButtonAssist.CornerRadius="20"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            Background="#FF8800"
-            Foreground="White"
-            BorderBrush="Transparent"
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Center" 
-            Content="Дальше"
-            RenderOptions.EdgeMode="Aliased"
-            Margin="120 290 0 0"
-            Click="NextToSecondPage_Click">
+            <materialDesign:PackIcon Kind="Backburger" Height="35" Width="35"/>
         </Button>
         <Button
             x:Name="CompleteButton"
-            Width="105px"
+            Width="155px"
             Height="45px"
-            Visibility="Collapsed"
             materialDesign:ButtonAssist.CornerRadius="20"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
@@ -159,14 +169,15 @@
             BorderBrush="Transparent"
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
-            Content="Создать"
             RenderOptions.EdgeMode="Aliased"
-            Margin="120 290 0 0"
+            Margin="320 360 0 0"
             Click="CompleteButton_Click">
+            <materialDesign:PackIcon Kind="Plus" Height="35" Width="35"/>
         </Button>
-        <DataGrid   
-            Visibility="Collapsed"
-            Margin="175,180,175,180" 
+        <DataGrid  
+            BorderBrush="Orange"
+            BorderThickness="2"
+            Margin="312,282,62,217" 
             x:Name="SupplierGrid" 
             Background="White"
             AutoGenerateColumns="false"
@@ -178,7 +189,7 @@
             SelectionUnit="FullRow" 
             CanUserResizeRows="False" 
             IsReadOnly="True"
-            Foreground="#FF7643D2">
+            Foreground="Black">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название" Width="*" Binding="{Binding Title}"/>
                 <DataGridTextColumn Header="Количество" Width="*" Binding="{Binding Quantity}"/>

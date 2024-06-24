@@ -16,8 +16,15 @@ namespace Warehouse.View.AddPage
 
         public OrderAdd(DataGrid grid)
         {
+
             InitializeComponent();
+
+            OrderTypeComboBox.SelectionChanged += OrderTypeComboBox_SelectionChanged;
+
             database.ReadSupplierToComboBox(SupplierComboBox);
+            database.ReadCarToComboBox(CarComboBox);
+            database.ReadStorekeeperToComboBox(StorekeeperComboBox);
+
             this.grid = grid;
             Date.SelectedDate = DateTime.Today;
 
@@ -31,6 +38,27 @@ namespace Warehouse.View.AddPage
             imageControl.Source = bitmap;
         }
 
+        private void OrderTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (OrderTypeComboBox.SelectedItem is ComboBoxItem selectedItem)
+            {
+                if (selectedItem.Content.ToString() == "Поступление")
+                {
+                    ArrivalPointBox.Text = "Гомель, аг. Коммунар, ул. Приозерная, 1";
+                    ArrivalPointBox.IsEnabled = false;
+                    DeparturePointBox.Text = string.Empty;
+                    DeparturePointBox.IsEnabled = true;
+                }
+                else if (selectedItem.Content.ToString() == "Выбытие")
+                {
+                    ArrivalPointBox.Text = string.Empty;
+                    ArrivalPointBox.IsEnabled = true;
+                    DeparturePointBox.Text = "Гомель, аг. Коммунар, ул. Приозерная, 1";
+                    DeparturePointBox.IsEnabled = false;
+                }
+            }
+        }
+
         private void AddSupplier_Click(object sender, RoutedEventArgs e)
         {
             AddFromComboBoxOrder add = new AddFromComboBoxOrder(SupplierGrid, ProductCost);
@@ -42,46 +70,23 @@ namespace Warehouse.View.AddPage
             this.Close();
         }
 
-        private void ReturnToFirstPage_Click(object sender, RoutedEventArgs e)
-        {
-            CompleteButton.Visibility = Visibility.Collapsed;
-            SupplierGrid.Visibility = Visibility.Collapsed;
-            ReturnToFirstPage.Visibility = Visibility.Collapsed;
-
-            SupplierComboBox.Visibility = Visibility.Visible;
-            OrderTypeComboBox.Visibility = Visibility.Visible;
-            ProductCost.Visibility = Visibility.Visible;
-            Date.Visibility = Visibility.Visible;
-            NextToSecondPage.Visibility = Visibility.Visible;
-            ReturnToMain.Visibility = Visibility.Visible;
-        }
-
-        private void NextToSecondPage_Click(object sender, RoutedEventArgs e)
-        {
-            SupplierComboBox.Visibility = Visibility.Collapsed;
-            OrderTypeComboBox.Visibility = Visibility.Collapsed;
-            ProductCost.Visibility = Visibility.Collapsed;
-            Date.Visibility = Visibility.Collapsed;
-            NextToSecondPage.Visibility = Visibility.Collapsed;
-            ReturnToMain.Visibility = Visibility.Collapsed;
-
-            CompleteButton.Visibility = Visibility.Visible;
-            SupplierGrid.Visibility = Visibility.Visible;
-            ReturnToFirstPage.Visibility = Visibility.Visible;
-        }
-
         private void CompleteButton_Click(object sender, RoutedEventArgs e)
         {
             ComboBoxDTO supplier = (ComboBoxDTO)SupplierComboBox.SelectedItem;
+            ComboBoxDTO car = (ComboBoxDTO)CarComboBox.SelectedItem;
+            ComboBoxDTO keeper = (ComboBoxDTO)StorekeeperComboBox.SelectedItem;
+            string departurePointBox = DeparturePointBox.Text;
+            string arrivalPointBox = ArrivalPointBox.Text;
+
             try
             {
                 string orderDate = Date.SelectedDate.Value.ToString("yyyy-MM-dd");
 
                 ValidationFileds validation = new ValidationFileds();
 
-                if (validation.ValidationComboBoxProduct(supplier, "поставщика") && validation.ValidationComboBox(((ComboBoxItem)OrderTypeComboBox.SelectedItem).Content.ToString(), "Тип заказа") && validation.ValidateAmount(ProductCost.Text))
+                if (validation.ValidationComboBoxProduct(supplier, "водителя") && validation.ValidationComboBoxProduct(car, "машину") && validation.ValidationComboBoxProduct(keeper, "кладовщика") && validation.ValidationComboBox(((ComboBoxItem)OrderTypeComboBox.SelectedItem).Content.ToString(), "Тип заказа") && validation.ValidateAmount(ProductCost.Text) && validation.ValidateAdressOrd(DeparturePointBox.Text) && validation.ValidateAdressOrd(ArrivalPointBox.Text))
                 {
-                    database.CreateOrder(supplier, validation.CastCostToDouble(ProductCost.Text), ((ComboBoxItem)OrderTypeComboBox.SelectedItem).Content.ToString(), orderDate);
+                    database.CreateOrder(supplier, validation.CastCostToDouble(ProductCost.Text), ((ComboBoxItem)OrderTypeComboBox.SelectedItem).Content.ToString(), orderDate, car.id, keeper.id, departurePointBox, arrivalPointBox);
                     DataTable orderTable = database.GetOrdersWithProducts();
                     grid.ItemsSource = orderTable.DefaultView;
                     this.Close();

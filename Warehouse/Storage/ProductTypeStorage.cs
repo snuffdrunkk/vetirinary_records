@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Controls;
 
 namespace Warehouse.Storage
@@ -33,6 +34,15 @@ namespace Warehouse.Storage
         public void ReadProductTypeToComboBox(ComboBox box)
         {
             database.ComboBoxToTable(selectProductType, box);
+        }
+
+        public bool CountTypeName(string typeName)
+        {
+            database.Connection();
+            SqlCommand command = new SqlCommand($"SELECT COUNT(*) FROM product_type WHERE type_name ='{typeName}'", database.getSqlConnection());
+            int count = (int)command.ExecuteScalar();
+            database.Connection();
+            return count == 0;
         }
     }
 }

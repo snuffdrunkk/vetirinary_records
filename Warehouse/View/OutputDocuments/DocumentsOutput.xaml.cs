@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media.Imaging;
-using Warehouse.Service;
 
 namespace Warehouse.View.OutputDocuments
 {
@@ -43,6 +41,12 @@ namespace Warehouse.View.OutputDocuments
         {
             StorekeeperOutputView storekeeperOutputView = new StorekeeperOutputView();
             storekeeperOutputView.ShowDialog();
+        }
+
+        private void MedicalSertificate_Click(object sender, RoutedEventArgs e)
+        {
+            WaybillOutputView waybillOutputView = new WaybillOutputView();
+            waybillOutputView.generateCarWordDocument();
         }
     }
 }

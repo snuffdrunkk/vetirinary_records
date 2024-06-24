@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -72,6 +73,12 @@ namespace Warehouse.View.AddPage
                 return false;
             }
 
+            if (!CountFrzName(name))
+            {
+                MessageBox.Show("Данная камера уже существует.");
+                return false;
+            }
+
             return true;
         }
 
@@ -107,6 +114,15 @@ namespace Warehouse.View.AddPage
             }
 
             return true;
+        }
+
+        public bool CountFrzName(string name)
+        {
+            database.Connection();
+            SqlCommand command = new SqlCommand($"SELECT COUNT(*) FROM freezer WHERE freezer_name ='{name}'", database.getSqlConnection());
+            int count = (int)command.ExecuteScalar();
+            database.Connection();
+            return count == 0;
         }
     }
 }
