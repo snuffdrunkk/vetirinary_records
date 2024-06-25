@@ -203,3 +203,5 @@ D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\Storekee
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\StorekeeperOutputView.baml
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\FreezerOutputView.g.cs
 D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\FreezerOutputView.baml
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\TestimonyOutputView.g.cs
+D:\ДИПЛОМ\warehouse-main\Warehouse\obj\Debug\View\OutputDocuments\TestimonyOutputView.baml

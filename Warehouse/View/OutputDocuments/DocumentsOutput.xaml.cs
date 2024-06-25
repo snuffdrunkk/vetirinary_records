@@ -45,8 +45,8 @@ namespace Warehouse.View.OutputDocuments
 
         private void MedicalSertificate_Click(object sender, RoutedEventArgs e)
         {
-            WaybillOutputView waybillOutputView = new WaybillOutputView();
-            waybillOutputView.generateCarWordDocument();
+            TestimonyOutputView testimonyOutputView = new TestimonyOutputView();
+            testimonyOutputView.ShowDialog();
         }
     }
 }
