@@ -18,12 +18,30 @@ namespace Warehouse.View.AddPage
         TextBox TextBox;
         Database database = new Database();
 
-        public AddFromComboBoxOrder(DataGrid grid, TextBox textBox)
+        private bool isPosted;
+
+        public AddFromComboBoxOrder(DataGrid grid, TextBox textBox, bool isPosted)
         {
             InitializeComponent();
+
             this.grid = grid;
             this.TextBox = textBox;
-            database.ReadProductToComboBox(ProductComboBox);
+            this.isPosted = isPosted;
+
+            if (isPosted)
+            {
+                database.ComboBoxToTable($"SELECT product_id, CONCAT(title,' - ', product_type.type_name, ' - ', description, ' - ', presence) AS product_info " +
+                    $"FROM product, product_type " +
+                    $"WHERE product.product_type_id = product_type.product_type_id " +
+                    $"AND suitability = N'Пригоден' ", ProductComboBox);
+            }
+            else
+            {
+                database.ComboBoxToTable($"SELECT product_id, CONCAT(title,' - ', product_type.type_name, ' - ', description) AS product_info " +
+                    $"FROM product, product_type " +
+                    $"WHERE product.product_type_id = product_type.product_type_id " +
+                    $"AND suitability ='' ", ProductComboBox);
+            }
 
             string imagePath = "D:\\ДИПЛОМ\\warehouse-main\\Warehouse\\Resources\\logo.jpg";
 

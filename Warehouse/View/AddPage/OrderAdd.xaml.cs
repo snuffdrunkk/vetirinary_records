@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,10 +14,10 @@ namespace Warehouse.View.AddPage
         Database database = new Database();
         ValidationFileds validation = new ValidationFileds();
         DataGrid grid = new DataGrid();
+        private bool typeComboToProduct = false;
 
         public OrderAdd(DataGrid grid)
         {
-
             InitializeComponent();
 
             OrderTypeComboBox.SelectionChanged += OrderTypeComboBox_SelectionChanged;
@@ -36,6 +37,8 @@ namespace Warehouse.View.AddPage
             bitmap.EndInit();
 
             imageControl.Source = bitmap;
+
+            OrderTypeComboBoxProduct();
         }
 
         private void OrderTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -59,9 +62,24 @@ namespace Warehouse.View.AddPage
             }
         }
 
+        private void OrderTypeComboBoxProduct()
+        {
+            if (OrderTypeComboBox.SelectedItem is ComboBoxItem selectedItem)
+            {
+                if (selectedItem.Content.ToString() == "Поступление")
+                {
+                    typeComboToProduct = false;
+                }
+                else if (selectedItem.Content.ToString() == "Выбытие")
+                {
+                    typeComboToProduct = true;
+                }
+            }
+        }
+
         private void AddSupplier_Click(object sender, RoutedEventArgs e)
         {
-            AddFromComboBoxOrder add = new AddFromComboBoxOrder(SupplierGrid, ProductCost);
+            AddFromComboBoxOrder add = new AddFromComboBoxOrder(SupplierGrid, ProductCost, typeComboToProduct);
             add.ShowDialog();
         }
 
@@ -96,6 +114,11 @@ namespace Warehouse.View.AddPage
             {
                 MessageBox.Show("Выберите дату!");
             }
+        }
+
+        private void OrderTypeComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            OrderTypeComboBoxProduct();
         }
     }
 }
